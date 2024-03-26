@@ -26,6 +26,7 @@ function PicBaner() {
           width={1120}
           height={600}
           style={{ borderRadius: "20px" }}
+          alt="animal-banner"
         />
         <div
           style={{

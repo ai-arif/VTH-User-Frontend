@@ -48,6 +48,7 @@ function MeetDoctor() {
               src="/assets/images/meet-doctor.png"
               width={450}
               height={500}
+              alt="meet-doc"
             />
           </Col>
         </Row>

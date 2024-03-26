@@ -53,6 +53,7 @@ function Reviews() {
                 variant="top"
                 src="/assets/images/star-icons.svg"
                 className="w-75 px-3"
+                alt="star-icons"
               />
               <Card.Body
                 style={{
@@ -65,7 +66,7 @@ function Reviews() {
                 <h3>Trustworthy Veterinary Services</h3>
                 <Card.Text>
                   Professional pet care, trustworthy veterinary services, clean
-                  facility, & very friendly staff{" "}
+                  facility, & very friendly staff
                 </Card.Text>
                 <h3>Chasity Jacobs </h3>
               </Card.Body>
@@ -97,7 +98,7 @@ function Reviews() {
               >
                 <h3>Polite And Professional</h3>
                 <Card.Text>
-                  I always get the best care for my fur babies. You're all
+                  I always get the best care for my fur babies. Youre all
                   polite and professional. I really appreciate all of you.
                 </Card.Text>
                 <h3>Tonya Hanson</h3>
@@ -128,9 +129,9 @@ function Reviews() {
                   justifyContent: "center",
                 }}
               >
-                <h3>They Saved Our Dog Porter's Life</h3>
+                <h3>They Saved Our Dog Porters Life</h3>
                 <Card.Text>
-                  They saved our dog Porter’s life. Great staff. Thank you so
+                  They saved our dog Porters life. Great staff. Thank you so
                   much for taking such good care of him!
                 </Card.Text>
                 <h3>Abby Kendall </h3>

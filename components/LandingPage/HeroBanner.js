@@ -23,10 +23,10 @@ function HeroBanner() {
                 className=" px-3 py-2 border-0"
                 style={{ width: "fit-content", backgroundColor: "#e6b9b9", color: "black" }}
               >
-                SO GLAD YOU'RE HERE
+                SO GLAD YOURE HERE
               </Button>
               <p className="display-5" style={{ fontWeight: 500 }}>
-                We’re building a clinic experience as unique as the pets we care
+                Were building a clinic experience as unique as the pets we care
                 for.
               </p>
               <Button
