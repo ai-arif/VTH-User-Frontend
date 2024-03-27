@@ -1,22 +1,93 @@
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarCheck,
+  faClipboard,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Button,
+  Col,
   Container,
   Nav,
   Navbar,
   NavbarBrand,
   NavDropdown,
+  Row,
 } from "react-bootstrap";
 
 function Header() {
+  const [showStickyContainer, setShowStickyContainer] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 800) {
+        setShowStickyContainer(true);
+      } else {
+        setShowStickyContainer(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
+      {showStickyContainer && (
+        <Container fluid className="sticky-top">
+          <Row>
+            <Col
+              className="py-4"
+              style={{
+                backgroundColor: "#faf0f0",
+                display: "flex",
+                fontSize: "1.2rem",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: "0.3rem",
+              }}
+            >
+              <FontAwesomeIcon icon={faCalendarCheck} size="xl" /> Appointments
+            </Col>
+            <Col
+              style={{
+                backgroundColor: "#e6b9b9",
+                display: "flex",
+                justifyContent: "center",
+                fontSize: "1.2rem",
+
+                alignItems: "center",
+                gap: "0.3rem",
+              }}
+            >
+              <FontAwesomeIcon icon={faPhone} size="xl" /> Call Now
+            </Col>
+            <Col
+              style={{
+                backgroundColor: "#dc3545",
+                color: "#fff",
+                display: "flex",
+                justifyContent: "center",
+                fontSize: "1.2rem",
+                alignItems: "center",
+                gap: "0.3rem",
+              }}
+            >
+              {" "}
+              <FontAwesomeIcon icon={faClipboard} size="xl" color="#fff" />{" "}
+              Services
+            </Col>
+          </Row>
+        </Container>
+      )}
       <Navbar
         expand="lg"
         style={{ backgroundColor: "#faf0f0" }}
-        className="py-3 sticky-top"
+        className="py-3 "
       >
         <Container className="py-3">
           <NavbarBrand href="#">Brand Logo</NavbarBrand>
