@@ -16,7 +16,7 @@ function Header() {
       <Navbar
         expand="lg"
         style={{ backgroundColor: "#faf0f0" }}
-        className="py-4"
+        className="py-3 sticky-top"
       >
         <Container className="py-3">
           <NavbarBrand href="#">Brand Logo</NavbarBrand>
