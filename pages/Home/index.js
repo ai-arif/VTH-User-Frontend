@@ -9,6 +9,7 @@ import Services from "@/components/LandingPage/Services";
 import Team from "@/components/LandingPage/Team";
 import OnlinePharmacy from "@/components/LandingPage/OnlinePharmacy";
 import React from "react";
+import Footer from "@/components/LandingPage/Footer";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <Reviews />
       <OnlinePharmacy />
       <Appointment />
+      <Footer/>
     </>
   );
 }
