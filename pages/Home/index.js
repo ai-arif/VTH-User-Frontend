@@ -24,7 +24,7 @@ export default function Home() {
       <Reviews />
       <OnlinePharmacy />
       <Appointment />
-      <Footer/>
+      <Footer />
     </>
   );
 }

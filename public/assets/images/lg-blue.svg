@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2613px" height="2269px" viewBox="0 0 2613 2269" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>istockphoto-1180215498-1024x1024</title>
+    <defs>
+        <path d="M699.513925,2220.15112 C958.998305,2327.50495 1573.40651,2251.43947 2542.73853,1991.95467 L2612.2063,0 L0,63.355835 C206.858236,1393.86552 440.029544,2112.79728 699.513925,2220.15112 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1" transform="translate(177.000000, 982.000000)">
+            <g id="istockphoto-1180215498-1024x1024" transform="translate(-176.738525, -981.046143)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#EAF9FB" xlink:href="#path-1"></use>
+                <g id="Group" mask="url(#mask-2)" fill="#EAF9FB">
+                    <g transform="translate(1497.602885, 219.046143)" id="Rectangle">
+                        <polygon transform="translate(178.036516, 294.388833) rotate(-11.000000) translate(-178.036516, -294.388833) " points="16.9705619 228.064759 343.969827 214.980276 339.10247 360.712908 12.1032047 373.79739"></polygon>
+                        <polygon transform="translate(620.054198, 201.047534) rotate(-11.000000) translate(-620.054198, -201.047534) " points="458.986179 134.72368 785.989509 121.638764 781.122218 267.371389 454.118887 280.456304"></polygon>
+                        <polygon transform="translate(1054.232740, 109.611757) rotate(-11.000000) translate(-1054.232740, -109.611757) " points="893.16472 43.2879023 1220.16805 30.2029872 1215.30076 175.935612 888.297429 189.020527"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
