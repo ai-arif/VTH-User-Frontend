@@ -4,6 +4,8 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import {
   Button,
@@ -18,6 +20,7 @@ import {
 
 function Header() {
   const [showStickyContainer, setShowStickyContainer] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -103,11 +106,13 @@ function Header() {
             >
               <Nav.Link href="#action1">Home</Nav.Link>
               <NavDropdown title="About" id="nav-dropdown">
-                <NavDropdown.Item href="#action3">Our Team</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Our Hospital
+                <NavDropdown.Item href="/about/veterinarians">
+                  Our Team
                 </NavDropdown.Item>
+
+                <NavDropdown.Item href="/about/our-hospital">Our Hospital</NavDropdown.Item>
               </NavDropdown>
+
               <NavDropdown title="Services" id="nav-dropdown">
                 <NavDropdown.Item href="#action3">
                   Alternative Therpaies
@@ -130,20 +135,21 @@ function Header() {
             <div>
               <Button
                 variant="outline-light"
-                className="mx-3 px-4 py-3"
+                className="mx-3 px-5 py-3"
                 style={{
                   borderRadius: "30px",
                   borderColor: "#dc3545",
                   color: "#dc3545",
                 }}
               >
-                <FontAwesomeIcon icon={faPhone} />
-                <span className="ms-2">56565757</span>
+                {/* <FontAwesomeIcon icon={faPhone} /> */}
+                <span className="ms-2">LOGIN</span>
               </Button>
               <Button
                 variant="danger"
-                className="px-4 py-3"
+                className="px-5 py-3"
                 style={{ borderRadius: "30px" }}
+                onClick={() => router.push("/book-now")}
               >
                 BOOK NOW
               </Button>
