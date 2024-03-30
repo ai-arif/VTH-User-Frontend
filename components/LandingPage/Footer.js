@@ -68,10 +68,10 @@ function Footer() {
               {" "}
               <div>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106389.97557771104!2d73.01814784999999!3d33.5615146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df948974419acb%3A0x984357e1632d30f!2sRawalpindi%2C%20Punjab!5e0!3m2!1sen!2s!4v1711548889158!5m2!1sen!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7248.422605552096!2d90.426658!3d24.719625!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37564f8d52440287%3A0xfcebfe71fc354e6c!2sBangladesh%20Agricultural%20University%20(BAU)!5e0!3m2!1sen!2sus!4v1711824458060!5m2!1sen!2sus"
                   width="100%"
                   height="300"
-                  style={{ border: 0 }}
+                  style={{border: 0}}
                   allowfullscreen=""
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
