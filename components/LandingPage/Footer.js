@@ -104,14 +104,8 @@ function Footer() {
       </Container>
       <Container fluid style={{ backgroundColor: "#e6b9b9" }}>
         <Container className="py-4">
-<<<<<<< HEAD
           <p className="mb-0">
             Privacy Policy | Accessibility | © Copyright 2024 - Developed by DevsGiant
-=======
-          <p className="mb-0 text-center">
-            Privacy Policy | Accessibility | © Copyright 2024 - Heritage Animal
-            Hospital. Veterinary Marketing powered by iVET360.
->>>>>>> 73041e9d605cb5832adcc1d3ba00bec1cf909d61
           </p>
         </Container>
       </Container>

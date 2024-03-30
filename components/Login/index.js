@@ -22,7 +22,7 @@ function Login() {
             style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
           >
             <h5>Trusted and Amazing PetCare</h5>
-            <h2 style={{ fontSize: "58px" }}>Heritage Animal Hospital</h2>
+            <h2 style={{ fontSize: "58px" }}>Veterinary Animal Hospital</h2>
             <LoginForm />
           </Col>
           <Col md={5}>
