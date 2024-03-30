@@ -143,9 +143,10 @@ function Header() {
                   borderColor: "#dc3545",
                   color: "#dc3545",
                 }}
+                onClick={() => router.push("/login")}
               >
                 {/* <FontAwesomeIcon icon={faPhone} /> */}
-                <span className="ms-2">LOGIN</span>
+                LOGIN
               </Button>
               <Button
                 variant="danger"
