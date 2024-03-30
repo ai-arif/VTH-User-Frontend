@@ -23,6 +23,7 @@ function OnlinePharmacy() {
     >
       <Image
         src="/assets/images/promo.png"
+        alt="Online Pharmacy Promo"
         width={1120}
         height={600}
         style={{ borderRadius: "20px" }}

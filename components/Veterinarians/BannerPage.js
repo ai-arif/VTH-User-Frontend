@@ -39,7 +39,7 @@ function BannerPage() {
           </Container>
         </Col>
         <Col md={6} style={{ maxWidth: "100%", overflow: "hidden" }}>
-          <Image src="/assets/images/team-banner.png" width={900} height={600} />
+          <Image src="/assets/images/team-banner.png" width={900} height={600} alt="Team Banner" />
         </Col>
       </Row>
     </Container>

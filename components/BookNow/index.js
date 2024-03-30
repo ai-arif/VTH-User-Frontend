@@ -31,6 +31,7 @@ function BookNow() {
                 width={500}
                 height={900}
                 objectFit="cover"
+                alt="Book Now Cat Image"
               />
             </div>
           </Col>

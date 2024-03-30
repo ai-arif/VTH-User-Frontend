@@ -4,17 +4,23 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import Image from "next/image";
 
 function PicSlider() {
   const handleDragStart = (e) => e.preventDefault();
   const items = [
-    <img src="/assets/images/HAH-tour-01.png" />,
-    <img src="/assets/images/HAH-tour-02.png" />,
-    <img src="/assets/images/HAH-tour-03.png" />,
-    <img src="/assets/images/HAH-tour-04.png" />,
-    <img src="/assets/images/HAH-tour-05.png" />,
-    <img src="/assets/images/HAH-tour-06.png" />,
+    { src: "/assets/images/HAH-tour-01.png", alt: "HAH Tour 1" },
+    { src: "/assets/images/HAH-tour-02.png", alt: "HAH Tour 2" },
+    { src: "/assets/images/HAH-tour-03.png", alt: "HAH Tour 3" },
+    { src: "/assets/images/HAH-tour-04.png", alt: "HAH Tour 4" },
+    { src: "/assets/images/HAH-tour-05.png", alt: "HAH Tour 5" },
+    { src: "/assets/images/HAH-tour-06.png", alt: "HAH Tour 6" },
   ];
+
+  const itemsWithKeys = items.map((item, index) => (
+    <img key={index} src={item.src} alt={item.alt} />
+  ));
+
   return (
     <>
       <Container
@@ -34,7 +40,7 @@ function PicSlider() {
             infiniteLoop={true}
             autoPlay={true}
           >
-            {items.map((item, index) => (
+            {itemsWithKeys.map((item, index) => (
               <div key={index}>{item}</div>
             ))}
           </Carousel>

@@ -39,7 +39,7 @@ function HeroBanner() {
             </Container>
           </Col>
           <Col md={6} style={{ maxWidth: "100%", overflow: "hidden" }}>
-            <Image src="/assets/images/home.png" width={900} height={600} />
+            <Image src="/assets/images/home.png" width={900} height={600} alt="Home Banner" />
           </Col>
         </Row>
       </Container>
