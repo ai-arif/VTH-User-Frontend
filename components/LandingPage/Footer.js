@@ -104,7 +104,7 @@ function Footer() {
       </Container>
       <Container fluid style={{ backgroundColor: "#e6b9b9" }}>
         <Container className="py-4">
-          <p className="mb-0">
+          <p className="mb-0 text-center">
             Privacy Policy | Accessibility | © Copyright 2024 - Heritage Animal
             Hospital. Veterinary Marketing powered by iVET360.
           </p>
