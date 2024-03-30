@@ -26,7 +26,7 @@ function HeroBanner() {
                 SO GLAD YOURE HERE
               </Button>
               <p className="display-5" style={{ fontWeight: 500 }}>
-                Were building a clinic experience as unique as the pets we care
+                We are building a clinic experience as unique as the pets we care
                 for.
               </p>
               <Button

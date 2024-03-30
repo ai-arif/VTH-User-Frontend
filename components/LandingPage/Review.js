@@ -98,7 +98,7 @@ function Reviews() {
               >
                 <h3>Polite And Professional</h3>
                 <Card.Text>
-                  I always get the best care for my fur babies. Youre all
+                  I always get the best care for my fur babies. Your all
                   polite and professional. I really appreciate all of you.
                 </Card.Text>
                 <h3>Tonya Hanson</h3>

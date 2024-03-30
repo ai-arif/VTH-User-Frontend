@@ -51,7 +51,7 @@ function Footer() {
                 <h3>Contact Us</h3>
                 <p>
                   <b>
-                    BOOK NOW | heritageanimalhospital@yahoo.com | 270-526-3839
+                    BOOK NOW | contact@vth.com | 09638-100303
                   </b>
                 </p>
               </div>
@@ -105,8 +105,7 @@ function Footer() {
       <Container fluid style={{ backgroundColor: "#e6b9b9" }}>
         <Container className="py-4">
           <p className="mb-0">
-            Privacy Policy | Accessibility | © Copyright 2024 - Heritage Animal
-            Hospital. Veterinary Marketing powered by iVET360.
+            Privacy Policy | Accessibility | © Copyright 2024 - Developed by DevsGiant
           </p>
         </Container>
       </Container>

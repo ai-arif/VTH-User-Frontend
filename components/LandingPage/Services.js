@@ -25,7 +25,7 @@ function Services() {
       >
         OUR SERVICES
       </Button>
-      <h2>Morgantowns Trusted Home For Compassionate Veterinary Services</h2>
+      <h2>VTH Trusted Home For Compassionate Veterinary Services</h2>
       <Button
         variant="danger"
         className="px-5 py-3 fw-semibold"

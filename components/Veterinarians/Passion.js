@@ -29,7 +29,7 @@ function Passion() {
       <h2>Why We Do What We Do</h2>
       <p>
         Our team is a family of passionate, dedicated animal lovers known for
-        our excellent service to the pets and people of Morgantown and the
+        our excellent service to the pets and people of Mymensingh and the
         surrounding areas. Our goal is to partner with you to see that your pet
         has as many happy, healthy years as possible. We do that by focusing on
         preventive care, providing comprehensive services, and using a

@@ -91,7 +91,7 @@ function Contact() {
             </div>
             <div>
               <h5>EMAIL</h5>
-              <p>heritageanimalhospital@yahoo.com</p>
+              <p>contact@vth.com</p>
             </div>
           </div>
           <div style={{ display: "flex", gap: "1rem" }}>
@@ -108,8 +108,7 @@ function Contact() {
             <div>
               <h5>ADDRESS</h5>
               <p>
-                51 Parkway Lane <br />
-                Morgantown, KY. 42261
+                Bangladesh Agricultural University
               </p>
             </div>
           </div>

@@ -93,7 +93,7 @@ function Team() {
                 <Card.Text>
                   We’re more than just your veterinary team! We’re your friends,
                   neighbors, and family, and we’re proud to be a part of the
-                  Morgantown community.
+                  Mymensingh community.
                 </Card.Text>
               </Card.Body>
             </Card>
