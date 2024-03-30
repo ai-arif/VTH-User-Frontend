@@ -54,7 +54,7 @@ function CareTeam() {
                 <div
                   style={{ width: "100%", height: "300", overflow: "hidden" }}
                 >
-                  <Image src="/assets/images/Steve.jpg" alt="Steve" fill />
+                  <Image src="/assets/images/Anisur.png" alt="Anisur" fill />
                 </div>
                 <Card.Body
                   className="text-center"
@@ -72,8 +72,8 @@ function CareTeam() {
                     padding: "20px",
                   }}
                 >
-                  <h3>Dr. Melody Gayheart </h3>
-                  <Card.Text>Veterinarian</Card.Text>
+                  <h3>Dr. Anisur Rahman </h3>
+                  {/* <Card.Text>Veterinarian</Card.Text> */}
                 </Card.Body>
               </Card>
             </Col>

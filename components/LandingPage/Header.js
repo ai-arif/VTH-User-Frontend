@@ -4,6 +4,7 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
@@ -93,7 +94,14 @@ function Header() {
         className="py-3 "
       >
         <Container className="py-3">
-          <NavbarBrand href="#">Brand Logo</NavbarBrand>
+          <NavbarBrand href="#">
+            <Image
+              src="/assets/images/logo.png"
+              alt="Apple App Store Badge"
+              width={150}
+              height={60}
+            />
+          </NavbarBrand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse
             id="navbarScroll"
@@ -104,7 +112,7 @@ function Header() {
               style={{ maxHeight: "80px", display: "flex", gap: "1rem" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
               <NavDropdown title="About" id="nav-dropdown">
                 <NavDropdown.Item href="/about/veterinarians">
                   Our Team
