@@ -17,13 +17,14 @@ function DownloadLinks() {
           <div style={{ width: "fit-content", margin: "0 auto" }}>
             <Image
               src="/assets/images/apple-badge.svg"
+              alt="Apple App Store Badge"
               width={150}
               height={50}
               objectFit="cover"
-              cursor="pointer"
             />
             <Image
               src="/assets/images/play-badge.png"
+              alt="Google Play Store Badge"
               width={160}
               height={75}
               objectFit="cover"

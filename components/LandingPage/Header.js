@@ -110,7 +110,9 @@ function Header() {
                   Our Team
                 </NavDropdown.Item>
 
-                <NavDropdown.Item href="/about/our-hospital">Our Hospital</NavDropdown.Item>
+                <NavDropdown.Item href="/about/our-hospital">
+                  Our Hospital
+                </NavDropdown.Item>
               </NavDropdown>
 
               <NavDropdown title="Services" id="nav-dropdown">
@@ -141,9 +143,10 @@ function Header() {
                   borderColor: "#dc3545",
                   color: "#dc3545",
                 }}
+                onClick={() => router.push("/login")}
               >
                 {/* <FontAwesomeIcon icon={faPhone} /> */}
-                <span className="ms-2">LOGIN</span>
+                LOGIN
               </Button>
               <Button
                 variant="danger"

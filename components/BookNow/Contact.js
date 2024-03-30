@@ -23,6 +23,7 @@ function Contact() {
           >
             <Image
               src="/assets/images/booknow-dog.jpg"
+              alt="Book Now Dog Image"
               width={350}
               height={150}
               objectFit="contain"

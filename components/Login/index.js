@@ -1,11 +1,12 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import RequestForm from "./RequestForm";
 import Image from "next/image";
-import Contact from "./Contact";
-import DownloadLinks from "./DownloadLinks";
+import DownloadLinks from "../BookNow/DownloadLinks";
+import Contact from "../BookNow/Contact";
+import LoginForm from "./LoginForm";
 
-function BookNow() {
+
+function Login() {
   return (
     <>
       <Container
@@ -18,11 +19,11 @@ function BookNow() {
         <Row>
           <Col
             md={7}
-            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+            style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
           >
             <h5>Trusted and Amazing PetCare</h5>
-            <h2 style={{ fontSize: "58px" }}>Veterinary Teaching Hospital</h2>
-            <RequestForm />
+            <h2 style={{ fontSize: "58px" }}>Heritage Animal Hospital</h2>
+            <LoginForm />
           </Col>
           <Col md={5}>
             <div style={{ maxWidth: "100%", overflow: "hidden" }}>
@@ -56,4 +57,4 @@ function BookNow() {
   );
 }
 
-export default BookNow;
+export default Login;
