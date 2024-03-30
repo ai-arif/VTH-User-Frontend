@@ -19,14 +19,13 @@ function HeroBanner() {
             >
               <Button
                 // variant="outline-danger"
-
                 className=" px-3 py-2 border-0"
                 style={{ width: "fit-content", backgroundColor: "#e6b9b9", color: "black" }}
               >
                 SO GLAD YOURE HERE
               </Button>
               <p className="display-5" style={{ fontWeight: 500 }}>
-                Were building a clinic experience as unique as the pets we care
+                We are building a clinic experience as unique as the pets we care
                 for.
               </p>
               <Button
@@ -39,7 +38,7 @@ function HeroBanner() {
             </Container>
           </Col>
           <Col md={6} style={{ maxWidth: "100%", overflow: "hidden" }}>
-            <Image src="/assets/images/home.png" width={900} height={600} alt="Home Banner" />
+            <Image src="/assets/images/herobanner.jpg" width={900} height={600} alt="Home Banner" />
           </Col>
         </Row>
       </Container>
