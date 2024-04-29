@@ -20,7 +20,7 @@ function HeroBanner() {
               }}
             >
               <SectionTitle>SO GLAD YOU&apos;RE HERE</SectionTitle>
-              <p className="display-5" style={{ fontWeight: 600 }}>
+              <p className="tw-text-[56px] tw-font-semibold tw-leading-none">
                 We are building a clinic experience as unique as the pets we
                 care for.
               </p>
