@@ -1,6 +1,8 @@
+import Image from "next/image";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import Image from "next/image";
+import CustomButton from "../UI/CustomButton";
+import SectionTitle from "../UI/SectionTitle";
 
 function HeroBanner() {
   return (
@@ -9,7 +11,7 @@ function HeroBanner() {
         <Row>
           <Col md={6} style={{ display: "flex", justifyContent: "center" }}>
             <Container
-            className="w-75"
+              className="w-75"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -17,28 +19,22 @@ function HeroBanner() {
                 gap: "2rem",
               }}
             >
-              <Button
-                // variant="outline-danger"
-                className=" px-3 py-2 border-0"
-                style={{ width: "fit-content", backgroundColor: "#e6b9b9", color: "black" }}
-              >
-                SO GLAD YOURE HERE
-              </Button>
-              <p className="display-5" style={{ fontWeight: 500 }}>
-                We are building a clinic experience as unique as the pets we care
-                for.
+              <SectionTitle>SO GLAD YOU&apos;RE HERE</SectionTitle>
+              <p className="display-5" style={{ fontWeight: 600 }}>
+                We are building a clinic experience as unique as the pets we
+                care for.
               </p>
-              <Button
-                variant="danger"
-                className="px-4 py-3"
-                style={{ borderRadius: "30px", width: "fit-content" }}
-              >
-                OUR MISSION
-              </Button>
+              <CustomButton>OUR MISSION</CustomButton>
             </Container>
           </Col>
           <Col md={6} style={{ maxWidth: "100%", overflow: "hidden" }}>
-            <Image src="/assets/images/herobanner.jpg" width={900} height={600} alt="Home Banner" />
+            <Image
+              src="/assets/images/herobanner.jpg"
+              className="tw-rounded-s-full"
+              width={900}
+              height={600}
+              alt="Home Banner"
+            />
           </Col>
         </Row>
       </Container>
