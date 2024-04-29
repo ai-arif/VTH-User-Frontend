@@ -1,5 +1,7 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
+import CustomButton from "../UI/CustomButton";
+import SectionTitle from "../UI/SectionTitle";
 
 function Intro() {
   return (
@@ -16,19 +18,11 @@ function Intro() {
           gap: "1.5rem",
         }}
       >
-        <Button
-          variant="outline-danger"
-          className=" px-4 py-2 border-0"
-          style={{
-            width: "fit-content",
-            backgroundColor: "#e6b9b9",
-            color: "black",
-          }}
-        >
-          OUR MISSION
-        </Button>
-        <h2>Premier Pet Care With A Personal Touch</h2>
-        <p>
+        <SectionTitle>Our mission</SectionTitle>
+        <h1 className="tw-font-semibold">
+          Premier Pet Care With A Personal Touch
+        </h1>
+        <p className="tw-text-gray-6">
           Our team is a family of passionate, dedicated animal lovers known for
           our excellent service to the pets and people of Mymensingh and the
           surrounding areas. Our goal is to partner with you to see that your
@@ -36,13 +30,7 @@ function Intro() {
           focusing on preventive care, providing comprehensive services, and
           using a customized approach.
         </p>
-        <Button
-          variant="danger"
-          className="px-5 py-3"
-          style={{ borderRadius: "30px", width: "fit-content" }}
-        >
-          BOOK NOW
-        </Button>
+        <CustomButton>Book Now</CustomButton>
       </Container>
     </>
   );
