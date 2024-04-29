@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import Container from "./Container";
-import CustomButton from "./CustomButton";
-import SectionTitle from "./SectionTitle";
+import Container from "../UI/Container";
+import CustomButton from "../UI/CustomButton";
+import SectionTitle from "../UI/SectionTitle";
 
 const PageBanner = ({ headline, title, buttonName, image }) => {
   return (
