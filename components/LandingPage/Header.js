@@ -7,15 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Col,
   Container,
   Nav,
+  NavDropdown,
   Navbar,
   NavbarBrand,
-  NavDropdown,
   Row,
 } from "react-bootstrap";
 
@@ -94,7 +94,7 @@ function Header() {
         className="py-3 "
       >
         <Container className="py-3">
-          <NavbarBrand href="#">
+          <NavbarBrand href="/">
             <Image
               src="/assets/images/logo.png"
               alt="Apple App Store Badge"

@@ -64,7 +64,7 @@ function Reviews() {
                 }}
               >
                 <h3>Trustworthy Veterinary Services</h3>
-                <Card.Text>
+                <Card.Text className="tw-text-gray-5">
                   Professional pet care, trustworthy veterinary services, clean
                   facility, & very friendly staff
                 </Card.Text>
@@ -97,9 +97,9 @@ function Reviews() {
                 }}
               >
                 <h3>Polite And Professional</h3>
-                <Card.Text>
-                  I always get the best care for my fur babies. Your all
-                  polite and professional. I really appreciate all of you.
+                <Card.Text className="tw-text-gray-5">
+                  I always get the best care for my fur babies. Your all polite
+                  and professional. I really appreciate all of you.
                 </Card.Text>
                 <h3>Tonya Hanson</h3>
               </Card.Body>
@@ -130,7 +130,7 @@ function Reviews() {
                 }}
               >
                 <h3>They Saved Our Dog Porters Life</h3>
-                <Card.Text>
+                <Card.Text className="tw-text-gray-5">
                   They saved our dog Porters life. Great staff. Thank you so
                   much for taking such good care of him!
                 </Card.Text>

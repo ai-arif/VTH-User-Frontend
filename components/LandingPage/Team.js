@@ -35,7 +35,9 @@ function Team() {
           gap: "3rem",
         }}
       >
-        <h2>What Sets Us Apart</h2>
+        <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px]">
+          What Sets Us Apart
+        </p>
         <Row gx={3}>
           <Col md={4}>
             <Card
@@ -58,8 +60,8 @@ function Team() {
                   alignItems: "center",
                 }}
               >
-                <h3 >Same-Day Appointments</h3>
-                <Card.Text>
+                <h3>Same-Day Appointments</h3>
+                <Card.Text className="tw-text-gray-5">
                   We know that the unexpected happens, and we promise to do our
                   best to accommodate the needs of our patients and clients.
                 </Card.Text>
@@ -87,10 +89,8 @@ function Team() {
                   alignItems: "center",
                 }}
               >
-                <h3 >
-                  Local Favorite Veterinarians
-                </h3>
-                <Card.Text>
+                <h3>Local Favorite Veterinarians</h3>
+                <Card.Text className="tw-text-gray-5">
                   We’re more than just your veterinary team! We’re your friends,
                   neighbors, and family, and we’re proud to be a part of the
                   Mymensingh community.
@@ -119,8 +119,8 @@ function Team() {
                   alignItems: "center",
                 }}
               >
-                <h3 >Urgent Care Available</h3>
-                <Card.Text>
+                <h3>Urgent Care Available</h3>
+                <Card.Text className="tw-text-gray-5">
                   Though we hope you never need it, we’re available to provide
                   urgent care during our open hours, and we have an on-call
                   veterinarian for after-hours emergencies.

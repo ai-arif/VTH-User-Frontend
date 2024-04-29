@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import CustomButton from "../UI/CustomButton";
+import CustomOutlineButton from "../UI/CustomOutlineButton";
 
 function PicBaner() {
   return (
@@ -43,7 +45,7 @@ function PicBaner() {
             <Col></Col>
             <Col>
               <Card
-                className="mx-4 px-4 py-3 shadow-sm"
+                className="mx-4 px-4 py-5 shadow-sm"
                 style={{
                   maxWidth: "100%",
                   display: "flex",
@@ -62,17 +64,11 @@ function PicBaner() {
                   <h3 className="text-center">
                     A Refreshing New Vet Experience Starts Here
                   </h3>
-                  
-                  <Button
-                    variant="danger"
-                    className="px-5 py-3 fw-semibold"
-                    style={{ borderRadius: "30px", width: "fit-content" }}
-                  >
-                    BOOK ONLINE
-                  </Button>
+
+                  <CustomButton>BOOK ONLINE</CustomButton>
                   <Button
                     variant="outline-danger"
-                    className="px-4 py-3 fw-semibold"
+                    className="tw-px-6 tw-py-3"
                     style={{ borderRadius: "30px", width: "fit-content" }}
                   >
                     CALL 270-526-1234

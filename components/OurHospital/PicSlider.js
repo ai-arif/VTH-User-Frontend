@@ -1,10 +1,10 @@
+import Image from "next/image";
 import React from "react";
-import { Container } from "react-bootstrap";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import Image from "next/image";
+import { Container } from "react-bootstrap";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function PicSlider() {
   const handleDragStart = (e) => e.preventDefault();

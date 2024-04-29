@@ -2,6 +2,7 @@ import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Container } from "react-bootstrap";
+import CustomButton from "../UI/CustomButton";
 
 function Appointment() {
   return (
@@ -32,17 +33,13 @@ function Appointment() {
             width: "100%",
           }}
         >
-          <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+          <div
+            style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}
+          >
             <FontAwesomeIcon icon={faPhone} size="xl" />
             <h3 className="mb-0">270-526-3839 </h3>
           </div>
-          <Button
-            variant="danger"
-            className="px-4 py-3 fw-semibold"
-            style={{ borderRadius: "30px", width: "fit-content" }}
-          >
-            BOOK NOW
-          </Button>
+          <CustomButton>BOOK NOW</CustomButton>
         </div>
       </Container>
     </Container>

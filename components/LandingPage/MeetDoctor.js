@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import CustomButton from "../UI/CustomButton";
+import SectionTitle from "../UI/SectionTitle";
 
 function MeetDoctor() {
   return (
@@ -20,28 +22,16 @@ function MeetDoctor() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              gap: "1.5rem",
+              gap: "2rem",
             }}
           >
-            <Button
-              variant="outline-danger"
-              className=" px-3 py-2 fw-semibold border-0"
-              style={{
-                width: "fit-content",
-                backgroundColor: "#f0faf5",
-                color: "black",
-              }}
-            >
+            <SectionTitle className="tw-bg-secondary">
               MEET YOUR DOCTOR
-            </Button>
-            <h2>We’re All About Smiling Faces & Wagging Tails</h2>
-            <Button
-              variant="danger"
-              className="px-4 py-3 fw-semibold"
-              style={{ borderRadius: "30px", width: "fit-content" }}
-            >
-              BOOK NOW
-            </Button>
+            </SectionTitle>
+            <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px]">
+              We’re All About Smiling Faces & Wagging Tails
+            </p>
+            <CustomButton>Book Now</CustomButton>
           </Col>
           <Col md={6} style={{ maxWidth: "90%", overflow: "hidden" }}>
             <Image

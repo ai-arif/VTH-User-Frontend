@@ -19,10 +19,10 @@ function Intro() {
         }}
       >
         <SectionTitle>Our mission</SectionTitle>
-        <h1 className="tw-font-semibold">
+        <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px]">
           Premier Pet Care With A Personal Touch
-        </h1>
-        <p className="tw-text-gray-6">
+        </p>
+        <p className="tw-text-gray-5">
           Our team is a family of passionate, dedicated animal lovers known for
           our excellent service to the pets and people of Mymensingh and the
           surrounding areas. Our goal is to partner with you to see that your

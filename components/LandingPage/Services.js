@@ -1,5 +1,7 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
+import CustomButton from "../UI/CustomButton";
+import SectionTitle from "../UI/SectionTitle";
 
 function Services() {
   return (
@@ -14,25 +16,11 @@ function Services() {
         gap: "2rem",
       }}
     >
-      <Button
-        variant="outline-danger"
-        className=" px-4 py-2  border-0"
-        style={{
-          width: "fit-content",
-          backgroundColor: "#e6b9b9",
-          color: "black",
-        }}
-      >
-        OUR SERVICES
-      </Button>
-      <h2>VTH Trusted Home For Compassionate Veterinary Services</h2>
-      <Button
-        variant="danger"
-        className="px-5 py-3 fw-semibold"
-        style={{ borderRadius: "30px", width: "fit-content" }}
-      >
-        ALL SERVICES
-      </Button>
+      <SectionTitle>Our Services</SectionTitle>
+      <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px]">
+        VTH Trusted Home For Compassionate Veterinary Services
+      </p>
+      <CustomButton>All Services</CustomButton>
     </Container>
   );
 }

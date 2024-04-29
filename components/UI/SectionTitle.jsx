@@ -5,7 +5,7 @@ const SectionTitle = ({ className, children }) => {
   return (
     <div
       className={cn(
-        "tw-inline-block tw-w-fit tw-bg-primary tw-px-6 tw-py-3 tw-font-medium tw-tracking-wide",
+        "tw-inline-block tw-w-fit tw-bg-primary tw-px-6 tw-py-3 tw-font-medium tw-uppercase tw-tracking-wide",
         className,
       )}
     >
