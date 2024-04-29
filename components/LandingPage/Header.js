@@ -124,10 +124,12 @@ function Header() {
               </NavDropdown>
 
               <NavDropdown title="Services" id="nav-dropdown">
-                <NavDropdown.Item href="#action3">
+                <NavDropdown.Item href="/services/alternative-therapies">
                   Alternative Therpaies
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Boarding</NavDropdown.Item>
+                <NavDropdown.Item href="/services/boarding">
+                  Boarding
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#action5">
                   Large Animal Services
                 </NavDropdown.Item>
