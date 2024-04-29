@@ -125,15 +125,15 @@ function Header() {
 
               <NavDropdown title="Services" id="nav-dropdown">
                 <NavDropdown.Item href="/services/alternative-therapies">
-                  Alternative Therpaies
+                  Alternative Therapies
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/services/boarding">
                   Boarding
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action5">
+                <NavDropdown.Item href="/services/animal-services">
                   Large Animal Services
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action5">
+                <NavDropdown.Item href="/services/diagnostics">
                   Dental Services
                 </NavDropdown.Item>
               </NavDropdown>
