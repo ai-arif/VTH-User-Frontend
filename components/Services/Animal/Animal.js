@@ -4,7 +4,7 @@ import { faPaw } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-const AnimalServices = () => {
+const Animal = () => {
   return (
     <div className="tw-bg-light-red tw-text-white">
       <Container className="tw-py-28">
@@ -68,4 +68,4 @@ const AnimalServices = () => {
   );
 };
 
-export default AnimalServices;
+export default Animal;

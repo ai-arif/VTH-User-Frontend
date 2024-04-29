@@ -130,11 +130,14 @@ function Header() {
                 <NavDropdown.Item href="/services/boarding">
                   Boarding
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/services/animal-services">
+                <NavDropdown.Item href="/services/animal">
                   Large Animal Services
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/services/diagnostics">
+                <NavDropdown.Item href="/services/dental">
                   Dental Services
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/services/diagnostics">
+                  Diagnostics
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Client" id="nav-dropdown">

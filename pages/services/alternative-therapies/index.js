@@ -28,7 +28,7 @@ const TherapiesPage = () => {
         care to the treatment of pain and chronic conditions, and skilled
         veterinary chiropractic services.
       </CommonInfo>
-      {/* therapy section */}
+      {/* therapy services section */}
       <Therapies />
       {/* tips section */}
       <CommonInfo

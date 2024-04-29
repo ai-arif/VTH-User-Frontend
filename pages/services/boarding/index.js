@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import Boarding from "@/components/Services/Boarding.jsx/Boarding";
+import Boarding from "@/components/Services/Boarding/Boarding";
 import CommonInfo from "@/components/Shared/CommonInfo";
 import PageBanner from "@/components/Shared/PageBanner";
 import React from "react";
@@ -26,6 +26,7 @@ const BoardingPage = () => {
         provides the boarding services you need to make your trip stress-free
         and your pets happy!
       </CommonInfo>
+      {/* boarding services section */}
       <Boarding />
       {/* healthy tips section */}
       <CommonInfo

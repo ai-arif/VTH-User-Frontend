@@ -1,11 +1,11 @@
 import Layout from "@/components/Layout";
-import AnimalServices from "@/components/Services/AnimalServices/AnimalServices";
+import Animal from "@/components/Services/Animal/Animal";
 import CommonInfo from "@/components/Shared/CommonInfo";
 import PageBanner from "@/components/Shared/PageBanner";
 import React from "react";
 import animalImg from "../../../public/assets/images/HAH-services-large-animal.png";
 
-const AnimalServicesPage = () => {
+const AnimalPage = () => {
   return (
     <Layout>
       {/* page banner */}
@@ -27,7 +27,8 @@ const AnimalServicesPage = () => {
         experienced in large animal medicine and can work with you to keep your
         equine, bovine, and caprine friends healthy, you’ve found it right here.
       </CommonInfo>
-      <AnimalServices />
+      {/* animal services section */}
+      <Animal />
       {/* healthy tips section */}
       <CommonInfo
         headline="tips for a healthy pet"
@@ -46,4 +47,4 @@ const AnimalServicesPage = () => {
   );
 };
 
-export default AnimalServicesPage;
+export default AnimalPage;
