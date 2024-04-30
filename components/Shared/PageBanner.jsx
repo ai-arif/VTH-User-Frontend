@@ -17,7 +17,7 @@ const PageBanner = ({ headline, title, buttonName, image }) => {
             <CustomButton>{buttonName}</CustomButton>
           </div>
           <div className="">
-            <Image src={image} width={700} height={550} alt="Page Banner" />
+            <Image src={image} width={690} height={550} alt="Page Banner" />
           </div>
         </div>
       </Container>
