@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../LandingPage/Header";
-import Footer from "../LandingPage/Footer";
 import Appointment from "../LandingPage/Appointment";
+import Footer from "../LandingPage/Footer";
+import Header from "../LandingPage/Header";
 
 function Layout({ children }) {
   return (

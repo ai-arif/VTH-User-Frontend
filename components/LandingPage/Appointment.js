@@ -6,7 +6,7 @@ import CustomButton from "../UI/CustomButton";
 
 function Appointment() {
   return (
-    <Container fluid style={{ backgroundColor: "#e6b9b9" }}>
+    <Container fluid className="tw-bg-secondary">
       <Container
         className="text-center"
         style={{
@@ -18,8 +18,8 @@ function Appointment() {
           gap: "2rem",
         }}
       >
-        <div>
-          <h3>Ready To </h3>
+        <div className="tw-text-primary">
+          <h4>Ready To </h4>
           <h2>Make an Appointment?</h2>
         </div>
         <div
@@ -34,10 +34,11 @@ function Appointment() {
           }}
         >
           <div
+            className="tw-text-primary"
             style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}
           >
-            <FontAwesomeIcon icon={faPhone} size="xl" />
-            <h3 className="mb-0">270-526-3839 </h3>
+            <FontAwesomeIcon icon={faPhone} size="lg" />
+            <h4 className="mb-0">270-526-3839 </h4>
           </div>
           <CustomButton>BOOK NOW</CustomButton>
         </div>

@@ -12,8 +12,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#e6b9b9",
-        secondary: "#faf0f0",
+        primary: "#2e3292",
+        secondary: "#b9e6d0",
+        tertiary: "#f0faf5",
+        "deep-secondary": "#7fc9a5",
         "light-red": "#dc3545",
         "deep-red": "#b02a37",
         "gray-5": "#6b7280",

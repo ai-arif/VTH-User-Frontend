@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import CustomButton from "../UI/CustomButton";
-import CustomOutlineButton from "../UI/CustomOutlineButton";
 
 function PicBaner() {
   return (

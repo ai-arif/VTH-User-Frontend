@@ -1,3 +1,4 @@
+import CallSection from "@/components/Shared/CallSection";
 import Container from "@/components/UI/Container";
 import CustomButton from "@/components/UI/CustomButton";
 import { faPaw } from "@fortawesome/free-solid-svg-icons";
@@ -6,7 +7,7 @@ import React from "react";
 
 const Therapies = () => {
   return (
-    <div className="tw-bg-light-red tw-text-white">
+    <div className="tw-bg-primary tw-text-white">
       <Container className="tw-py-28">
         <div className="tw-flex tw-gap-x-[60px]">
           {/* description part */}
@@ -46,7 +47,7 @@ const Therapies = () => {
             <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8">
               Our Alternative Therapies Include:
             </h3>
-            <div className="tw-space-y-6">
+            <div className="tw-flex tw-flex-col tw-gap-6 tw-divide-x-0 tw-divide-y-2 tw-divide-solid tw-divide-gray-5">
               <div className="tw-flex tw-items-center tw-gap-x-3">
                 <div>
                   <FontAwesomeIcon
@@ -57,8 +58,7 @@ const Therapies = () => {
                 </div>
                 <span className="tw-text-2xl">Laser Therapy</span>
               </div>
-              {/* TODO: tailwind border not working */}
-              <div className="tw-flex tw-items-center tw-gap-x-3 !tw-border-y !tw-border-white">
+              <div className="tw-flex tw-items-center tw-gap-x-3 tw-pt-6">
                 <div>
                   <FontAwesomeIcon
                     size="xl"
@@ -68,11 +68,10 @@ const Therapies = () => {
                 </div>
                 <span className="tw-text-2xl">Laser Therapy</span>
               </div>
+              <span></span>
             </div>
-            <div className="tw-mt-10 tw-space-y-8 tw-rounded-2xl tw-bg-white tw-px-10 tw-py-14 tw-text-center">
-              <h3 className="tw-text-black">Have Any Questions?</h3>
-              <CustomButton>Call 270-526-3839</CustomButton>
-            </div>
+            {/* call section */}
+            <CallSection />
           </div>
         </div>
       </Container>

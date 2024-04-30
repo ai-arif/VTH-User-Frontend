@@ -14,3 +14,8 @@ body {
   font-family: "Josefin Sans", sans-serif;
   line-height: 1.5;
 }
+
+/* for temporary */
+.nav-link {
+  color: #2e3292;
+}

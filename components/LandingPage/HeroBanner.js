@@ -7,7 +7,7 @@ import SectionTitle from "../UI/SectionTitle";
 function HeroBanner() {
   return (
     <>
-      <Container fluid className="py-5" style={{ backgroundColor: "#faf0f0" }}>
+      <Container fluid className="py-5 tw-bg-tertiary">
         <Row>
           <Col md={6} style={{ display: "flex", justifyContent: "center" }}>
             <Container
@@ -20,7 +20,7 @@ function HeroBanner() {
               }}
             >
               <SectionTitle>SO GLAD YOU&apos;RE HERE</SectionTitle>
-              <p className="tw-text-[56px] tw-font-semibold tw-leading-none">
+              <p className="tw-text-[56px] tw-font-semibold tw-leading-none tw-text-primary">
                 We are building a clinic experience as unique as the pets we
                 care for.
               </p>
