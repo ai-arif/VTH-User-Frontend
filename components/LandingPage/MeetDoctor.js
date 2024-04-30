@@ -10,11 +10,10 @@ function MeetDoctor() {
       <div style={{ padding: "120px 0" }}>
         <Row
           style={{
-            backgroundColor: "#e6b9b9",
             borderRadius: "400px",
             overflow: "hidden",
           }}
-          className="pt-5 px-5"
+          className="pt-5 px-5 tw-bg-secondary"
         >
           <Col
             md={6}
@@ -25,10 +24,10 @@ function MeetDoctor() {
               gap: "2rem",
             }}
           >
-            <SectionTitle className="tw-bg-secondary">
+            <SectionTitle className="tw-bg-tertiary">
               MEET YOUR DOCTOR
             </SectionTitle>
-            <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px]">
+            <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px] tw-text-primary">
               We’re All About Smiling Faces & Wagging Tails
             </p>
             <CustomButton>Book Now</CustomButton>

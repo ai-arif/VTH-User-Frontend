@@ -34,6 +34,7 @@ const DentalPage = () => {
       <CommonInfo
         headline="tips for a healthy pet"
         title="Preventative Dental Care Starts At Home"
+        buttonName="Book Now"
       >
         Believe it or not, pet’s need their teeth brushed too! Frequently
         brushing your pet’s teeth at home is not only the best way to keep their

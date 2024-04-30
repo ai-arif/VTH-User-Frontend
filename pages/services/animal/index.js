@@ -33,6 +33,7 @@ const AnimalPage = () => {
       <CommonInfo
         headline="tips for a healthy pet"
         title="Straight From The Horse’s Mouth"
+        buttonName="Book Now"
       >
         A horse’s teeth continue to grow throughout their life, and having your
         horse’s teeth checked once or twice a year and floated (filed) as needed

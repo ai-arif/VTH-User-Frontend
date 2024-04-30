@@ -7,24 +7,24 @@ function CareTeam() {
     <>
       <Container fluid style={{ padding: "120px 0", position: "relative" }}>
         <div
+          className="tw-bg-tertiary"
           style={{
             position: "absolute",
             zIndex: 1,
             width: "100%",
             height: "50%",
             top: 0,
-            backgroundColor: "#faf0f0",
           }}
         ></div>
 
         <div
+          className="tw-bg-secondary"
           style={{
             position: "absolute",
             zIndex: 1,
             width: "100%",
             height: "50%",
             bottom: 0,
-            backgroundColor: "#e6b9b9",
           }}
         ></div>
 
@@ -37,7 +37,9 @@ function CareTeam() {
             gap: "3rem",
           }}
         >
-          <h2>Our Veterinary Care Team</h2>
+          <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px] tw-text-primary">
+            What Sets Us Apart
+          </p>
           <Row gx={3}>
             <Col md={4}>
               <Card

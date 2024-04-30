@@ -34,6 +34,7 @@ const TherapiesPage = () => {
       <CommonInfo
         headline="tips for a healthy pet"
         title="Laser Therapy— Healing From The Inside Out"
+        buttonName="Book Now"
       >
         How does it work? We’re glad you asked! Therapeutic lasers involve the
         application of light energy to the affected areas of the body to

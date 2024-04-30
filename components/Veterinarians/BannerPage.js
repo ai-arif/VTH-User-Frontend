@@ -1,10 +1,12 @@
+import Image from "next/image";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import Image from "next/image";
+import CustomButton from "../UI/CustomButton";
+import SectionTitle from "../UI/SectionTitle";
 
 function BannerPage() {
   return (
-    <Container fluid className="py-5" style={{ backgroundColor: "#faf0f0" }}>
+    <Container fluid className="py-5 tw-bg-tertiary">
       <Row>
         <Col md={6} style={{ display: "flex", justifyContent: "center" }}>
           <Container
@@ -16,30 +18,20 @@ function BannerPage() {
               gap: "2rem",
             }}
           >
-            <Button
-              // variant="outline-danger"
-
-              className=" px-3 py-2 border-0"
-              style={{
-                width: "fit-content",
-                backgroundColor: "#e6b9b9",
-                color: "black",
-              }}
-            >
-              GET TO KNOW US
-            </Button>
-            <h1 style={{ fontSize: "56px"}}>Dream Doctors. Terrific Techs.</h1>
-            <Button
-              variant="danger"
-              className="px-4 py-3"
-              style={{ borderRadius: "30px", width: "fit-content" }}
-            >
-              MEET THE TEAM
-            </Button>
+            <SectionTitle>GET TO KNOW US</SectionTitle>
+            <p className="tw-text-[56px] tw-font-semibold tw-leading-tight tw-text-primary">
+              Dream Doctors. Terrific Techs
+            </p>
+            <CustomButton>MEET THE TEAM</CustomButton>
           </Container>
         </Col>
         <Col md={6} style={{ maxWidth: "100%", overflow: "hidden" }}>
-          <Image src="/assets/images/team-banner.png" width={900} height={600} alt="Team Banner" />
+          <Image
+            src="/assets/images/team-banner.png"
+            width={900}
+            height={600}
+            alt="Team Banner"
+          />
         </Col>
       </Row>
     </Container>

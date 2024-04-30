@@ -11,13 +11,13 @@ const PageBanner = ({ headline, title, buttonName, image }) => {
         <div className="tw-flex tw-w-full tw-items-center tw-justify-between tw-gap-x-12">
           <div className="tw-space-y-10">
             <SectionTitle>{headline}</SectionTitle>
-            <p className="tw-text-[56px] tw-font-semibold tw-leading-none tw-text-primary">
+            <p className="tw-text-[56px] tw-font-semibold tw-leading-tight tw-text-primary">
               {title}
             </p>
             <CustomButton>{buttonName}</CustomButton>
           </div>
           <div className="">
-            <Image src={image} alt="Page Banner" />
+            <Image src={image} width={700} height={550} alt="Page Banner" />
           </div>
         </div>
       </Container>

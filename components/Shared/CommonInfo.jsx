@@ -3,7 +3,13 @@ import Container from "../UI/Container";
 import CustomButton from "../UI/CustomButton";
 import SectionTitle from "../UI/SectionTitle";
 
-const CommonInfo = ({ headline, title, children, withoutButton }) => {
+const CommonInfo = ({
+  headline,
+  title,
+  children,
+  buttonName,
+  withoutButton,
+}) => {
   return (
     <Container>
       <div className="tw-mx-auto tw-w-[70%] tw-space-y-6 tw-text-center">
@@ -12,7 +18,7 @@ const CommonInfo = ({ headline, title, children, withoutButton }) => {
           {title}
         </p>
         <p className="tw-text-lg tw-font-light tw-text-black">{children}</p>
-        {!withoutButton && <CustomButton>Book Now</CustomButton>}
+        {!withoutButton && <CustomButton>{buttonName}</CustomButton>}
       </div>
     </Container>
   );

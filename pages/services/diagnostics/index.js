@@ -33,6 +33,7 @@ const DiagnosticsPage = () => {
       <CommonInfo
         headline="tips for a healthy pet"
         title="Diagnostics—They’re Not Just For Sick Pets!"
+        buttonName="Book Now"
       >
         Many people think of things like blood work and x-rays as only being
         needed when a pet is ill or injured, but that’s far from the truth!

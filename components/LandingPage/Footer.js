@@ -5,7 +5,11 @@ import CustomButton from "../UI/CustomButton";
 function Footer() {
   return (
     <>
-      <Container fluid style={{ padding: "80px 0" }}>
+      <Container
+        fluid
+        className="tw-bg-primary tw-text-white"
+        style={{ padding: "80px 0" }}
+      >
         <Container>
           <Row>
             <Col
@@ -93,7 +97,9 @@ function Footer() {
                       aria-describedby="basic-addon1"
                     />
                   </InputGroup>
-                  <CustomButton>Sign Up</CustomButton>
+                  <CustomButton className="tw-bg-secondary !tw-text-primary hover:tw-bg-deep-secondary">
+                    Sign Up
+                  </CustomButton>
                 </div>
               </div>
               <hr />
@@ -101,7 +107,7 @@ function Footer() {
           </Row>
         </Container>
       </Container>
-      <Container fluid style={{ backgroundColor: "#e6b9b9" }}>
+      <Container fluid className="tw-bg-secondary">
         <Container className="py-4">
           <p className="mb-0">
             Privacy Policy | Accessibility | © Copyright 2024 - Developed by

@@ -32,7 +32,9 @@ function PicSlider() {
           gap: "3rem",
         }}
       >
-        <h1 style={{ fontSize: "55px" }}>Our Hospital</h1>
+        <p className="tw-text-[56px] tw-font-semibold tw-leading-tight tw-text-primary">
+          Our Hospital
+        </p>
         <Container className="px-md-5" style={{}}>
           <Carousel
             showStatus={false}

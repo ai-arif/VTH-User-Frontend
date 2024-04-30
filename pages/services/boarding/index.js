@@ -32,6 +32,7 @@ const BoardingPage = () => {
       <CommonInfo
         headline="tips for a healthy pet"
         title="Where Do You Think You’re Going?"
+        buttonName="Book Now"
       >
         Separation anxiety stinks—for both you and your pet! To help with
         separation anxiety in your pet, gradually increase the amount of time

@@ -1,26 +1,18 @@
 import React from "react";
-import { Button, Container } from "react-bootstrap";
+import Container from "../UI/Container";
 import CustomButton from "../UI/CustomButton";
 import SectionTitle from "../UI/SectionTitle";
 
 function Services() {
   return (
-    <Container
-      className="text-center"
-      style={{
-        width: "800px",
-        padding: "120px 0",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "2rem",
-      }}
-    >
-      <SectionTitle>Our Services</SectionTitle>
-      <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px]">
-        VTH Trusted Home For Compassionate Veterinary Services
-      </p>
-      <CustomButton>All Services</CustomButton>
+    <Container>
+      <div className="tw-mx-auto tw-w-[70%] tw-space-y-6 tw-text-center">
+        <SectionTitle>Our Services</SectionTitle>
+        <p className="mb-0 tw-pt-2 tw-text-[40px] tw-font-semibold tw-leading-[44px] tw-text-primary">
+          VTH Trusted Home For Compassionate Veterinary Services
+        </p>
+        <CustomButton>All Services</CustomButton>
+      </div>
     </Container>
   );
 }

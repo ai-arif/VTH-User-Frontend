@@ -5,24 +5,24 @@ function Reviews() {
   return (
     <Container fluid style={{ padding: "120px 0", position: "relative" }}>
       <div
+        className="tw-bg-tertiary"
         style={{
           position: "absolute",
           zIndex: 1,
           width: "100%",
           height: "50%",
           top: 0,
-          backgroundColor: "#faf0f0",
         }}
       ></div>
 
       <div
+        className="tw-bg-secondary"
         style={{
           position: "absolute",
           zIndex: 1,
           width: "100%",
           height: "50%",
           bottom: 0,
-          backgroundColor: "#e6b9b9",
         }}
       ></div>
 
@@ -36,7 +36,9 @@ function Reviews() {
           //   justifyContent: "center",
         }}
       >
-        <h2>Why People Love Us</h2>
+        <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px] tw-text-primary">
+          Why People Love Us
+        </p>
         <Row gx={3}>
           <Col md={4}>
             <Card
@@ -63,12 +65,14 @@ function Reviews() {
                   justifyContent: "center",
                 }}
               >
-                <h3>Trustworthy Veterinary Services</h3>
-                <Card.Text className="tw-text-gray-5">
+                <h4 className="tw-text-primary">
+                  Trustworthy Veterinary Services
+                </h4>
+                <Card.Text className="tw-text-lg tw-font-light">
                   Professional pet care, trustworthy veterinary services, clean
                   facility, & very friendly staff
                 </Card.Text>
-                <h3>Chasity Jacobs </h3>
+                <h4 className="tw-text-primary">Chasity Jacobs </h4>
               </Card.Body>
             </Card>
           </Col>
@@ -96,12 +100,12 @@ function Reviews() {
                   justifyContent: "center",
                 }}
               >
-                <h3>Polite And Professional</h3>
-                <Card.Text className="tw-text-gray-5">
+                <h4 className="tw-text-primary">Polite And Professional</h4>
+                <Card.Text className="tw-text-lg tw-font-light">
                   I always get the best care for my fur babies. Your all polite
                   and professional. I really appreciate all of you.
                 </Card.Text>
-                <h3>Tonya Hanson</h3>
+                <h4 className="tw-text-primary">Tonya Hanson</h4>
               </Card.Body>
             </Card>
           </Col>
@@ -129,12 +133,14 @@ function Reviews() {
                   justifyContent: "center",
                 }}
               >
-                <h3>They Saved Our Dog Porters Life</h3>
-                <Card.Text className="tw-text-gray-5">
+                <h4 className="tw-text-primary">
+                  They Saved Our Dog Porters Life
+                </h4>
+                <Card.Text className="tw-text-lg tw-font-light">
                   They saved our dog Porters life. Great staff. Thank you so
                   much for taking such good care of him!
                 </Card.Text>
-                <h3>Abby Kendall </h3>
+                <h4 className="tw-text-primary">Abby Kendall </h4>
               </Card.Body>
             </Card>
           </Col>

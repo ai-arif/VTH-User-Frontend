@@ -7,6 +7,7 @@ function Intro() {
       <CommonInfo
         headline="our mission"
         title="Premier Pet Care With A Personal Touch"
+        buttonName="Book Now"
       >
         Our team is a family of passionate, dedicated animal lovers known for
         our excellent service to the pets and people of Mymensingh and the
