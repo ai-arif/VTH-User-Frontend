@@ -189,7 +189,7 @@ function Header() {
               <Link href="/login">
                 <CustomOutlineButton>Login</CustomOutlineButton>
               </Link>
-              <Link href="book-now">
+              <Link href="/book-now">
                 <CustomButton>Book Now</CustomButton>
               </Link>
             </div>
