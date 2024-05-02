@@ -12,7 +12,7 @@ const Dental = () => {
         <div className="tw-flex tw-gap-x-[60px]">
           {/* description part */}
           <div className="tw-w-1/2">
-            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8">
+            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8 tw-text-secondary">
               It’s Much More Than Fresh Breath
             </h3>
             <div className="tw-space-y-5 tw-text-lg tw-font-light">
@@ -39,10 +39,10 @@ const Dental = () => {
           </div>
           {/* dental services part */}
           <div className="tw-w-1/2">
-            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8">
+            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8 tw-text-secondary">
               Dental Services:
             </h3>
-            <div className="tw-flex tw-flex-col tw-gap-6 tw-divide-x-0 tw-divide-y-2 tw-divide-solid tw-divide-gray-5">
+            <div className="tw-flex tw-flex-col tw-gap-6 tw-divide-x-0 tw-divide-y-2 tw-divide-solid tw-divide-gray-5 tw-text-secondary">
               <div className="tw-flex tw-items-center tw-gap-x-3">
                 <div>
                   <FontAwesomeIcon

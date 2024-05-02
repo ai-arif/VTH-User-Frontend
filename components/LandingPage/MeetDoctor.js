@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import CustomButton from "../UI/CustomButton";
@@ -30,7 +31,9 @@ function MeetDoctor() {
             <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px] tw-text-primary">
               We’re All About Smiling Faces & Wagging Tails
             </p>
-            <CustomButton>Book Now</CustomButton>
+            <Link href="/book-now">
+              <CustomButton>Book Now</CustomButton>
+            </Link>
           </Col>
           <Col md={6} style={{ maxWidth: "90%", overflow: "hidden" }}>
             <Image

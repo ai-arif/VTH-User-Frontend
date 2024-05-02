@@ -1,5 +1,6 @@
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import React from "react";
 import { Button, Container } from "react-bootstrap";
 import CustomButton from "../UI/CustomButton";
@@ -40,7 +41,9 @@ function Appointment() {
             <FontAwesomeIcon icon={faPhone} size="lg" />
             <h4 className="mb-0">270-526-3839 </h4>
           </div>
-          <CustomButton>BOOK NOW</CustomButton>
+          <Link href="/book-now">
+            <CustomButton>Book Now</CustomButton>
+          </Link>
         </div>
       </Container>
     </Container>

@@ -1,15 +1,10 @@
+import Link from "next/link";
 import React from "react";
 import Container from "../UI/Container";
 import CustomButton from "../UI/CustomButton";
 import SectionTitle from "../UI/SectionTitle";
 
-const CommonInfo = ({
-  headline,
-  title,
-  children,
-  buttonName,
-  withoutButton,
-}) => {
+const CommonInfo = ({ headline, title, children, withoutButton }) => {
   return (
     <Container>
       <div className="tw-mx-auto tw-w-[70%] tw-space-y-6 tw-text-center">
@@ -18,7 +13,13 @@ const CommonInfo = ({
           {title}
         </p>
         <p className="tw-text-lg tw-font-light tw-text-black">{children}</p>
-        {!withoutButton && <CustomButton>{buttonName}</CustomButton>}
+        {!withoutButton && (
+          <div>
+            <Link href="/book-now">
+              <CustomButton>Book Now</CustomButton>
+            </Link>
+          </div>
+        )}
       </div>
     </Container>
   );

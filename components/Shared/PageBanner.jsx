@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import Container from "../UI/Container";
 import CustomButton from "../UI/CustomButton";
@@ -14,7 +15,11 @@ const PageBanner = ({ headline, title, buttonName, image }) => {
             <p className="tw-text-[56px] tw-font-semibold tw-leading-tight tw-text-primary">
               {title}
             </p>
-            <CustomButton>{buttonName}</CustomButton>
+            <div>
+              <Link href="#learn-more">
+                <CustomButton>{buttonName}</CustomButton>
+              </Link>
+            </div>
           </div>
           <div className="">
             <Image src={image} width={690} height={550} alt="Page Banner" />

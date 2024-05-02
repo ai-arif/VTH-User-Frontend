@@ -16,23 +16,24 @@ const BoardingPage = () => {
         image={boardingImg}
       />
       {/* information section */}
-      <CommonInfo
-        headline="why it matters"
-        title="Worry-Free Pet Boarding"
-        withoutButton={true}
-      >
-        As much as we love to take our pets with us everywhere we go, there are
-        some cases where that’s just not an option. Heritage Animal Hospital
-        provides the boarding services you need to make your trip stress-free
-        and your pets happy!
-      </CommonInfo>
+      <div id="learn-more">
+        <CommonInfo
+          headline="why it matters"
+          title="Worry-Free Pet Boarding"
+          withoutButton={true}
+        >
+          As much as we love to take our pets with us everywhere we go, there
+          are some cases where that’s just not an option. Heritage Animal
+          Hospital provides the boarding services you need to make your trip
+          stress-free and your pets happy!
+        </CommonInfo>
+      </div>
       {/* boarding services section */}
       <Boarding />
       {/* healthy tips section */}
       <CommonInfo
         headline="tips for a healthy pet"
         title="Where Do You Think You’re Going?"
-        buttonName="Book Now"
       >
         Separation anxiety stinks—for both you and your pet! To help with
         separation anxiety in your pet, gradually increase the amount of time

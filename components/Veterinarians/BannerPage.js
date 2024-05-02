@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import CustomButton from "../UI/CustomButton";
@@ -22,7 +23,9 @@ function BannerPage() {
             <p className="tw-text-[56px] tw-font-semibold tw-leading-tight tw-text-primary">
               Dream Doctors. Terrific Techs
             </p>
-            <CustomButton>MEET THE TEAM</CustomButton>
+            <Link href="#meet-team">
+              <CustomButton>MEET THE TEAM</CustomButton>
+            </Link>
           </Container>
         </Col>
         <Col md={6} style={{ maxWidth: "100%", overflow: "hidden" }}>

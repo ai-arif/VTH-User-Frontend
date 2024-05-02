@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import CustomButton from "../UI/CustomButton";
@@ -24,7 +25,9 @@ function HeroBanner() {
                 We are building a clinic experience as unique as the pets we
                 care for.
               </p>
-              <CustomButton>OUR MISSION</CustomButton>
+              <Link href="#our-mission">
+                <CustomButton>OUR MISSION</CustomButton>
+              </Link>
             </Container>
           </Col>
           <Col md={6} style={{ maxWidth: "100%", overflow: "hidden" }}>

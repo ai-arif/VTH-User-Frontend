@@ -16,25 +16,26 @@ const DentalPage = () => {
         image={dentalImg}
       />
       {/* information section */}
-      <CommonInfo
-        headline="why it matters"
-        title="Dental Disease Comes At You Fast"
-        withoutButton={true}
-      >
-        Dental care for pets may seem frivolous at first, but it’s quite the
-        opposite. Periodontal disease is the most common dental condition in
-        dogs and cats, and most pets are showing symptoms of it by the age of
-        three—symptoms that will only worsen over time. But dental disease
-        affects more than your pet’s mouth, it profoundly affects their overall
-        health and quality of life.
-      </CommonInfo>
+      <div id="learn-more">
+        <CommonInfo
+          headline="why it matters"
+          title="Dental Disease Comes At You Fast"
+          withoutButton={true}
+        >
+          Dental care for pets may seem frivolous at first, but it’s quite the
+          opposite. Periodontal disease is the most common dental condition in
+          dogs and cats, and most pets are showing symptoms of it by the age of
+          three—symptoms that will only worsen over time. But dental disease
+          affects more than your pet’s mouth, it profoundly affects their
+          overall health and quality of life.
+        </CommonInfo>
+      </div>
       {/* dental services section */}
       <Dental />
       {/* tips section */}
       <CommonInfo
         headline="tips for a healthy pet"
         title="Preventative Dental Care Starts At Home"
-        buttonName="Book Now"
       >
         Believe it or not, pet’s need their teeth brushed too! Frequently
         brushing your pet’s teeth at home is not only the best way to keep their

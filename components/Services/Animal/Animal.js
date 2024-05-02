@@ -12,7 +12,7 @@ const Animal = () => {
         <div className="tw-flex tw-gap-x-[60px]">
           {/* description part */}
           <div className="tw-w-1/2">
-            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8">
+            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8 tw-text-secondary">
               Exceptional Care For Exceptional Creatures
             </h3>
             <div className="tw-text-lg tw-font-light">
@@ -27,10 +27,10 @@ const Animal = () => {
           </div>
           {/* animal service part */}
           <div className="tw-w-1/2">
-            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8">
+            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8 tw-text-secondary">
               Our Large Animal Services Include:
             </h3>
-            <div className="tw-flex tw-flex-col tw-gap-6 tw-divide-x-0 tw-divide-y-2 tw-divide-solid tw-divide-gray-5">
+            <div className="tw-flex tw-flex-col tw-gap-6 tw-divide-x-0 tw-divide-y-2 tw-divide-solid tw-divide-gray-5 tw-text-secondary">
               <div className="tw-flex tw-items-center tw-gap-x-3">
                 <div>
                   <FontAwesomeIcon

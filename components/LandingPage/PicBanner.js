@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import animalBanner from "../../public/assets/images/animal-banner.png";
 import Container from "../UI/Container";
@@ -30,8 +31,12 @@ function PicBaner() {
               A Refreshing New Vet Experience Starts Here
             </h3>
             <div className="tw-flex tw-flex-col tw-items-center tw-gap-7">
-              <CustomButton>Book Online</CustomButton>
-              <CustomOutlineButton>Call 270-526-3839</CustomOutlineButton>
+              <Link href="/book-now">
+                <CustomButton>Book Online</CustomButton>
+              </Link>
+              <Link href="tel:270-526-3839">
+                <CustomOutlineButton>Call 270-526-3839</CustomOutlineButton>
+              </Link>
             </div>
           </div>
         </div>

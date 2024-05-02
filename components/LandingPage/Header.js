@@ -9,7 +9,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import {
-  Button,
   Col,
   Container,
   Nav,
@@ -56,10 +55,16 @@ function Header() {
                 gap: "0.4rem",
               }}
             >
-              <FontAwesomeIcon icon={faCalendarCheck} size="lg" /> Appointments
+              <Link
+                className="tw-text-primary tw-decoration-transparent"
+                href="/book-now"
+              >
+                <FontAwesomeIcon icon={faCalendarCheck} size="lg" />{" "}
+                Appointments
+              </Link>
             </Col>
             <Col
-              className="tw-bg-secondary tw-text-primary"
+              className="tw-bg-secondary tw-text-primary tw-decoration-transparent"
               style={{
                 display: "flex",
                 justifyContent: "center",
@@ -69,7 +74,12 @@ function Header() {
                 gap: "0.4rem",
               }}
             >
-              <FontAwesomeIcon icon={faPhone} size="lg" /> Call Now
+              <Link
+                className="tw-text-primary tw-decoration-transparent"
+                href="tel:270-526-3839"
+              >
+                <FontAwesomeIcon icon={faPhone} size="lg" /> Call Now
+              </Link>
             </Col>
             <Col
               className="tw-bg-primary"
@@ -82,7 +92,6 @@ function Header() {
                 gap: "0.4rem",
               }}
             >
-              {" "}
               <FontAwesomeIcon icon={faClipboard} size="lg" color="#fff" />{" "}
               Services
             </Col>
@@ -163,26 +172,9 @@ function Header() {
                 >
                   Diagnostics
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/services/emergency-services"
-                >
-                  Emergency Services
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/services/all-services"
-                >
-                  View All Services
-                </NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="Client" id="nav-dropdown">
-                <NavDropdown.Item className="tw-text-primary" href="#action3">
-                  New Client Form
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link className="tw-text-primary" href="#action7">
-                Pharmacy
+              <Nav.Link className="tw-text-primary" href="/contact-us">
+                Contact Us
               </Nav.Link>
             </Nav>
             <div className="tw-flex tw-gap-4">

@@ -16,24 +16,25 @@ const DiagnosticsPage = () => {
         image={diagnosticsImg}
       />
       {/* information section */}
-      <CommonInfo
-        headline="why it matters"
-        title="They Can’t Tell Us Where It Hurts"
-        withoutButton={true}
-      >
-        Unlike us, our pets can’t simply tell us how they feel or where they’re
-        having pain. To make things more complicated, they’re also very good at
-        hiding signs of pain or illness. This is why fast, top-notch diagnostics
-        are critical—and Heritage Animal Hospital has the equipment and
-        expertise to get answers fast.
-      </CommonInfo>
+      <div id="learn-more">
+        <CommonInfo
+          headline="why it matters"
+          title="They Can’t Tell Us Where It Hurts"
+          withoutButton={true}
+        >
+          Unlike us, our pets can’t simply tell us how they feel or where
+          they’re having pain. To make things more complicated, they’re also
+          very good at hiding signs of pain or illness. This is why fast,
+          top-notch diagnostics are critical—and Heritage Animal Hospital has
+          the equipment and expertise to get answers fast.
+        </CommonInfo>
+      </div>
       {/* diagnostics services section */}
       <Diagnostics />
       {/* tips section */}
       <CommonInfo
         headline="tips for a healthy pet"
         title="Diagnostics—They’re Not Just For Sick Pets!"
-        buttonName="Book Now"
       >
         Many people think of things like blood work and x-rays as only being
         needed when a pet is ill or injured, but that’s far from the truth!
