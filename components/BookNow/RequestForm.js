@@ -165,6 +165,7 @@ function RequestForm() {
           </Button>
         </Modal.Footer>
       </Modal>
+      <Form.Control type="file" size="lg" />
       <FloatingLabel controlId="floatingTextarea2" label="Notes">
         <Form.Control
           as="textarea"
