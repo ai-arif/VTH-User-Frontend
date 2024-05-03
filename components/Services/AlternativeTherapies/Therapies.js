@@ -1,6 +1,5 @@
 import CallSection from "@/components/Shared/CallSection";
 import Container from "@/components/UI/Container";
-import CustomButton from "@/components/UI/CustomButton";
 import { faPaw } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
