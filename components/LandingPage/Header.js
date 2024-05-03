@@ -92,8 +92,13 @@ function Header() {
                 gap: "0.4rem",
               }}
             >
-              <FontAwesomeIcon icon={faClipboard} size="lg" color="#fff" />{" "}
-              Services
+              <Link
+                href="/services/all-services"
+                className="tw-text-white tw-decoration-transparent"
+              >
+                <FontAwesomeIcon icon={faClipboard} size="lg" color="#fff" />{" "}
+                Services
+              </Link>
             </Col>
           </Row>
         </Container>
