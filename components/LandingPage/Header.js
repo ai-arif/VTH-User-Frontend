@@ -172,6 +172,12 @@ function Header() {
                 >
                   Diagnostics
                 </NavDropdown.Item>
+                <NavDropdown.Item
+                  className="tw-text-primary"
+                  href="/services/all-services"
+                >
+                  View All Services
+                </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link className="tw-text-primary" href="/contact-us">
                 Contact Us
