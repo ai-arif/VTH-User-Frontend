@@ -2,7 +2,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 /* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
 /* tailwind */
 @tailwind base;
@@ -18,4 +18,37 @@ body {
 /* for temporary */
 .nav-link {
   color: #2e3292;
+}
+
+/* .test li a {
+  @apply tw-text-black;
+} */
+
+@layer components {
+  .default-route {
+    @apply tw-relative tw-flex tw-items-center tw-gap-2.5 tw-rounded-sm tw-px-4 tw-py-2 tw-font-medium tw-text-black tw-decoration-transparent tw-duration-300 tw-ease-in-out hover:tw-bg-tertiary;
+  }
+  .active-route {
+    @apply tw-bg-tertiary tw-text-[#006F70];
+    border-left: 3px solid #10b6a8;
+  }
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* Remove increment and decrement arrows from number input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

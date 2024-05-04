@@ -11,6 +11,9 @@ module.exports = {
   prefix: "tw-",
   theme: {
     extend: {
+      fontFamily: {
+        Alexandria: ["Alexandria", "sans-serif"],
+      },
       colors: {
         primary: "#2e3292",
         secondary: "#b9e6d0",
@@ -22,6 +25,7 @@ module.exports = {
         "gray-6": "#4b5563",
         "gray-7": "#374151",
         "slate-4": "#7E9AB6",
+        whiten: "#F1F5F9",
       },
     },
   },
