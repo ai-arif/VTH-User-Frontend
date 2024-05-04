@@ -97,7 +97,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <Link
                 href="/dashboard/profile"
                 className={`default-route ${
-                  pathname.includes("profile") && "active-route"
+                  (pathname.includes("profile") ||
+                    pathname.includes("dashboard")) &&
+                  "active-route"
                 }`}
               >
                 <AiOutlineUser className="tw-text-lg" /> <span>Profile</span>
