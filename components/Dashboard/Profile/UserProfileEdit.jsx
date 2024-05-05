@@ -28,7 +28,7 @@ const UserProfileEdit = () => {
               type="text"
               placeholder="Enter Your Name"
               defaultValue="Thomas Anree"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-6 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
             />
           </div>
           <div className="tw-space-y-4">
@@ -37,7 +37,7 @@ const UserProfileEdit = () => {
               type="number"
               placeholder="Enter Your Phone No"
               defaultValue="017002000"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-6 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
             />
           </div>
         </div>
@@ -47,7 +47,7 @@ const UserProfileEdit = () => {
             type="email"
             placeholder="Enter Your Email"
             defaultValue="thomasaneree@gmail.com"
-            className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-6 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+            className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
           />
         </div>
         <div className="tw-space-y-4">
@@ -55,7 +55,7 @@ const UserProfileEdit = () => {
           <input
             type="password"
             placeholder="Type Old Password"
-            className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-6 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+            className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
           />
           <p className="tw-inline-block tw-cursor-pointer tw-text-sm tw-text-blue-500 hover:tw-underline">
             Forgot Password?
@@ -67,11 +67,11 @@ const UserProfileEdit = () => {
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Type New Password"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-6 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
             />
             <div
-              type="button"
               onClick={handleTogglePassword}
+              type="button"
               className="tw-text-my-primary tw-absolute tw-bottom-3 tw-right-4"
             >
               {showPassword ? (
@@ -86,11 +86,11 @@ const UserProfileEdit = () => {
             <input
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Re-type New Password"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-6 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
             />
             <div
-              type="button"
               onClick={handleToggleConfirmPassword}
+              type="button"
               className="tw-text-my-primary tw-absolute tw-bottom-3 tw-right-4"
             >
               {showConfirmPassword ? (
