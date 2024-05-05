@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 
@@ -21,9 +22,9 @@ function LoginForm() {
         <FloatingLabel controlId="floatingInput" label="Password">
           <Form.Control type="password" placeholder="Enter Password" />
         </FloatingLabel>
-        <FloatingLabel controlId="floatingInput" label="Confirm Password">
-          <Form.Control type="password" placeholder="Confirm Password" />
-        </FloatingLabel>
+        <span className="tw-w-fit tw-cursor-pointer tw-text-sm tw-text-blue-500 hover:tw-underline">
+          Forgot Password?
+        </span>
         <Button
           variant="primary"
           className="py-2 "
@@ -31,6 +32,15 @@ function LoginForm() {
         >
           LOGIN
         </Button>
+        <div className="tw-text-center">
+          <span>Don&apos;t Have An Account?</span>{" "}
+          <Link
+            href="/sign-up"
+            className="tw-text-blue-500t tw-decoration-transparent"
+          >
+            Sign up
+          </Link>
+        </div>
       </div>
     </>
   );
