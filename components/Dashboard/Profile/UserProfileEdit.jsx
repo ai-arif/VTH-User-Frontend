@@ -18,7 +18,7 @@ const UserProfileEdit = () => {
 
   return (
     <div>
-      <p>Personal Information</p>
+      <p className="tw-text-lg">Personal Information</p>
       <hr />
       <form className="tw-space-y-6">
         <div className="tw-grid tw-grid-cols-2 tw-gap-6">

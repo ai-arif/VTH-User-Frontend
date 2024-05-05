@@ -5,9 +5,8 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { GrStatusGood } from "react-icons/gr";
-import { HiHome, HiOutlineHome, HiOutlineLogout } from "react-icons/hi";
+import { HiOutlineHome, HiOutlineLogout } from "react-icons/hi";
 import { PiHandHeartThin } from "react-icons/pi";
-import { RiUser3Line } from "react-icons/ri";
 import logo from "../../../public/assets/images/logo.png";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
@@ -97,9 +96,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               <Link
                 href="/dashboard/profile"
                 className={`default-route ${
-                  (pathname.includes("profile") ||
-                    pathname.includes("dashboard")) &&
-                  "active-route"
+                  pathname.includes("profile") && "active-route"
                 }`}
               >
                 <AiOutlineUser className="tw-text-lg" /> <span>Profile</span>
