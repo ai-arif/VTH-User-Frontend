@@ -7,7 +7,9 @@ const User = () => {
     <div className="tw-flex tw-items-center tw-gap-4">
       <div className="tw-flex tw-flex-col tw-items-end">
         <span className="">Thomas Anree</span>
-        <span className="tw-text-xs">thomasaneree@gmail.com</span>
+        <span className="tw-text-xs tw-text-gray-6">
+          thomasaneree@gmail.com
+        </span>
       </div>
 
       <div className="h-10 w-10 rounded-full">
