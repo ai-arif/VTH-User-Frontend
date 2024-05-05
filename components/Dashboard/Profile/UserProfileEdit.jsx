@@ -75,9 +75,9 @@ const UserProfileEdit = () => {
               className="tw-text-my-primary tw-absolute tw-bottom-3 tw-right-4"
             >
               {showPassword ? (
-                <AiFillEye className="tw-text-2xl tw-text-gray-7" />
+                <AiFillEye className="tw-text-2xl tw-text-gray-6" />
               ) : (
-                <AiFillEyeInvisible className="tw-text-2xl tw-text-gray-7" />
+                <AiFillEyeInvisible className="tw-text-2xl tw-text-gray-6" />
               )}
             </div>
           </div>
@@ -94,9 +94,9 @@ const UserProfileEdit = () => {
               className="tw-text-my-primary tw-absolute tw-bottom-3 tw-right-4"
             >
               {showConfirmPassword ? (
-                <AiFillEye className="tw-text-2xl tw-text-gray-7" />
+                <AiFillEye className="tw-text-2xl tw-text-gray-6" />
               ) : (
-                <AiFillEyeInvisible className="tw-text-2xl tw-text-gray-7" />
+                <AiFillEyeInvisible className="tw-text-2xl tw-text-gray-6" />
               )}
             </div>
           </div>
