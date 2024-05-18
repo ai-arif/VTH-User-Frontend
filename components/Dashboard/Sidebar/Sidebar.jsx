@@ -8,6 +8,7 @@ import { GrStatusGood } from "react-icons/gr";
 import { HiOutlineLogout } from "react-icons/hi";
 import { PiHandHeartThin } from "react-icons/pi";
 import logo from "../../../public/assets/images/logo.png";
+import SideItem from "./SideItem";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const pathname = usePathname();
@@ -92,49 +93,31 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           {/* <!-- Menu Group --> */}
           <ul className="tw test tw-mb-6 tw-flex tw-list-none tw-flex-col tw-gap-1.5 tw-pl-0">
             {/* <!-- Menu Item Profile --> */}
-            <li>
-              <Link
-                href="/dashboard"
-                className={`default-route ${
-                  pathname.includes("dashboard") && "active-route"
-                }`}
-              >
-                <AiOutlineUser className="tw-text-lg" /> <span>Profile</span>
-              </Link>
-            </li>
+            <SideItem href="/dashboard">
+              <AiOutlineUser className="tw-text-lg" /> <span>Profile</span>
+            </SideItem>
             {/* <!-- Menu Item Profile --> */}
 
-            {/* <!-- Menu Item Tables --> */}
-            <li>
-              <Link
-                href="/dashboard/appointment"
-                className={`default-route ${
-                  pathname.includes("appointment") && "active-route"
-                }`}
-              >
-                <GrStatusGood className="tw-text-lg" /> <span>Appointment</span>
-              </Link>
-            </li>
-            {/* <!-- Menu Item Tables --> */}
+            {/* <!-- Menu Item Appointment --> */}
+            <SideItem href="/dashboard/appointment">
+              <GrStatusGood className="tw-text-lg" /> <span>Appointment</span>
+            </SideItem>
+            {/* <!-- Menu Item Appointment --> */}
 
-            {/* <!-- Menu Item Settings --> */}
-            <li>
-              <Link
-                href="/dashboard/prescription"
-                className={`default-route ${
-                  pathname.includes("prescription") && "active-route"
-                }`}
-              >
-                <PiHandHeartThin className="tw-text-lg" />{" "}
-                <span>Prescription</span>
-              </Link>
-            </li>
+            {/* <!-- Menu Item Prescription --> */}
+            <SideItem href="/dashboard/prescription">
+              <PiHandHeartThin className="tw-text-lg" />{" "}
+              <span>Prescription</span>
+            </SideItem>
+            {/* <!-- Menu Item Prescription --> */}
+
             <hr className="tw-mx-4 tw-text-gray-5" />
+            {/* <!-- Menu Item Logout --> */}
             <li className="default-route tw-cursor-pointer">
               <HiOutlineLogout className="tw-text-lg" />
               <span>Log Out</span>
             </li>
-            {/* <!-- Menu Item Settings --> */}
+            {/* <!-- Menu Item Logout --> */}
           </ul>
         </nav>
         {/* <!-- Sidebar Menu --> */}
