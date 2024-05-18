@@ -1,24 +1,49 @@
 "use client";
+import { AuthContext } from "@/contexts/AuthProvider";
+import axiosInstance from "@/utils/axiosInstance";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { createUserAccount } = useContext(AuthContext);
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   // password show hide toggle
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleToggleConfirmPassword = () => {
-    setShowConfirmPassword(!showConfirmPassword);
+  const onSubmit = async (data) => {
+    createUserAccount();
+    // createUserAccount(data);
+    // try {
+    //   const response = await dispatch(createDepartment(data));
+    //   if (response?.payload?.success) {
+    //     toast.success("Department added successfully!");
+    //     reset();
+    //     document.getElementById("closeModal").click();
+    //   } else {
+    //     toast.error("Failed to add department! Please try again later.");
+    //   }
+    // } catch (error) {
+    //   console.error("An error occurred while adding department:", error);
+    //   toast.error("An error occurred while adding department. Please try again later.");
+    // }
   };
+
   return (
     <>
-      <div
+      <form
+        onSubmit={handleSubmit(onSubmit)}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -29,22 +54,37 @@ function SignUpForm() {
         className="px-5 py-5 shadow"
       >
         <h2 className="text-center">Sign Up Form</h2>
-        <FloatingLabel controlId="floatingInput" label="Full Name">
-          <Form.Control type="text" placeholder="Enter Full Name" />
+        <FloatingLabel label="Full Name">
+          <Form.Control
+            {...register("fullName", { required: true })}
+            type="text"
+            placeholder="Enter Full Name"
+          />
         </FloatingLabel>
-        <FloatingLabel controlId="floatingInput" label="Email Address">
-          <Form.Control type="email" placeholder="Enter Email Address" />
+        {errors.fullName && (
+          <small className="text-danger">Please write full name</small>
+        )}
+        <FloatingLabel label="Phone Number">
+          <Form.Control
+            {...register("phone", { required: true })}
+            type="text"
+            placeholder="Enter Phone Number"
+          />
         </FloatingLabel>
-        <FloatingLabel controlId="floatingInput" label="Phone Number">
-          <Form.Control type="number" placeholder="Enter Phone Number" />
-        </FloatingLabel>
+        {errors.phone && (
+          <small className="text-danger">Please write phone number</small>
+        )}
         <div className="tw-relative">
-          <FloatingLabel controlId="floatingInput" label="Password">
+          <FloatingLabel label="Password">
             <Form.Control
+              {...register("password", { required: true })}
               type={showPassword ? "text" : "password"}
               placeholder="Enter Password"
             />
           </FloatingLabel>
+          {errors.password && (
+            <small className="text-danger">Please write password</small>
+          )}
           <div
             onClick={handleTogglePassword}
             className="tw-text-my-primary tw-absolute tw-bottom-4 tw-right-5 tw-cursor-pointer"
@@ -56,13 +96,16 @@ function SignUpForm() {
             )}
           </div>
         </div>
-        <div className="tw-relative">
-          <FloatingLabel controlId="floatingInput" label="Confirm Password">
+        {/* <div className="tw-relative">
+          <FloatingLabel label="Confirm Password">
             <Form.Control
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Enter Password"
             />
           </FloatingLabel>
+          {errors.confirmPassword && (
+            <small className="text-danger">Please write confirm full name</small>
+          )}
           <div
             onClick={handleToggleConfirmPassword}
             className="tw-text-my-primary tw-absolute tw-bottom-4 tw-right-5 tw-cursor-pointer"
@@ -73,8 +116,9 @@ function SignUpForm() {
               <AiFillEyeInvisible className="tw-text-2xl tw-text-gray-6" />
             )}
           </div>
-        </div>
+        </div> */}
         <Button
+          type="submit"
           variant="primary"
           className="py-2 "
           style={{ borderRadius: "30px" }}
@@ -90,7 +134,7 @@ function SignUpForm() {
             Sign Up
           </Link>
         </div>
-      </div>
+      </form>
     </>
   );
 }

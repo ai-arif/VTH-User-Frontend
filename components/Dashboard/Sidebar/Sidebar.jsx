@@ -112,7 +112,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   pathname.includes("status") && "active-route"
                 }`}
               >
-                <GrStatusGood className="tw-text-lg" /> <span>Status</span>
+                <GrStatusGood className="tw-text-lg" /> <span>Appointment</span>
               </Link>
             </li>
             {/* <!-- Menu Item Tables --> */}
@@ -125,15 +125,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                   pathname.includes("advice") && "active-route"
                 }`}
               >
-                <PiHandHeartThin className="tw-text-lg" /> <span>Advice</span>
+                <PiHandHeartThin className="tw-text-lg" />{" "}
+                <span>Prescription</span>
               </Link>
             </li>
             <hr className="tw-mx-4 tw-text-gray-5" />
-            <li>
-              <Link href="/" className="default-route">
-                <HiOutlineHome className="tw-text-lg" /> <span>Home</span>
-              </Link>
-            </li>
             <li className="default-route tw-cursor-pointer">
               <HiOutlineLogout className="tw-text-lg" />
               <span>Log Out</span>
