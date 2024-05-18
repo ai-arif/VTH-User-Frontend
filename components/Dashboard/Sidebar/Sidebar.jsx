@@ -1,8 +1,9 @@
 "use client";
+import { AuthContext } from "@/contexts/AuthProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { GrStatusGood } from "react-icons/gr";
 import { HiOutlineLogout } from "react-icons/hi";
@@ -11,6 +12,8 @@ import logo from "../../../public/assets/images/logo.png";
 import SideItem from "./SideItem";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+  const { logout } = useContext(AuthContext);
+
   const pathname = usePathname();
 
   const trigger = useRef(null);
@@ -113,10 +116,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
             <hr className="tw-mx-4 tw-text-gray-5" />
             {/* <!-- Menu Item Logout --> */}
-            <li className="default-route tw-cursor-pointer">
+            <button
+              onClick={logout}
+              className="default-route tw-cursor-pointer tw-border-none tw-bg-transparent"
+            >
               <HiOutlineLogout className="tw-text-lg" />
               <span>Log Out</span>
-            </li>
+            </button>
             {/* <!-- Menu Item Logout --> */}
           </ul>
         </nav>

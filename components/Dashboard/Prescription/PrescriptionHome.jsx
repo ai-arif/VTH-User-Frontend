@@ -2,9 +2,9 @@ import CompleteMessage from "@/components/UI/CompleteMessage";
 import Loader from "@/components/UI/Loader";
 import { AuthContext } from "@/contexts/AuthProvider";
 import React, { useContext } from "react";
-import ViewAppointment from "./ViewAppointment";
+import ViewAppointment from "../Appointment/ViewAppointment";
 
-const AppointmentHome = () => {
+const PrescriptionHome = () => {
   const { user, loading } = useContext(AuthContext);
 
   if (loading) {
@@ -17,4 +17,4 @@ const AppointmentHome = () => {
   );
 };
 
-export default AppointmentHome;
+export default PrescriptionHome;

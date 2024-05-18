@@ -1,5 +1,7 @@
 "use client";
+import CompleteMessage from "@/components/UI/CompleteMessage";
 import CustomButton from "@/components/UI/CustomButton";
+import Loader from "@/components/UI/Loader";
 import { AuthContext } from "@/contexts/AuthProvider";
 import axiosInstance from "@/utils/axiosInstance";
 import React, { useContext } from "react";
@@ -8,7 +10,7 @@ import toast from "react-hot-toast";
 import ChangePassword from "./ChangePassword";
 
 const UserProfileEdit = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading, fetchUser } = useContext(AuthContext);
 
   const { handleSubmit, register } = useForm({ values: user });
 
@@ -17,15 +19,22 @@ const UserProfileEdit = () => {
       const response = await axiosInstance.put("/users/update", userData);
       if (response.data.success) {
         toast.success(response.data.message);
+        await fetchUser();
       }
     } catch (error) {
-      console.log(error);
       toast.error("Something Wrong! please try again");
+      console.log(error);
     }
   };
 
+  // loader
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <>
+      {user?.isCompleted === false && <CompleteMessage />}
       <div className="tw-rounded-lg tw-bg-white tw-p-8 tw-shadow">
         <p className="tw-text-lg">Personal Information</p>
         <hr />
