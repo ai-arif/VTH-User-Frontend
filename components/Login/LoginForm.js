@@ -1,12 +1,15 @@
 import axiosInstance from "@/utils/axiosInstance";
 import Cookies from "js-cookie";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 function LoginForm() {
+  const router = useRouter();
+
   const {
     handleSubmit,
     register,
@@ -17,9 +20,14 @@ function LoginForm() {
   const onSubmit = async (userData) => {
     try {
       const response = await axiosInstance.post("/users/login", userData);
-      console.log(response);
-      Cookies.set("token", response.data.data.token);
+      if (response.data.success) {
+        router.push("/");
+        toast.success(response.data.message);
+        Cookies.set("token", response.data.data.token);
+        reset();
+      }
     } catch (error) {
+      toast.error(error.response.data.message || "Invalid credentials");
       console.log(error);
     }
   };

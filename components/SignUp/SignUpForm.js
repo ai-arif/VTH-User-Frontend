@@ -29,12 +29,13 @@ function SignUpForm() {
     try {
       const response = await axiosInstance.post("/users/register", userData);
       if (response.data.success) {
-        Cookies.set("token", response.data?.data?.token);
-        toast.success(response.data.message);
-        reset();
         router.push("/");
+        toast.success(response.data.message);
+        Cookies.set("token", response.data.data.token);
+        reset();
       }
     } catch (error) {
+      toast.error(error.response.data.message || "User already exists");
       console.log(error);
     }
   };
@@ -60,9 +61,6 @@ function SignUpForm() {
             placeholder="Enter Full Name"
           />
         </FloatingLabel>
-        {errors.fullName && (
-          <small className="text-danger">Please enter your full name</small>
-        )}
         <FloatingLabel label="Phone Number">
           <Form.Control
             {...register("phone", { required: true })}
@@ -70,9 +68,7 @@ function SignUpForm() {
             placeholder="Enter Phone Number"
           />
         </FloatingLabel>
-        {errors.phone && (
-          <small className="text-danger">Please enter your phone number</small>
-        )}
+
         <div className="tw-relative">
           <FloatingLabel label="Password">
             <Form.Control
@@ -81,9 +77,6 @@ function SignUpForm() {
               placeholder="Enter Password"
             />
           </FloatingLabel>
-          {errors.password && (
-            <small className="text-danger">Please enter your password</small>
-          )}
           <div
             onClick={handleTogglePassword}
             className="tw-text-my-primary tw-absolute tw-bottom-4 tw-right-5 tw-cursor-pointer"
