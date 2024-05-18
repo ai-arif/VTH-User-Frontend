@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { GrStatusGood } from "react-icons/gr";
-import { HiOutlineHome, HiOutlineLogout } from "react-icons/hi";
+import { HiOutlineLogout } from "react-icons/hi";
 import { PiHandHeartThin } from "react-icons/pi";
 import logo from "../../../public/assets/images/logo.png";
 
@@ -94,9 +94,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             {/* <!-- Menu Item Profile --> */}
             <li>
               <Link
-                href="/dashboard/profile"
+                href="/dashboard"
                 className={`default-route ${
-                  pathname.includes("profile") && "active-route"
+                  pathname.includes("dashboard") && "active-route"
                 }`}
               >
                 <AiOutlineUser className="tw-text-lg" /> <span>Profile</span>
@@ -107,9 +107,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             {/* <!-- Menu Item Tables --> */}
             <li>
               <Link
-                href="/dashboard/status"
+                href="/dashboard/appointment"
                 className={`default-route ${
-                  pathname.includes("status") && "active-route"
+                  pathname.includes("appointment") && "active-route"
                 }`}
               >
                 <GrStatusGood className="tw-text-lg" /> <span>Appointment</span>
@@ -120,9 +120,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             {/* <!-- Menu Item Settings --> */}
             <li>
               <Link
-                href="/dashboard/advice"
+                href="/dashboard/prescription"
                 className={`default-route ${
-                  pathname.includes("advice") && "active-route"
+                  pathname.includes("prescription") && "active-route"
                 }`}
               >
                 <PiHandHeartThin className="tw-text-lg" />{" "}

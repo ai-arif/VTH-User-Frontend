@@ -1,15 +1,18 @@
 "use client";
-import { AuthContext } from "@/contexts/AuthProvider";
 import axiosInstance from "@/utils/axiosInstance";
+import Cookies from "js-cookie";
 import Link from "next/link";
-import React, { useContext, useState } from "react";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const { createUserAccount } = useContext(AuthContext);
+  const router = useRouter();
+
   const {
     handleSubmit,
     register,
@@ -17,27 +20,23 @@ function SignUpForm() {
     formState: { errors },
   } = useForm();
 
-  // password show hide toggle
+  // Password show/hide toggle
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const onSubmit = async (data) => {
-    createUserAccount();
-    // createUserAccount(data);
-    // try {
-    //   const response = await dispatch(createDepartment(data));
-    //   if (response?.payload?.success) {
-    //     toast.success("Department added successfully!");
-    //     reset();
-    //     document.getElementById("closeModal").click();
-    //   } else {
-    //     toast.error("Failed to add department! Please try again later.");
-    //   }
-    // } catch (error) {
-    //   console.error("An error occurred while adding department:", error);
-    //   toast.error("An error occurred while adding department. Please try again later.");
-    // }
+  const onSubmit = async (userData) => {
+    try {
+      const response = await axiosInstance.post("/users/register", userData);
+      if (response.data.success) {
+        Cookies.set("token", response.data?.data?.token);
+        toast.success(response.data.message);
+        reset();
+        router.push("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -62,7 +61,7 @@ function SignUpForm() {
           />
         </FloatingLabel>
         {errors.fullName && (
-          <small className="text-danger">Please write full name</small>
+          <small className="text-danger">Please enter your full name</small>
         )}
         <FloatingLabel label="Phone Number">
           <Form.Control
@@ -72,7 +71,7 @@ function SignUpForm() {
           />
         </FloatingLabel>
         {errors.phone && (
-          <small className="text-danger">Please write phone number</small>
+          <small className="text-danger">Please enter your phone number</small>
         )}
         <div className="tw-relative">
           <FloatingLabel label="Password">
@@ -83,7 +82,7 @@ function SignUpForm() {
             />
           </FloatingLabel>
           {errors.password && (
-            <small className="text-danger">Please write password</small>
+            <small className="text-danger">Please enter your password</small>
           )}
           <div
             onClick={handleTogglePassword}
@@ -96,31 +95,10 @@ function SignUpForm() {
             )}
           </div>
         </div>
-        {/* <div className="tw-relative">
-          <FloatingLabel label="Confirm Password">
-            <Form.Control
-              type={showConfirmPassword ? "text" : "password"}
-              placeholder="Enter Password"
-            />
-          </FloatingLabel>
-          {errors.confirmPassword && (
-            <small className="text-danger">Please write confirm full name</small>
-          )}
-          <div
-            onClick={handleToggleConfirmPassword}
-            className="tw-text-my-primary tw-absolute tw-bottom-4 tw-right-5 tw-cursor-pointer"
-          >
-            {showConfirmPassword ? (
-              <AiFillEye className="tw-text-2xl tw-text-gray-6" />
-            ) : (
-              <AiFillEyeInvisible className="tw-text-2xl tw-text-gray-6" />
-            )}
-          </div>
-        </div> */}
         <Button
           type="submit"
           variant="primary"
-          className="py-2 "
+          className="py-2"
           style={{ borderRadius: "30px" }}
         >
           SIGN UP
@@ -129,9 +107,9 @@ function SignUpForm() {
           <span>Already Have An Account?</span>{" "}
           <Link
             href="/login"
-            className="tw-text-blue-500t tw-decoration-transparent"
+            className="tw-text-blue-500 tw-decoration-transparent"
           >
-            Sign Up
+            Log In
           </Link>
         </div>
       </form>

@@ -1,23 +1,32 @@
 import axiosInstance from "@/utils/axiosInstance";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // create a new user account with number and password
-  const createUserAccount = async (user) => {
-    try {
-      const response = await axiosInstance.post("users/register", user);
-      setUser(response.data);
-      //   return response.data;
-    } catch (error) {
-      return Promise.reject(error);
-    }
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true);
+        const response = await axiosInstance.get("/users/profile");
+        setUser(response?.data?.data);
+      } catch (error) {
+        console.error("Failed to fetch user:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  const authInfo = {
+    user,
+    loading,
   };
-
-  const authInfo = { createUserAccount, user };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

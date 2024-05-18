@@ -1,8 +1,9 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import AuthProvider from "@/contexts/AuthProvider";
 import Image from "next/image";
-import DownloadLinks from "../BookNow/DownloadLinks";
+import React, { useContext } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import Contact from "../BookNow/Contact";
+import DownloadLinks from "../BookNow/DownloadLinks";
 import LoginForm from "./LoginForm";
 
 function Login() {

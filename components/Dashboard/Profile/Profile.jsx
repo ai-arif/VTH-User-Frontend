@@ -1,16 +1,17 @@
 import Breadcrumb from "@/components/Dashboard/Breadcrumb/Breadcrumb";
+import UserProfileEdit from "@/components/Dashboard/Profile/UserProfileEdit";
 import DashboardLayout from "@/components/Layout/DashboardLayout";
 import React from "react";
 
-const Advice = () => {
+const Profile = () => {
   return (
     <DashboardLayout>
-      <Breadcrumb pageName="Advice" />
-      <div className="tw-rounded-lg tw-bg-white tw-p-8 tw-shadow">
-        <h2 className="tw-py-10 tw-text-center">Advice Page...</h2>
+      <Breadcrumb pageName="Profile" />
+      <div className="tw-mx-auto tw-w-[70%]">
+        <UserProfileEdit />
       </div>
     </DashboardLayout>
   );
 };
 
-export default Advice;
+export default Profile;

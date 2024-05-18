@@ -1,14 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import AuthProvider from "@/contexts/AuthProvider";
+import React, { useContext, useState } from "react";
 import DashboardHeader from "../Dashboard/Header/DashboardHeader";
 import Sidebar from "../Dashboard/Sidebar/Sidebar";
 
 const DashboardLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <>
       {/* <!-- ===== Page Wrapper Start ===== --> */}
-      <div className="tw-font-Alexandria tw-flex tw-h-screen tw-overflow-hidden">
+      <div className="tw-flex tw-h-screen tw-overflow-hidden tw-font-Alexandria">
         {/* <!-- ===== Sidebar Start ===== --> */}
         <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         {/* <!-- ===== Sidebar End ===== --> */}

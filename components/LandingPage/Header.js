@@ -1,3 +1,4 @@
+import { AuthContext } from "@/contexts/AuthProvider";
 import {
   faCalendarCheck,
   faClipboard,
@@ -7,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Col,
   Container,
@@ -23,6 +24,8 @@ import CustomOutlineButton from "../UI/CustomOutlineButton";
 function Header() {
   const [showStickyContainer, setShowStickyContainer] = useState(false);
   const router = useRouter();
+  const { user } = useContext(AuthContext);
+  // console.log(user.phone);
 
   useEffect(() => {
     const handleScroll = () => {

@@ -1,111 +1,105 @@
 "use client";
 import CustomButton from "@/components/UI/CustomButton";
-import React, { useState } from "react";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { AuthContext } from "@/contexts/AuthProvider";
+import axiosInstance from "@/utils/axiosInstance";
+import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import ChangePassword from "./ChangePassword";
 
 const UserProfileEdit = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { user } = useContext(AuthContext);
 
-  // password show hide toggle
-  const handleTogglePassword = () => {
-    setShowPassword(!showPassword);
-  };
+  const { handleSubmit, register } = useForm({ values: user });
 
-  const handleToggleConfirmPassword = () => {
-    setShowConfirmPassword(!showConfirmPassword);
+  const onSubmit = async (userData) => {
+    try {
+      const response = await axiosInstance.put("/users/update", userData);
+      if (response.data.success) {
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something Wrong! please try again");
+    }
   };
 
   return (
-    <div>
-      <p className="tw-text-lg">Personal Information</p>
-      <hr />
-      <form className="tw-space-y-6">
-        <div className="tw-grid tw-grid-cols-2 tw-gap-6">
-          <div className="tw-space-y-4">
-            <label className="tw-block">Full Name</label>
-            <input
-              type="text"
-              placeholder="Enter Your Name"
-              defaultValue="Thomas Anree"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
-            />
-          </div>
-          <div className="tw-space-y-4">
-            <label className="tw-block">Phone Number</label>
-            <input
-              type="number"
-              placeholder="Enter Your Phone No"
-              defaultValue="017002000"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
-            />
-          </div>
-        </div>
-        <div className="tw-space-y-4">
-          <label className="tw-block">Email Address</label>
-          <input
-            type="email"
-            placeholder="Enter Your Email"
-            defaultValue="thomasaneree@gmail.com"
-            className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
-          />
-        </div>
-        <div className="tw-space-y-4">
-          <label className="tw-block">Old Password</label>
-          <input
-            type="password"
-            placeholder="Type Old Password"
-            className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
-          />
-          <p className="tw-inline-block tw-cursor-pointer tw-text-sm tw-text-blue-500 hover:tw-underline">
-            Forgot Password?
-          </p>
-        </div>
-        <div className="tw-grid tw-grid-cols-2 tw-gap-6">
-          <div className="tw-relative tw-space-y-4">
-            <label className="tw-block">New Password</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Type New Password"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
-            />
-            <div
-              onClick={handleTogglePassword}
-              type="button"
-              className="tw-text-my-primary tw-absolute tw-bottom-3 tw-right-4"
-            >
-              {showPassword ? (
-                <AiFillEye className="tw-text-2xl tw-text-gray-6" />
-              ) : (
-                <AiFillEyeInvisible className="tw-text-2xl tw-text-gray-6" />
-              )}
+    <>
+      <div className="tw-rounded-lg tw-bg-white tw-p-8 tw-shadow">
+        <p className="tw-text-lg">Personal Information</p>
+        <hr />
+        <form onSubmit={handleSubmit(onSubmit)} className="tw-space-y-6">
+          <div className="tw-grid tw-grid-cols-2 tw-gap-6">
+            <div className="tw-space-y-4">
+              <label className="tw-block">Full Name</label>
+              <input
+                {...register("fullName", { required: true })}
+                type="text"
+                placeholder="Enter Your Name"
+                className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              />
+            </div>
+            <div className="tw-space-y-4">
+              <label className="tw-block">Phone Number</label>
+              <input
+                {...register("phone", { required: true })}
+                type="text"
+                placeholder="Enter Your Phone No"
+                className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              />
             </div>
           </div>
-          <div className="tw-relative tw-space-y-4">
-            <label className="tw-block">Confirm Password</label>
-            <input
-              type={showConfirmPassword ? "text" : "password"}
-              placeholder="Re-type New Password"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
-            />
-            <div
-              onClick={handleToggleConfirmPassword}
-              type="button"
-              className="tw-text-my-primary tw-absolute tw-bottom-3 tw-right-4"
-            >
-              {showConfirmPassword ? (
-                <AiFillEye className="tw-text-2xl tw-text-gray-6" />
-              ) : (
-                <AiFillEyeInvisible className="tw-text-2xl tw-text-gray-6" />
-              )}
+          <div className="tw-grid tw-grid-cols-2 tw-gap-6">
+            <div className="tw-space-y-4">
+              <label className="tw-block">District</label>
+              <select
+                {...register("district", { required: true })}
+                className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              >
+                <option value="Mymensingh">Mymensingh</option>
+              </select>
+            </div>
+            <div className="tw-space-y-4">
+              <label className="tw-block">Upazila</label>
+              <select
+                {...register("upazila", { required: true })}
+                className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              >
+                <option value="">Select</option>
+                <option value="Mymensingh Sadar">Mymensingh Sadar</option>
+                <option value="Trishal">Trishal</option>
+                <option value="Bhaluka">Bhaluka</option>
+                <option value="Fulbaria">Fulbaria</option>
+                <option value="Muktagacha">Muktagacha</option>
+                <option value="Gafargaon">Gafargaon</option>
+                <option value="Gauripur">Gauripur</option>
+                <option value="Ishwarganj">Ishwarganj</option>
+                <option value="Nandail">Nandail</option>
+                <option value="Tarakanda">Tarakanda</option>
+                <option value="Fulpur">Fulpur</option>
+                <option value="Haluaghat">Haluaghat</option>
+                <option value="Dhubaura">Dhubaura</option>
+                <option value="Pagla">Pagla</option>
+              </select>
             </div>
           </div>
-        </div>
-        <CustomButton className="tw-w-full tw-rounded-md">
-          Edit Profile
-        </CustomButton>
-      </form>
-    </div>
+          <div className="tw-space-y-4">
+            <label className="tw-block">Address</label>
+            <textarea
+              {...register("address", { required: true })}
+              rows="3"
+              placeholder="Write your address"
+              className="tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+            />
+          </div>
+          <CustomButton className="tw-w-full tw-rounded-md">
+            Update Profile
+          </CustomButton>
+        </form>
+      </div>
+      <ChangePassword />
+    </>
   );
 };
 

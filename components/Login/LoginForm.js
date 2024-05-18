@@ -1,11 +1,33 @@
+import axiosInstance from "@/utils/axiosInstance";
+import Cookies from "js-cookie";
 import Link from "next/link";
 import React from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 function LoginForm() {
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (userData) => {
+    try {
+      const response = await axiosInstance.post("/users/login", userData);
+      console.log(response);
+      Cookies.set("token", response.data.data.token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
-      <div
+      <form
+        onSubmit={handleSubmit(onSubmit)}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -16,16 +38,31 @@ function LoginForm() {
         className="px-5 py-5 shadow"
       >
         <h2 className="text-center">Login Form</h2>
-        <FloatingLabel controlId="floatingInput" label="Phone Number">
-          <Form.Control type="number" placeholder="Enter Phone Number" />
+        <FloatingLabel label="Phone Number">
+          <Form.Control
+            type="text"
+            {...register("phone", { required: true })}
+            placeholder="Enter Phone Number"
+          />
         </FloatingLabel>
-        <FloatingLabel controlId="floatingInput" label="Password">
-          <Form.Control type="password" placeholder="Enter Password" />
+        {errors.phone && (
+          <small className="text-danger">Please enter your phone number</small>
+        )}
+        <FloatingLabel label="Password">
+          <Form.Control
+            type="password"
+            {...register("password", { required: true })}
+            placeholder="Enter Password"
+          />
         </FloatingLabel>
+        {errors.password && (
+          <small className="text-danger">Please enter your password</small>
+        )}
         <span className="tw-w-fit tw-cursor-pointer tw-text-sm tw-text-blue-500 hover:tw-underline">
           Forgot Password?
         </span>
         <Button
+          type="submit"
           variant="primary"
           className="py-2 "
           style={{ borderRadius: "30px" }}
@@ -41,7 +78,7 @@ function LoginForm() {
             Sign up
           </Link>
         </div>
-      </div>
+      </form>
     </>
   );
 }

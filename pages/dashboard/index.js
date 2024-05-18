@@ -1,5 +1,5 @@
+import Profile from "@/components/Dashboard/Profile/Profile";
 import React from "react";
-import Profile from "./profile";
 
 const DashboardHome = () => {
   return (
