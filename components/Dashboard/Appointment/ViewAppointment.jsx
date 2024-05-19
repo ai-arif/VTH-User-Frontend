@@ -27,11 +27,13 @@ const ViewAppointment = () => {
   }
 
   return (
-    <div className="tw-overflow-auto">
-      <table className="table">
+    <div className="table-responsive">
+      <table className="table tw-overflow-scroll tw-text-xs lg:tw-text-base">
         <thead>
           <tr>
-            <th scope="col">Case No.</th>
+            <th className="text-nowrap" scope="col">
+              Case No.
+            </th>
             <th scope="col">Date & Time</th>
             <th scope="col">Department</th>
             <th scope="col">Status</th>
