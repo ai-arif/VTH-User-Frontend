@@ -19,45 +19,53 @@ const ContactUs = () => {
               send message by this contact form.
             </p>
           </div>
-          <div className="tw-flex tw-flex-col tw-items-center tw-justify-between tw-gap-10 md:tw-flex-row">
-            <div className="tw-space-y-6">
-              <div className="tw-flex tw-items-center tw-gap-4">
-                <div className="tw-rounded-lg tw-bg-deep-secondary tw-p-3 tw-text-white">
-                  <FaLocationDot className="tw-text-5xl" />
+          <div className="tw-flex tw-flex-col tw-justify-between tw-gap-10 md:tw-flex-row lg:tw-items-center">
+            <div className="tw-space-y-3 lg:tw-space-y-6">
+              <div className="tw-flex tw-items-center tw-gap-2 lg:tw-gap-4">
+                <div className="tw-rounded-lg tw-bg-deep-secondary tw-p-2 tw-text-white lg:tw-p-3">
+                  <FaLocationDot className="tw-text-3xl lg:tw-text-5xl" />
                 </div>
                 <div className="tw-flex-grow">
-                  <h3 className="tw-text-xl tw-font-semibold">Our Location</h3>
-                  <p>BAU Main Road, Mymensingh 2202</p>
+                  <h3 className="tw-text-lg tw-font-semibold lg:tw-text-xl">
+                    Our Location
+                  </h3>
+                  <p className="tw-text-xs lg:tw-text-base">
+                    BAU Main Road, Mymensingh 2202
+                  </p>
                 </div>
               </div>
-              <div className="tw-flex tw-items-center tw-gap-4">
-                <div className="tw-rounded-lg tw-bg-deep-secondary tw-p-3 tw-text-white">
-                  <FaPhoneVolume className="tw-text-5xl" />
+              <div className="tw-flex tw-items-center tw-gap-2 lg:tw-gap-4">
+                <div className="tw-rounded-lg tw-bg-deep-secondary tw-p-2 tw-text-white lg:tw-p-3">
+                  <FaPhoneVolume className="tw-text-3xl lg:tw-text-5xl" />
                 </div>
                 <div className="tw-flex-grow">
-                  <h3 className="tw-text-xl tw-font-semibold">Phone Number</h3>
-                  <p>270-526-3839</p>
+                  <h3 className="tw-text-lg tw-font-semibold lg:tw-text-xl">
+                    Phone Number
+                  </h3>
+                  <p className="tw-text-xs lg:tw-text-base">270-526-3839</p>
                 </div>
               </div>
-              <div className="tw-flex tw-items-center tw-gap-4">
-                <div className="tw-rounded-lg tw-bg-deep-secondary tw-p-3 tw-text-white">
-                  <MdOutlineMail className="tw-text-5xl" />
+              <div className="tw-flex tw-items-center tw-gap-2 lg:tw-gap-4">
+                <div className="tw-rounded-lg tw-bg-deep-secondary tw-p-2 tw-text-white lg:tw-p-3">
+                  <MdOutlineMail className="tw-text-3xl lg:tw-text-5xl" />
                 </div>
                 <div className="tw-flex-grow">
-                  <h3 className="tw-text-xl tw-font-semibold">Email Address</h3>
-                  <p>contact@vth.com</p>
+                  <h3 className="tw-text-lg tw-font-semibold lg:tw-text-xl">
+                    Email Address
+                  </h3>
+                  <p className="tw-text-xs lg:tw-text-base">contact@vth.com</p>
                 </div>
               </div>
-              <div className="tw-flex tw-items-center tw-gap-4">
-                <div className="tw-rounded-lg tw-bg-deep-secondary tw-p-3 tw-text-white">
-                  <LuFacebook className="tw-text-5xl" />
+              <div className="tw-flex tw-items-center tw-gap-2 lg:tw-gap-4">
+                <div className="tw-rounded-lg tw-bg-deep-secondary tw-p-2 tw-text-white lg:tw-p-3">
+                  <LuFacebook className="tw-text-3xl lg:tw-text-5xl" />
                 </div>
                 <div className="tw-flex-grow">
-                  <h3 className="tw-text-xl tw-font-semibold">
+                  <h3 className="tw-text-lg tw-font-semibold lg:tw-text-xl">
                     {" "}
                     Stay Connected
                   </h3>
-                  <p>vth-hospital</p>
+                  <p className="tw-text-xs lg:tw-text-base">vth-hospital</p>
                 </div>
               </div>
             </div>
