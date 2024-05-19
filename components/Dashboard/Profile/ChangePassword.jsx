@@ -16,26 +16,26 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className="tw-mt-10 tw-rounded-lg tw-bg-white tw-p-8 tw-shadow">
-      <form className="tw-space-y-6">
-        <div className="tw-space-y-4">
+    <div className="tw-mt-6 tw-rounded-lg tw-bg-white tw-p-5 tw-shadow lg:tw-mt-10 lg:tw-p-8">
+      <form className="tw-space-y-4 lg:tw-space-y-6">
+        <div className="tw-space-y-2 lg:tw-space-y-4">
           <label className="tw-block">Old Password</label>
           <input
             type="password"
             placeholder="Type Old Password"
-            className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+            className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
           />
           <p className="tw-inline-block tw-cursor-pointer tw-text-sm tw-text-blue-500 hover:tw-underline">
             Forgot Password?
           </p>
         </div>
-        <div className="tw-grid tw-grid-cols-2 tw-gap-6">
+        <div className="tw-grid tw-grid-cols-1 tw-gap-4 lg:tw-grid-cols-2 lg:tw-gap-6">
           <div className="tw-relative tw-space-y-4">
             <label className="tw-block">New Password</label>
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Type New Password"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
             />
             <div
               onClick={handleTogglePassword}
@@ -54,7 +54,7 @@ const ChangePassword = () => {
             <input
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Re-type New Password"
-              className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+              className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
             />
             <div
               onClick={handleToggleConfirmPassword}

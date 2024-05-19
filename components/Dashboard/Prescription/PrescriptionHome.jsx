@@ -2,7 +2,7 @@ import CompleteMessage from "@/components/UI/CompleteMessage";
 import Loader from "@/components/UI/Loader";
 import { AuthContext } from "@/contexts/AuthProvider";
 import React, { useContext } from "react";
-import ViewAppointment from "../Appointment/ViewAppointment";
+import ViewPrescription from "./ViewPrescription";
 
 const PrescriptionHome = () => {
   const { user, loading } = useContext(AuthContext);
@@ -12,7 +12,7 @@ const PrescriptionHome = () => {
   }
   return (
     <>
-      {user?.isCompleted === false ? <CompleteMessage /> : <ViewAppointment />}
+      {user?.isCompleted === false ? <CompleteMessage /> : <ViewPrescription />}
     </>
   );
 };

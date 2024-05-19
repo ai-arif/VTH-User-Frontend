@@ -14,7 +14,7 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
               e.stopPropagation();
               setSidebarOpen(!sidebarOpen);
             }}
-            className="tw-z-[99999] tw-block tw-rounded-sm tw-border tw-border-solid tw-border-stroke tw-bg-white tw-p-1.5 tw-shadow-sm lg:tw-hidden"
+            className="tw-border-stroke tw-z-[99999] tw-block tw-rounded-sm tw-border tw-border-solid tw-bg-gray-100 tw-p-1.5 tw-shadow-sm lg:tw-hidden"
           >
             <span className="tw-relative tw-block tw-h-[22px] tw-w-[22px] tw-cursor-pointer">
               <span className="tw-absolute tw-right-0 tw-h-full tw-w-full">
@@ -49,10 +49,6 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
             </span>
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
-
-          <Link className="tw-block tw-flex-shrink-0 lg:tw-hidden" href="/">
-            VTH
-          </Link>
         </div>
 
         <div className="tw-hidden tw-text-lg md:tw-block">Welcome To VTH</div>

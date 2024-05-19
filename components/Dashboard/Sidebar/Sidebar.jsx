@@ -49,10 +49,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       document.querySelector("body")?.classList.remove("sidebar-expanded");
     }
   }, [sidebarExpanded]);
+
   return (
     <aside
       ref={sidebar}
-      className={`tw-absolute tw-left-0 tw-top-0 tw-z-[9999] tw-flex tw-h-screen tw-w-[290px] tw-flex-col tw-overflow-y-hidden tw-bg-white tw-drop-shadow tw-duration-300 tw-ease-linear lg:tw-static lg:tw-translate-x-0 ${
+      className={`tw-absolute tw-left-0 tw-top-0 tw-z-[9999] tw-flex tw-h-screen tw-w-[250px] tw-flex-col tw-overflow-y-hidden tw-bg-white tw-drop-shadow tw-duration-300 tw-ease-linear lg:tw-static lg:tw-translate-x-0 ${
         sidebarOpen ? "tw-translate-x-0" : "tw--translate-x-full"
       }`}
     >
@@ -63,7 +64,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           className="tw-flex tw-items-end tw-gap-x-3 tw-text-2xl tw-text-sky-700 tw-decoration-transparent"
         >
           <Image height={65} src={logo} alt="Logo" priority />
-          Dashboard
+          <span className="tw-hidden md:tw-block">Dashboard</span>
         </Link>
 
         <button
@@ -71,7 +72,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           onClick={() => setSidebarOpen(!sidebarOpen)}
           aria-controls="sidebar"
           aria-expanded={sidebarOpen}
-          className="tw-block lg:tw-hidden"
+          className="tw-block tw-border lg:tw-hidden"
         >
           <svg
             className="tw-fill-current"
@@ -94,7 +95,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         {/* <!-- Sidebar Menu --> */}
         <nav className="tw-mt-5 tw-px-4 tw-py-4 lg:tw-mt-7 lg:tw-px-6">
           {/* <!-- Menu Group --> */}
-          <ul className="tw test tw-mb-6 tw-flex tw-list-none tw-flex-col tw-gap-1.5 tw-pl-0">
+          <ul className="tw-mb-6 tw-flex tw-list-none tw-flex-col tw-gap-1.5 tw-pl-0">
             {/* <!-- Menu Item Profile --> */}
             <SideItem href="/dashboard">
               <AiOutlineUser className="tw-text-lg" /> <span>Profile</span>

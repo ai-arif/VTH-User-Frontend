@@ -35,45 +35,48 @@ const UserProfileEdit = () => {
   return (
     <>
       {user?.isCompleted === false && <CompleteMessage />}
-      <div className="tw-rounded-lg tw-bg-white tw-p-8 tw-shadow">
-        <p className="tw-text-lg">Personal Information</p>
+      <div className="tw-rounded-lg tw-bg-white tw-p-5 tw-text-sm tw-shadow lg:tw-p-8 lg:tw-text-base">
+        <p className="tw-text-base lg:tw-text-lg">Personal Information</p>
         <hr />
-        <form onSubmit={handleSubmit(onSubmit)} className="tw-space-y-6">
-          <div className="tw-grid tw-grid-cols-2 tw-gap-6">
-            <div className="tw-space-y-4">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="tw-space-y-4 lg:tw-space-y-6"
+        >
+          <div className="tw-grid tw-grid-cols-1 tw-gap-4 lg:tw-grid-cols-2 lg:tw-gap-6">
+            <div className="tw-space-y-2 lg:tw-space-y-4">
               <label className="tw-block">Full Name</label>
               <input
                 {...register("fullName", { required: true })}
                 type="text"
                 placeholder="Enter Your Name"
-                className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+                className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
               />
             </div>
-            <div className="tw-space-y-4">
+            <div className="tw-space-y-2 lg:tw-space-y-4">
               <label className="tw-block">Phone Number</label>
               <input
                 {...register("phone", { required: true })}
                 type="text"
                 placeholder="Enter Your Phone No"
-                className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+                className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
               />
             </div>
           </div>
-          <div className="tw-grid tw-grid-cols-2 tw-gap-6">
-            <div className="tw-space-y-4">
+          <div className="tw-grid tw-grid-cols-1 tw-gap-4 lg:tw-grid-cols-2 lg:tw-gap-6">
+            <div className="tw-space-y-2 lg:tw-space-y-4">
               <label className="tw-block">District</label>
               <select
                 {...register("district", { required: true })}
-                className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+                className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
               >
                 <option value="Mymensingh">Mymensingh</option>
               </select>
             </div>
-            <div className="tw-space-y-4">
+            <div className="tw-space-y-2 lg:tw-space-y-4">
               <label className="tw-block">Upazila</label>
               <select
                 {...register("upazila", { required: true })}
-                className="tw-h-12 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"
+                className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
               >
                 <option value="">Select</option>
                 <option value="Mymensingh Sadar">Mymensingh Sadar</option>
@@ -93,7 +96,7 @@ const UserProfileEdit = () => {
               </select>
             </div>
           </div>
-          <div className="tw-space-y-4">
+          <div className="tw-space-y-2 lg:tw-space-y-4">
             <label className="tw-block">Address</label>
             <textarea
               {...register("address", { required: true })}

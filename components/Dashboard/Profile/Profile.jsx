@@ -7,7 +7,7 @@ const Profile = () => {
   return (
     <DashboardLayout>
       <Breadcrumb pageName="Profile" />
-      <div className="tw-mx-auto tw-w-[70%]">
+      <div className="tw-mx-auto tw-w-[90%] lg:tw-w-[70%]">
         <UserProfileEdit />
       </div>
     </DashboardLayout>

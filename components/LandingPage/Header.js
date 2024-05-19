@@ -24,7 +24,7 @@ import CustomOutlineButton from "../UI/CustomOutlineButton";
 function Header() {
   const [showStickyContainer, setShowStickyContainer] = useState(false);
   // const router = useRouter();
-  // const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -191,9 +191,15 @@ function Header() {
               </Nav.Link>
             </Nav>
             <div className="tw-flex tw-gap-4">
-              <Link href="/login">
-                <CustomOutlineButton>Login</CustomOutlineButton>
-              </Link>
+              {user?.phone ? (
+                <Link href="/dashboard">
+                  <CustomOutlineButton>Dashboard</CustomOutlineButton>
+                </Link>
+              ) : (
+                <Link href="/login">
+                  <CustomOutlineButton>Login</CustomOutlineButton>
+                </Link>
+              )}
               <Link href="/book-now">
                 <CustomButton>Book Now</CustomButton>
               </Link>

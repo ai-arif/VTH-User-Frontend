@@ -3,11 +3,11 @@ import React from "react";
 
 const Breadcrumb = ({ pageName }) => {
   return (
-    <div className="tw-mb-6 tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-items-center sm:tw-justify-between">
-      <p className="tw-text-2xl tw-tracking-wide tw-text-black/80">
+    <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-items-center sm:tw-justify-between lg:tw-mb-6">
+      <p className="tw-hidden tw-text-xl tw-tracking-wide tw-text-black/80 lg:tw-block lg:tw-text-2xl">
         {pageName}
       </p>
-      <nav>
+      <nav className="tw-mt-5 lg:tw-mt-0">
         <ol className="tw-flex tw-list-none tw-items-center tw-gap-2">
           <li>
             <Link
