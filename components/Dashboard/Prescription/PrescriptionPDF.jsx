@@ -1,36 +1,23 @@
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
-import React from "react";
+import jsPDF from "jspdf";
 
-const styles = StyleSheet.create({
-  page: {
-    padding: 30,
-  },
-  section: {
-    margin: 10,
-    padding: 10,
-    fontSize: 12,
-  },
-  title: {
-    fontSize: 20,
-    marginBottom: 20,
-  },
-});
+export const handleDownload = (prescription) => {
+  const doc = new jsPDF();
+  doc.setFontSize(18);
+  doc.text("Prescription", 105, 10, null, null, "center"); // Centered heading
+  doc.setFontSize(12);
+  doc.text(`Case No: ${prescription?.appointment?.caseNo}`, 10, 30);
+  doc.text(
+    `Total Animals: ${prescription?.appointment?.numberOfAnimals}`,
+    10,
+    40,
+  );
 
-const PrescriptionPDF = ({ prescriptions }) => (
-  <Document>
-    <Page size="A4" style={styles.page}>
-      <View style={styles.title}>
-        <Text>Prescriptions</Text>
-      </View>
-      {prescriptions.map((prescription, index) => (
-        <View key={index} style={styles.section}>
-          <Text>Case No: {prescription.appointment.caseNo}</Text>
-          <Text>Total Animals: {prescription.appointment.numberOfAnimals}</Text>
-          {/* Add more prescription details here */}
-        </View>
-      ))}
-    </Page>
-  </Document>
-);
-
-export default PrescriptionPDF;
+  // Add more prescription details as needed
+  if (prescription?.details) {
+    doc.text("Details:", 10, 50);
+    prescription.details.forEach((detail, index) => {
+      doc.text(`${index + 1}. ${detail}`, 10, 60 + index * 10);
+    });
+  }
+  doc.save(`Prescription-${prescription?.appointment?.caseNo}.pdf`);
+};
