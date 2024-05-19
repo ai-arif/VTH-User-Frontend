@@ -6,8 +6,8 @@ import Container from "../UI/Container";
 
 const ContactUs = () => {
   return (
-    <Container className="">
-      <div className="tw-flex tw-justify-between tw-gap-10">
+    <Container>
+      <div className="tw-flex tw-flex-col tw-justify-between tw-gap-10 lg:tw-flex-row">
         {/* contact us part */}
         <div className="tw-w-full">
           <div className="tw-mb-10">

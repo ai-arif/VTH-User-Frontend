@@ -21,9 +21,7 @@ const PageBanner = ({ headline, title, buttonName, image }) => {
               </Link>
             </div>
           </div>
-          <div>
-            <Image src={image} alt="animal image" />
-          </div>
+          <div>{/* <Image src={image} alt="animal image" /> */}</div>
         </div>
       </Container>
     </div>
