@@ -7,14 +7,14 @@ import React from "react";
 const Boarding = () => {
   return (
     <div className="tw-bg-primary tw-text-white">
-      <Container className="tw-py-28">
-        <div className="tw-flex tw-gap-x-[60px]">
+      <Container className="tw-py-10 md:tw-py-14 lg:tw-py-28">
+        <div className="tw-flex tw-flex-col tw-gap-x-[60px] tw-gap-y-10 lg:tw-flex-row">
           {/* description part */}
-          <div className="tw-w-1/2">
-            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8 tw-text-secondary">
+          <div className="lg:tw-w-1/2">
+            <h3 className="tw-mb-5 tw-text-lg tw-font-medium tw-capitalize tw-text-secondary md:tw-text-xl lg:tw-mb-11 lg:tw-text-[28px] lg:tw-font-semibold lg:tw-leading-8">
               Their Home Away From Home
             </h3>
-            <div className="tw-space-y-5 tw-text-lg tw-font-light">
+            <div className="tw-space-y-2 tw-text-sm tw-font-light md:tw-space-y-3 lg:tw-space-y-5 lg:tw-text-lg">
               <p>
                 When you’re out of town, you can trust that the Heritage Animal
                 Hospital team is here to provide a calm, comfortable, and secure
@@ -32,66 +32,40 @@ const Boarding = () => {
             </div>
           </div>
           {/* service part */}
-          <div className="tw-w-1/2">
-            <h3 className="tw-mb-11 tw-text-[28px] tw-font-semibold tw-capitalize tw-leading-8 tw-text-secondary">
+          <div className="lg:tw-w-1/2">
+            <h3 className="tw-mb-4 tw-text-lg tw-font-medium tw-capitalize tw-text-secondary md:tw-text-xl lg:tw-mb-11 lg:tw-text-[28px] lg:tw-font-semibold lg:tw-leading-8">
               Our Boarding Services Include:
             </h3>
-            <div className="tw-flex tw-flex-col tw-gap-6 tw-divide-x-0 tw-divide-y-2 tw-divide-solid tw-divide-gray-5 tw-text-secondary">
-              <div className="tw-flex tw-items-center tw-gap-x-3">
+            <div className="tw-flex tw-flex-col tw-gap-3 tw-divide-x-0 tw-divide-y tw-divide-solid tw-divide-gray-5 tw-text-secondary lg:tw-gap-6 lg:tw-divide-y-2">
+              <div className="tw-flex tw-items-center tw-gap-x-2 tw-text-base lg:tw-gap-x-3 lg:tw-text-2xl">
                 <div>
-                  <FontAwesomeIcon
-                    size="xl"
-                    icon={faPaw}
-                    className="tw-rotate-45"
-                  />
+                  <FontAwesomeIcon icon={faPaw} className="tw-rotate-45" />
                 </div>
-                <span className="tw-text-2xl">Regular Walks And Play Time</span>
+                <span>Regular Walks And Play Time</span>
               </div>
-              <div className="tw-flex tw-items-center tw-gap-x-3 tw-pt-6">
+              <div className="tw-flex tw-items-center tw-gap-x-2 tw-pt-3 tw-text-base lg:tw-gap-x-3 lg:tw-pt-6 lg:tw-text-2xl">
                 <div>
-                  <FontAwesomeIcon
-                    size="xl"
-                    icon={faPaw}
-                    className="tw-rotate-45"
-                  />
+                  <FontAwesomeIcon icon={faPaw} className="tw-rotate-45" />
                 </div>
-                <span className="tw-text-2xl">
-                  Separate Areas For Dogs And Cats
-                </span>
+                <span>Separate Areas For Dogs And Cats</span>
               </div>
-              <div className="tw-flex tw-items-center tw-gap-x-3 tw-pt-6">
+              <div className="tw-flex tw-items-center tw-gap-x-2 tw-pt-3 tw-text-base lg:tw-gap-x-3 lg:tw-pt-6 lg:tw-text-2xl">
                 <div>
-                  <FontAwesomeIcon
-                    size="xl"
-                    icon={faPaw}
-                    className="tw-rotate-45"
-                  />
+                  <FontAwesomeIcon icon={faPaw} className="tw-rotate-45" />
                 </div>
-                <span className="tw-text-2xl">
-                  Separate Areas For Dogs And Cats
-                </span>
+                <span>Separate Areas For Dogs And Cats</span>
               </div>
-              <div className="tw-flex tw-items-center tw-gap-x-3 tw-pt-6">
+              <div className="tw-flex tw-items-center tw-gap-x-2 tw-pt-3 tw-text-base lg:tw-gap-x-3 lg:tw-pt-6 lg:tw-text-2xl">
                 <div>
-                  <FontAwesomeIcon
-                    size="xl"
-                    icon={faPaw}
-                    className="tw-rotate-45"
-                  />
+                  <FontAwesomeIcon icon={faPaw} className="tw-rotate-45" />
                 </div>
-                <span className="tw-text-2xl">
-                  Daily Medication Administration
-                </span>
+                <span>Daily Medication Administration</span>
               </div>
-              <div className="tw-flex tw-items-center tw-gap-x-3 tw-pt-6">
+              <div className="tw-flex tw-items-center tw-gap-x-2 tw-pt-3 tw-text-base lg:tw-gap-x-3 lg:tw-pt-6 lg:tw-text-2xl">
                 <div>
-                  <FontAwesomeIcon
-                    size="xl"
-                    icon={faPaw}
-                    className="tw-rotate-45"
-                  />
+                  <FontAwesomeIcon icon={faPaw} className="tw-rotate-45" />
                 </div>
-                <span className="tw-text-2xl">Veterinary Supervision</span>
+                <span>Veterinary Supervision</span>
               </div>
               <span></span>
             </div>
