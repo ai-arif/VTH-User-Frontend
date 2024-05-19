@@ -6,17 +6,17 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 const AllServices = () => {
   return (
     <div className="tw-bg-primary tw-text-white">
-      <Container className="tw-py-28">
+      <Container className="tw-py-10 md:tw-py-14 lg:tw-py-28">
         <h3 className="text-center tw-pb-10 tw-opacity-90">
           Explore Our Services
         </h3>
-        <div className="tw-flex tw-gap-x-[60px]">
+        <div className="tw-flex tw-flex-col tw-gap-x-[60px] tw-gap-y-10 lg:tw-flex-row">
           {/* left side navigation part */}
-          <div className="tw-w-1/2 tw-text-3xl">
+          <div className="lg:tw-w-1/2 lg:tw-text-2xl">
             <div>
               <Link
                 href="/services/alternative-therapies"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-6 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary"
+                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
                 <span>Alternative Therapies</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
@@ -25,7 +25,7 @@ const AllServices = () => {
             <div>
               <Link
                 href="/services/boarding"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-6 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary"
+                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
                 <span>Boarding</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
@@ -34,7 +34,7 @@ const AllServices = () => {
             <div>
               <Link
                 href="/services/animal"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-6 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary"
+                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
                 <span>Large Animal Services</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
@@ -42,11 +42,11 @@ const AllServices = () => {
             </div>
           </div>
           {/* right side navigation part */}
-          <div className="tw-w-1/2 tw-text-2xl">
+          <div className="lg:tw-w-1/2 lg:tw-text-2xl">
             <div>
               <Link
                 href="/services/dental"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-6 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary"
+                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
                 <span>Dental Services</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
@@ -55,7 +55,7 @@ const AllServices = () => {
             <div>
               <Link
                 href="/services/diagnostics"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-6 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary"
+                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
                 <span>Diagnostics</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
