@@ -4,7 +4,7 @@ import Container from "../UI/Container";
 
 function Passion() {
   return (
-    <div id="meet-team">
+    <div>
       <Container>
         <CommonInfo
           headline="our passion"

@@ -1,17 +1,23 @@
 import Layout from "@/components/Layout";
-import BannerPage from "@/components/Veterinarians/BannerPage";
+import PageBanner from "@/components/Shared/PageBanner";
 import CareTeam from "@/components/Veterinarians/CareTeam";
 import Careers from "@/components/Veterinarians/Careers";
 import Passion from "@/components/Veterinarians/Passion";
 import React from "react";
+import teamImg from "../../../public/assets/images/team-banner.png";
 
 function index() {
   return (
     <Layout>
-        <BannerPage/>
-        <Passion/>
-        <CareTeam/>
-        <Careers/>
+      <PageBanner
+        headline="GET TO KNOW US"
+        title="Dream Doctors. Terrific Techs"
+        buttonName="Meet the team"
+        image={teamImg}
+      />
+      <Passion />
+      <CareTeam />
+      <Careers />
     </Layout>
   );
 }

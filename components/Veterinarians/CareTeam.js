@@ -4,7 +4,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 
 function CareTeam() {
   return (
-    <>
+    <div id="learn-more">
       <Container fluid style={{ padding: "120px 0", position: "relative" }}>
         <div
           className="tw-bg-tertiary"
@@ -40,28 +40,28 @@ function CareTeam() {
           <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px] tw-text-primary">
             What Sets Us Apart
           </p>
-          <Row gx={3}>
-            <Col md={4}>
+          <Row gx={3} className="tw-gap-y-9">
+            <Col lg={4}>
               <Card
                 style={{
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   width: "100%",
-                  height: "100%",
+                  height: "400px",
                   overflow: "hidden",
                 }}
                 className="border-0 shadow-sm"
               >
                 <div
-                  style={{ width: "100%", height: "300", overflow: "hidden" }}
+                  style={{ width: "100%", height: "100%", overflow: "hidden" }}
                 >
-                  <Image src="/assets/images/Anisur.png" alt="Anisur" fill />
+                  <Image src="/assets/images/Anisur.png" alt="Joy" fill />
                 </div>
                 <Card.Body
                   className="text-center"
                   style={{
-                    position: "absolute",
+                    position: "absolute", // Position the Card.Body absolutely
                     zIndex: 3,
                     display: "flex",
                     flexDirection: "column",
@@ -70,16 +70,15 @@ function CareTeam() {
                     color: "white",
                     width: "100%",
                     height: "100%",
-                    background: "linear-gradient(to bottom, transparent, #000)",
-                    padding: "20px",
+                    background: "linear-gradient(to bottom, transparent, #000)", // Apply gradient background
+                    padding: "20px", // Add padding for text
                   }}
                 >
                   <h3>Dr. Anisur Rahman </h3>
-                  {/* <Card.Text>Veterinarian</Card.Text> */}
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col lg={4}>
               <Card
                 style={{
                   display: "flex",
@@ -117,7 +116,7 @@ function CareTeam() {
                 </Card.Body>
               </Card>
             </Col>
-            <Col md={4}>
+            <Col lg={4}>
               <Card
                 style={{
                   display: "flex",
@@ -159,7 +158,7 @@ function CareTeam() {
           </Row>
         </Container>
       </Container>
-    </>
+    </div>
   );
 }
 
