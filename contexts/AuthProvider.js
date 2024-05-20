@@ -15,7 +15,6 @@ const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       const response = await axiosInstance.get("/users/profile");
-      console.log(response);
       setUser(response?.data?.data);
     } catch (error) {
       console.error("Failed to fetch user:", error);
@@ -35,12 +34,11 @@ const AuthProvider = ({ children }) => {
     toast.success("Logout Successfully!");
   };
 
-  console.log("Auth file-->", user);
-
   const authInfo = {
     user,
     loading,
     logout,
+    setUser,
     fetchUser,
   };
 
