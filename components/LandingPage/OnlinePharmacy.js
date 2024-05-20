@@ -8,25 +8,19 @@ import SectionTitle from "../UI/SectionTitle";
 function OnlinePharmacy() {
   return (
     <div className="tw-bg-tertiary">
-      <Container className="tw-py-28">
+      <Container className="tw-relative tw-px-0 tw-py-10 md:tw-py-16 lg:tw-py-28">
         <div className="tw-relative">
-          <Image src={promoImg} alt="promo-banner" className="tw-rounded-2xl" />
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "70%",
-              transform: "translate(-50%, -50%)",
-              width: "100%",
-              maxWidth: "500px",
-            }}
-            className="tw-space-y-8 tw-rounded-2xl tw-bg-white tw-px-12 tw-py-14 tw-text-center"
-          >
+          <Image
+            src={promoImg}
+            alt="promo-banner"
+            className="tw-h-auto tw-max-w-full tw-rounded-xl lg:tw-rounded-2xl"
+          />
+          <div className="px-6 py-5 tw-absolute tw-left-1/2 tw-top-1/2 tw-hidden tw-w-full tw-max-w-[500px] -tw-translate-x-1/2 -tw-translate-y-1/2 tw-transform tw-space-y-4 tw-rounded-2xl tw-bg-white tw-text-center sm:tw-block lg:tw-left-[70%] lg:tw-space-y-8 lg:tw-px-12 lg:tw-py-14">
             <SectionTitle>ONLINE PHARMACY</SectionTitle>
-            <h3 className="tw-text-center tw-text-primary">
+            <p className="tw-text-xl tw-font-medium tw-text-primary md:tw-text-2xl md:tw-font-semibold">
               Easily Shop For All Your Pet’s Medications, Food, And Supplies
               From Our Convenient Online Pharmacy!
-            </h3>
+            </p>
             <CustomButton>Get started</CustomButton>
           </div>
         </div>

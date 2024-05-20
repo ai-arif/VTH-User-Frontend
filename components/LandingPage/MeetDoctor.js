@@ -22,13 +22,14 @@ function MeetDoctor() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              gap: "2rem",
+              columnGap: "1rem",
+              rowGap: "2rem",
             }}
           >
             <SectionTitle className="tw-bg-tertiary">
               MEET YOUR DOCTOR
             </SectionTitle>
-            <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px] tw-text-primary">
+            <p className="mb-0 tw-pt-1 tw-text-xl tw-font-medium tw-text-primary lg:tw-pt-2 lg:tw-text-4xl lg:tw-font-semibold">
               We’re All About Smiling Faces & Wagging Tails
             </p>
             <Link href="/book-now">

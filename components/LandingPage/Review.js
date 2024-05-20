@@ -3,7 +3,10 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 
 function Reviews() {
   return (
-    <Container fluid style={{ padding: "120px 0", position: "relative" }}>
+    <Container
+      fluid
+      className="tw-relative tw-px-0 tw-py-10 md:tw-py-16 lg:tw-py-28"
+    >
       <div
         className="tw-bg-tertiary"
         style={{
@@ -36,10 +39,10 @@ function Reviews() {
           //   justifyContent: "center",
         }}
       >
-        <p className="mb-0 tw-text-[40px] tw-font-semibold tw-leading-[44px] tw-text-primary">
+        <p className="mb-0 tw-pt-1 tw-text-xl tw-font-medium tw-text-primary lg:tw-pt-2 lg:tw-text-[40px] lg:tw-font-semibold lg:tw-leading-[44px]">
           Why People Love Us
         </p>
-        <Row gx={3}>
+        <Row gx={3} className="row-gap-3">
           <Col md={4}>
             <Card
               style={{

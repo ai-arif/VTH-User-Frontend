@@ -43,10 +43,10 @@ function SignUpForm() {
       const response = await axiosInstance.post("/users/register", userData);
       if (response.data.success) {
         Cookies.set("token", response.data.data.token);
+        await fetchUser();
         router.push("/");
         toast.success(response.data.message);
         reset();
-        await fetchUser();
       }
     } catch (error) {
       toast.error(error.response.data.message || "User already exists");

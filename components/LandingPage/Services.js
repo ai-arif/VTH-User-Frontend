@@ -8,7 +8,7 @@ function Services() {
     <Container>
       <div className="tw-mx-auto tw-w-[70%] tw-space-y-6 tw-text-center">
         <SectionTitle>Our Services</SectionTitle>
-        <p className="mb-0 tw-pt-2 tw-text-[40px] tw-font-semibold tw-leading-[44px] tw-text-primary">
+        <p className="mb-0 tw-pt-1 tw-text-xl tw-font-medium tw-text-primary lg:tw-pt-2 lg:tw-text-[40px] lg:tw-font-semibold lg:tw-leading-[44px]">
           VTH Trusted Home For Compassionate Veterinary Services
         </p>
         <CustomButton>All Services</CustomButton>
