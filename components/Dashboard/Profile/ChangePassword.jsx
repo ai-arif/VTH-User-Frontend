@@ -1,5 +1,7 @@
 import CustomButton from "@/components/UI/CustomButton";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const ChangePassword = () => {
@@ -15,12 +17,40 @@ const ChangePassword = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (userData) => {
+    console.log(userData);
+    // try {
+    //   if (userData.password !== userData.confirmPassword) {
+    //     return toast.error("password don't match");
+    //   }
+    //   const response = await axiosInstance.put("/users/update", userData);
+    //   if (response.data.success) {
+    //     toast.success(response.data.message);
+    //     await fetchUser();
+    //   }
+    // } catch (error) {
+    //   toast.error("Something Wrong! please try again");
+    //   console.log(error);
+    // }
+  };
+
   return (
     <div className="tw-mt-6 tw-rounded-lg tw-bg-white tw-p-5 tw-shadow lg:tw-mt-10 lg:tw-p-8">
-      <form className="tw-space-y-4 lg:tw-space-y-6">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="tw-space-y-4 lg:tw-space-y-6"
+      >
         <div className="tw-space-y-2 lg:tw-space-y-4">
           <label className="tw-block">Old Password</label>
           <input
+            {...register("oldPassword", { required: true })}
             type="password"
             placeholder="Type Old Password"
             className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
@@ -33,6 +63,7 @@ const ChangePassword = () => {
           <div className="tw-relative tw-space-y-4">
             <label className="tw-block">New Password</label>
             <input
+              {...register("password", { required: true })}
               type={showPassword ? "text" : "password"}
               placeholder="Type New Password"
               className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
@@ -50,8 +81,9 @@ const ChangePassword = () => {
             </div>
           </div>
           <div className="tw-relative tw-space-y-4">
-            <label className="tw-block">Confirm Password</label>
+            <label className="tw-block">Confirm New Password</label>
             <input
+              {...register("confirmPassword", { required: true })}
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Re-type New Password"
               className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"

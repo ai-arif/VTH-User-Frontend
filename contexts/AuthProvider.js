@@ -22,6 +22,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     fetchUser();
   }, []);
@@ -32,6 +33,7 @@ const AuthProvider = ({ children }) => {
     setUser(null);
     toast.success("Logout Successfully!");
   };
+  console.log("Auth file-->", user);
 
   const authInfo = {
     user,

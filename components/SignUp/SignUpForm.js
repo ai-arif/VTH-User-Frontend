@@ -1,9 +1,10 @@
 "use client";
+import { AuthContext } from "@/contexts/AuthProvider";
 import axiosInstance from "@/utils/axiosInstance";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -12,6 +13,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { fetchUser } = useContext(AuthContext);
   const router = useRouter();
 
   const {
@@ -36,12 +38,15 @@ function SignUpForm() {
       if (userData.password !== userData.confirmPassword) {
         return toast.error("password don't match");
       }
+
+      delete userData.confirmPassword;
       const response = await axiosInstance.post("/users/register", userData);
       if (response.data.success) {
+        Cookies.set("token", response.data.data.token);
         router.push("/");
         toast.success(response.data.message);
-        Cookies.set("token", response.data.data.token);
         reset();
+        await fetchUser();
       }
     } catch (error) {
       toast.error(error.response.data.message || "User already exists");

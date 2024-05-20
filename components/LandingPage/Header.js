@@ -7,7 +7,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 import {
   Col,
@@ -15,7 +14,7 @@ import {
   Nav,
   NavDropdown,
   Navbar,
-  NavbarBrand,
+  Offcanvas,
   Row,
 } from "react-bootstrap";
 import CustomButton from "../UI/CustomButton";
@@ -23,7 +22,6 @@ import CustomOutlineButton from "../UI/CustomOutlineButton";
 
 function Header() {
   const [showStickyContainer, setShowStickyContainer] = useState(false);
-  // const router = useRouter();
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -45,7 +43,7 @@ function Header() {
   return (
     <>
       {showStickyContainer && (
-        <Container fluid className="sticky-top">
+        <Container fluid className="sticky-top d-none d-lg-block">
           <Row>
             <Col
               className="py-4 tw-bg-tertiary tw-text-primary"
@@ -105,106 +103,105 @@ function Header() {
           </Row>
         </Container>
       )}
-      <Navbar expand="lg" className="py-3 tw-bg-tertiary">
-        <Container className="py-3">
-          <NavbarBrand href="/">
+      <Navbar expand={"lg"} className="py-3 py-lg-4 tw-bg-tertiary">
+        <Container>
+          <Link href="/" className="navbar-brand">
             <Image
               src="/assets/images/logo.png"
-              alt="Apple App Store Badge"
-              width={150}
-              height={60}
+              alt="VTH"
+              width={100}
+              height={50}
             />
-          </NavbarBrand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse
-            id="navbarScroll"
-            style={{ display: "flex", justifyContent: "space-between" }}
+          </Link>
+          <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg" />
+          <Navbar.Offcanvas
+            id="offcanvasNavbar-expand-lg"
+            aria-labelledby="offcanvasNavbarLabel-expand-lg"
+            placement="end"
           >
-            <Nav
-              className="mx-5 my-lg-0 tw-text-primary"
-              style={{ maxHeight: "80px", display: "flex", gap: "1rem" }}
-              navbarScroll
-            >
-              <Nav.Link className="tw-text-primary" href="/">
-                Home
-              </Nav.Link>
-              <NavDropdown
-                className="tw-text-primary"
-                title="About"
-                id="nav-dropdown"
-              >
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/about/veterinarians"
-                >
-                  Our Team
-                </NavDropdown.Item>
-
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/about/our-hospital"
-                >
-                  Our Hospital
-                </NavDropdown.Item>
-              </NavDropdown>
-
-              <NavDropdown title="Services" id="nav-dropdown">
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/services/alternative-therapies"
-                >
-                  Alternative Therapies
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/services/boarding"
-                >
-                  Boarding
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/services/animal"
-                >
-                  Large Animal Services
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/services/dental"
-                >
-                  Dental Services
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/services/diagnostics"
-                >
-                  Diagnostics
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="tw-text-primary"
-                  href="/services/all-services"
-                >
-                  View All Services
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link className="tw-text-primary" href="/contact-us">
-                Contact Us
-              </Nav.Link>
-            </Nav>
-            <div className="tw-flex tw-gap-4">
-              {user?.phone ? (
-                <Link href="/dashboard">
-                  <CustomOutlineButton>Dashboard</CustomOutlineButton>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title id="offcanvasNavbarLabel-expand-lg">
+                VETERINARY TEACHING HOSPITAL
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="justify-content-center flex-grow-1 gap-lg-2 mt-lg-2 pe-3">
+                <Link className="nav-link tw-text-primary" href="/">
+                  Home
                 </Link>
-              ) : (
-                <Link href="/login">
-                  <CustomOutlineButton>Login</CustomOutlineButton>
+                <NavDropdown title="About" id="nav-dropdown">
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/about/veterinarians"
+                  >
+                    Our Team
+                  </Link>
+
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/about/our-hospital"
+                  >
+                    Our Hospital
+                  </Link>
+                </NavDropdown>
+                <NavDropdown title="Services" id="nav-dropdown">
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/services/alternative-therapies"
+                  >
+                    Alternative Therapies
+                  </Link>
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/services/boarding"
+                  >
+                    Boarding
+                  </Link>
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/services/animal"
+                  >
+                    Large Animal Services
+                  </Link>
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/services/dental"
+                  >
+                    Dental Services
+                  </Link>
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/services/diagnostics"
+                  >
+                    Diagnostics
+                  </Link>
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/services/all-services"
+                  >
+                    View All Services
+                  </Link>
+                </NavDropdown>
+                <Link className="nav-link tw-text-primary" href="/contact-us">
+                  Contact Us
                 </Link>
-              )}
-              <Link href="/book-now">
-                <CustomButton>Book Now</CustomButton>
-              </Link>
-            </div>
-          </Navbar.Collapse>
+              </Nav>
+              <div className="d-flex gap-2 gap-lg-4">
+                {user?.phone ? (
+                  <Link href="/dashboard">
+                    <CustomOutlineButton>Dashboard</CustomOutlineButton>
+                  </Link>
+                ) : (
+                  <Link href="/login">
+                    <CustomOutlineButton>Login</CustomOutlineButton>
+                  </Link>
+                )}
+                <Link href="/book-now">
+                  <CustomButton>Book Now</CustomButton>
+                </Link>
+              </div>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
         </Container>
       </Navbar>
     </>

@@ -1,14 +1,16 @@
+import { AuthContext } from "@/contexts/AuthProvider";
 import axiosInstance from "@/utils/axiosInstance";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 function LoginForm() {
   const router = useRouter();
+  const { fetchUser } = useContext(AuthContext);
 
   const {
     handleSubmit,
@@ -21,10 +23,11 @@ function LoginForm() {
     try {
       const response = await axiosInstance.post("/users/login", userData);
       if (response.data.success) {
+        Cookies.set("token", response.data.data.token);
         router.push("/");
         toast.success(response.data.message);
-        Cookies.set("token", response.data.data.token);
         reset();
+        await fetchUser();
       }
     } catch (error) {
       toast.error(error.response.data.message || "Invalid credentials");
