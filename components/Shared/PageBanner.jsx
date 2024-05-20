@@ -9,7 +9,7 @@ const PageBanner = ({ headline, title, buttonName, image }) => {
   return (
     <div className="tw-bg-tertiary">
       <Container className="!tw-mt-0 !tw-pr-0 tw-pb-24 tw-pt-7">
-        <div className="tw-flex tw-w-full tw-flex-col tw-justify-between lg:tw-flex-row lg:tw-items-center lg:tw-gap-x-12">
+        <div className="tw-flex tw-w-full tw-flex-col tw-justify-between tw-gap-y-10 lg:tw-flex-row lg:tw-items-center lg:tw-gap-x-12">
           <div className="tw-space-y-3 md:tw-space-y-5 lg:tw-space-y-10">
             <SectionTitle>{headline}</SectionTitle>
             <p className="tw-text-xl tw-font-medium tw-text-primary md:tw-text-2xl md:tw-font-semibold lg:tw-text-[56px] lg:tw-leading-tight">
@@ -22,7 +22,11 @@ const PageBanner = ({ headline, title, buttonName, image }) => {
             </div>
           </div>
           <div>
-            <Image src={image} alt="animal image" />
+            <Image
+              className="tw-h-auto tw-max-w-full"
+              src={image}
+              alt="animal"
+            />
           </div>
         </div>
       </Container>
