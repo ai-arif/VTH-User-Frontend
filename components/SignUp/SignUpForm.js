@@ -11,6 +11,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const router = useRouter();
 
   const {
@@ -25,8 +26,16 @@ function SignUpForm() {
     setShowPassword(!showPassword);
   };
 
+  // Password show/hide toggle
+  const handleToggleConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   const onSubmit = async (userData) => {
     try {
+      if (userData.password !== userData.confirmPassword) {
+        return toast.error("password don't match");
+      }
       const response = await axiosInstance.post("/users/register", userData);
       if (response.data.success) {
         router.push("/");
@@ -51,7 +60,7 @@ function SignUpForm() {
           border: "5px solid #b5ebf2",
           borderRadius: "20px",
         }}
-        className="px-5 py-5 shadow"
+        className="p-3 p-md-4 p-lg-5 shadow"
       >
         <h2 className="text-center">Sign Up Form</h2>
         <FloatingLabel label="Full Name">
@@ -88,6 +97,27 @@ function SignUpForm() {
             )}
           </div>
         </div>
+
+        <div className="tw-relative">
+          <FloatingLabel label="Confirm Password">
+            <Form.Control
+              {...register("confirmPassword", { required: true })}
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="Enter Confirm Password"
+            />
+          </FloatingLabel>
+          <div
+            onClick={handleToggleConfirmPassword}
+            className="tw-text-my-primary tw-absolute tw-bottom-4 tw-right-5 tw-cursor-pointer"
+          >
+            {showConfirmPassword ? (
+              <AiFillEye className="tw-text-2xl tw-text-gray-6" />
+            ) : (
+              <AiFillEyeInvisible className="tw-text-2xl tw-text-gray-6" />
+            )}
+          </div>
+        </div>
+
         <Button
           type="submit"
           variant="primary"

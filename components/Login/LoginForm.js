@@ -43,7 +43,7 @@ function LoginForm() {
           border: "5px solid #b5ebf2",
           borderRadius: "20px",
         }}
-        className="px-5 py-5 shadow"
+        className="p-3 p-md-4 p-lg-5 shadow"
       >
         <h2 className="text-center">Login Form</h2>
         <FloatingLabel label="Phone Number">

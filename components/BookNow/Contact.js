@@ -31,7 +31,7 @@ function Contact() {
           </div>
         </Col>
         <Col style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-          <div style={{ display: "flex", gap: "1rem" }}>
+          <div style={{ display: "flex", gap: "1rem", paddingTop: "1rem" }}>
             <div
               style={{
                 backgroundColor: "#cceff4",
@@ -108,9 +108,7 @@ function Contact() {
             </div>
             <div>
               <h5>ADDRESS</h5>
-              <p>
-                Bangladesh Agricultural University
-              </p>
+              <p>Bangladesh Agricultural University</p>
             </div>
           </div>
         </Col>
