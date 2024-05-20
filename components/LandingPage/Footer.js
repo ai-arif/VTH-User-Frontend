@@ -89,17 +89,12 @@ function Footer() {
                     gap: "1rem",
                   }}
                 >
-                  <InputGroup className="border-0 w-50">
-                    <Form.Control
-                      className="border-0"
-                      placeholder="ENTER YOUR EMAIL"
-                      aria-label="ENTER YOUR EMAIL"
-                      aria-describedby="basic-addon1"
-                    />
+                  <InputGroup size="lg" className="mb-3">
+                    <Form.Control placeholder="Enter Your email" />
+                    <Button variant="btn btn-primary tw-bg-secondary !tw-text-primary hover:tw-bg-deep-secondary border-0">
+                      Subscribe
+                    </Button>
                   </InputGroup>
-                  <CustomButton className="tw-bg-secondary !tw-text-primary hover:tw-bg-deep-secondary">
-                    Sign Up
-                  </CustomButton>
                 </div>
               </div>
               <hr />
@@ -110,8 +105,8 @@ function Footer() {
       <Container fluid className="tw-bg-secondary">
         <Container className="py-4">
           <p className="mb-0">
-            Privacy Policy | Accessibility | © Copyright 2024 - Developed by
-            DevsGiant
+            Privacy Policy | Accessibility | © Copyright 2024 - Developed by{" "}
+            <span className="fw-medium">DevsGiant</span>
           </p>
         </Container>
       </Container>
