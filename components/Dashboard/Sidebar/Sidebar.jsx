@@ -95,7 +95,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         {/* <!-- Sidebar Menu --> */}
         <nav className="tw-mt-5 tw-px-4 tw-py-4 lg:tw-mt-7 lg:tw-px-6">
           {/* <!-- Menu Group --> */}
-          <ul className="tw-mb-6 tw-flex tw-list-none tw-flex-col tw-gap-1.5 tw-pl-0">
+          <ul className="tw-mb-6 tw-flex tw-list-none tw-flex-col tw-gap-1.5 tw-pl-0 lg:tw-gap-2.5">
             {/* <!-- Menu Item Profile --> */}
             <SideItem href="/dashboard">
               <AiOutlineUser className="tw-text-lg" /> <span>Profile</span>

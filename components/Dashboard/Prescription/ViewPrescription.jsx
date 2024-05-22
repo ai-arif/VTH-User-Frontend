@@ -7,6 +7,8 @@ const ViewPrescription = () => {
   const [prescriptions, setPrescriptions] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  console.log(prescriptions);
+
   useEffect(() => {
     const fetchPrescription = async () => {
       try {
