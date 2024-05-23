@@ -1,6 +1,7 @@
 import { AuthContext } from "@/contexts/AuthProvider";
 import axiosInstance from "@/utils/axiosInstance";
-import React, { useContext, useState } from "react";
+import { useRouter } from "next/router";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Button,
   Col,
@@ -11,14 +12,30 @@ import {
   Row,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 function RequestForm() {
   const [showModal, setShowModal] = useState(false);
+  const [departments, setDepartments] = useState([]);
   const { user } = useContext(AuthContext);
+  const router = useRouter();
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+
+  useEffect(() => {
+    const fetchDepartments = async () => {
+      try {
+        const response = await axiosInstance.get("/department");
+        setDepartments(response?.data?.data);
+      } catch (error) {
+        console.error("Failed to fetch departments:", error);
+      }
+    };
+
+    fetchDepartments();
+  }, []);
 
   const {
     handleSubmit,
@@ -36,6 +53,7 @@ function RequestForm() {
       formData.append("petName", data.petName);
       formData.append("species", data.species);
       formData.append("breed", data.breed);
+      formData.append("department", data.department);
       formData.append("notes", data.notes);
 
       if (data.image && data.image[0]) {
@@ -48,15 +66,18 @@ function RequestForm() {
         }
       });
 
-      const response = await axiosInstance.post("/appointment", formData, {
+      const response = await axiosInstance.post("/user-appointment", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(formData);
-      console.log(response.data);
+      if (response.data.success) {
+        toast.success("Successfully booked service!");
+        router.push("/dashboard/appointment");
+      }
     } catch (error) {
       console.log(error);
+      toast.error("Something is wrong! try agin later");
     }
   };
 
@@ -75,34 +96,38 @@ function RequestForm() {
       <h2 className="text-center">Request a Service</h2>
       <FloatingLabel controlId="floatingInput" label="Full Name">
         <Form.Control
+          defaultValue={user?.fullName}
           type="text"
           {...register("fullName", { required: true })}
           placeholder="Enter Full Name"
         />
+        {errors.fullName && (
+          <p className="text-danger">Full Name is required</p>
+        )}
       </FloatingLabel>
       <FloatingLabel controlId="floatingInput" label="Cell Phone">
         <Form.Control
-          value={user?.phone}
+          defaultValue={user?.phone}
           readOnly
           type="text"
           {...register("phone", { required: true })}
           placeholder="Enter Number"
         />
+        {errors.phone && (
+          <p className="text-danger">Phone number is required</p>
+        )}
       </FloatingLabel>
       <FloatingLabel controlId="floatingInput" label="Pet's Name">
         <Form.Control
           type="text"
-          {...register("petName", { required: true })}
+          {...register("petName")}
           placeholder="Enter Pet's Name"
         />
       </FloatingLabel>
       <Row>
         <Col>
           <FloatingLabel controlId="floatingSelect" label="Species">
-            <Form.Select
-              {...register("species", { required: true })}
-              aria-label="Species"
-            >
+            <Form.Select {...register("species")} aria-label="Species">
               <option value="">Select</option>
               <option value="bird">Bird</option>
               <option value="cat">Cat</option>
@@ -119,10 +144,7 @@ function RequestForm() {
 
         <Col>
           <FloatingLabel controlId="floatingInput" label="Breed">
-            <Form.Control
-              {...register("breed", { required: true })}
-              type="text"
-            />
+            <Form.Control {...register("breed")} type="text" />
           </FloatingLabel>
         </Col>
       </Row>
@@ -135,6 +157,22 @@ function RequestForm() {
           onClick={toggleModal}
         />
       </FloatingLabel>{" "}
+      <FloatingLabel controlId="floatingSelect" label="Department">
+        <Form.Select
+          {...register("department", { required: true })}
+          aria-label="Department"
+        >
+          <option value="">Select</option>
+          {departments?.map((department) => (
+            <option key={department._id} value={department._id}>
+              {department.name}
+            </option>
+          ))}
+        </Form.Select>
+        {errors.department && (
+          <p className="text-danger">Department is required</p>
+        )}
+      </FloatingLabel>
       {/* Modal */}
       <Modal show={showModal} onHide={toggleModal} size="lg" style={{}}>
         <Modal.Header closeButton className="border-0 pt-4 px-4"></Modal.Header>
@@ -266,11 +304,7 @@ function RequestForm() {
       </Modal>
       <div>
         Upload Animal Image
-        <Form.Control
-          {...register("image", { required: true })}
-          type="file"
-          size="lg"
-        />
+        <Form.Control {...register("image")} type="file" size="lg" />
       </div>
       <FloatingLabel controlId="floatingTextarea2" label="Notes">
         <Form.Control
