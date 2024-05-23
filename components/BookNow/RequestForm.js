@@ -48,7 +48,7 @@ function RequestForm() {
     try {
       const formData = new FormData();
 
-      formData.append("fullName", data.fullName);
+      formData.append("ownerName", data.ownerName);
       formData.append("phone", data.phone);
       formData.append("petName", data.petName);
       formData.append("species", data.species);
@@ -98,10 +98,10 @@ function RequestForm() {
         <Form.Control
           defaultValue={user?.fullName}
           type="text"
-          {...register("fullName", { required: true })}
+          {...register("ownerName", { required: true })}
           placeholder="Enter Full Name"
         />
-        {errors.fullName && (
+        {errors.ownerName && (
           <p className="text-danger">Full Name is required</p>
         )}
       </FloatingLabel>
