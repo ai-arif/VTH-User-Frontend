@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
 import { FreeMode, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperNextBtn from "../UI/SwiperNextBtn";
