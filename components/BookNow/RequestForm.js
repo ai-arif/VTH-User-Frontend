@@ -97,6 +97,7 @@ function RequestForm() {
       <FloatingLabel controlId="floatingInput" label="Full Name">
         <Form.Control
           defaultValue={user?.fullName}
+          readOnly
           type="text"
           {...register("ownerName", { required: true })}
           placeholder="Enter Full Name"
