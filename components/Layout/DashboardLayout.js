@@ -1,6 +1,5 @@
 "use client";
-import AuthProvider from "@/contexts/AuthProvider";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import DashboardHeader from "../Dashboard/Header/DashboardHeader";
 import Sidebar from "../Dashboard/Sidebar/Sidebar";
 

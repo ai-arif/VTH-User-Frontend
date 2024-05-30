@@ -14,8 +14,11 @@ const AuthProvider = ({ children }) => {
   const fetchUser = async () => {
     try {
       setLoading(true);
-      const response = await axiosInstance.get("/users/profile");
-      setUser(response?.data?.data);
+      const token = Cookies.get("token");
+      if (token) {
+        const response = await axiosInstance.get("/users/profile");
+        setUser(response?.data?.data);
+      }
     } catch (error) {
       console.error("Failed to fetch user:", error);
     } finally {
@@ -28,10 +31,10 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const logout = () => {
-    router.push("/");
     Cookies.remove("token");
-    setUser(null);
+    router.push("/");
     toast.success("Logout Successfully!");
+    setUser(null);
   };
 
   const authInfo = {

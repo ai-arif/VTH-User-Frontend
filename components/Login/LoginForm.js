@@ -3,12 +3,13 @@ import axiosInstance from "@/utils/axiosInstance";
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 function LoginForm() {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { fetchUser } = useContext(AuthContext);
 
@@ -21,17 +22,19 @@ function LoginForm() {
 
   const onSubmit = async (userData) => {
     try {
+      setLoading(true);
       const response = await axiosInstance.post("/users/login", userData);
       if (response.data.success) {
+        toast.success(response.data.message);
         Cookies.set("token", response.data.data.token);
         await fetchUser();
-        router.push("/");
-        toast.success(response.data.message);
         reset();
+        router.push("/");
       }
     } catch (error) {
-      toast.error(error.response.data.message || "Invalid credentials");
+      toast.error("Invalid credentials");
       console.log(error);
+      setLoading(false);
     }
   };
 
@@ -72,14 +75,27 @@ function LoginForm() {
         <span className="tw-w-fit tw-cursor-pointer tw-text-sm tw-text-blue-500 hover:tw-underline">
           Forgot Password?
         </span>
-        <Button
-          type="submit"
-          variant="primary"
-          className="py-2 "
-          style={{ borderRadius: "30px" }}
-        >
-          LOGIN
-        </Button>
+        <div>
+          {loading ? (
+            <Button
+              type="submit"
+              variant="primary"
+              className="py-2 w-100"
+              style={{ borderRadius: "30px" }}
+            >
+              Loading...
+            </Button>
+          ) : (
+            <Button
+              type="submit"
+              variant="primary"
+              className="py-2 w-100"
+              style={{ borderRadius: "30px" }}
+            >
+              LOGIN
+            </Button>
+          )}
+        </div>
         <div className="tw-text-center">
           <span>Don&apos;t Have An Account?</span>{" "}
           <Link

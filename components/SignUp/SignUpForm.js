@@ -13,6 +13,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 function SignUpForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { fetchUser } = useContext(AuthContext);
   const router = useRouter();
 
@@ -34,23 +35,25 @@ function SignUpForm() {
   };
 
   const onSubmit = async (userData) => {
-    try {
-      if (userData.password !== userData.confirmPassword) {
-        return toast.error("password don't match");
-      }
+    if (userData.password !== userData.confirmPassword) {
+      return toast.error("password doesn't match");
+    }
+    delete userData.confirmPassword;
 
-      delete userData.confirmPassword;
+    try {
+      setLoading(true);
       const response = await axiosInstance.post("/users/register", userData);
       if (response.data.success) {
+        toast.success(response.data.message);
         Cookies.set("token", response.data.data.token);
         await fetchUser();
-        router.push("/");
-        toast.success(response.data.message);
         reset();
+        router.push("/");
       }
     } catch (error) {
-      toast.error(error.response.data.message || "User already exists");
+      toast.error("User already exists");
       console.log(error);
+      setLoading(false);
     }
   };
 
@@ -123,14 +126,28 @@ function SignUpForm() {
           </div>
         </div>
 
-        <Button
-          type="submit"
-          variant="primary"
-          className="py-2"
-          style={{ borderRadius: "30px" }}
-        >
-          SIGN UP
-        </Button>
+        <div>
+          {loading ? (
+            <Button
+              type="submit"
+              variant="primary"
+              className="py-2 w-100"
+              style={{ borderRadius: "30px" }}
+            >
+              Loading...
+            </Button>
+          ) : (
+            <Button
+              type="submit"
+              variant="primary"
+              className="py-2 w-100"
+              style={{ borderRadius: "30px" }}
+            >
+              SIGN UP
+            </Button>
+          )}
+        </div>
+
         <div className="tw-text-center">
           <span>Already Have An Account?</span>{" "}
           <Link

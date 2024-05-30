@@ -3,7 +3,7 @@ import Container from "../UI/Container";
 
 function Intro() {
   return (
-    <div id="our-mission">
+    <div id="learn-more">
       <Container>
         <CommonInfo
           headline="our mission"

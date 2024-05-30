@@ -7,7 +7,7 @@ import SectionTitle from "../UI/SectionTitle";
 
 function MeetDoctor() {
   return (
-    <Container>
+    <Container className="d-none d-lg-block">
       <div style={{ padding: "120px 0" }}>
         <Row
           style={{

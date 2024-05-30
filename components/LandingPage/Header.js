@@ -23,6 +23,7 @@ import CustomOutlineButton from "../UI/CustomOutlineButton";
 function Header() {
   const [showStickyContainer, setShowStickyContainer] = useState(false);
   const { user } = useContext(AuthContext);
+  console.log({ user });
 
   useEffect(() => {
     const handleScroll = () => {
