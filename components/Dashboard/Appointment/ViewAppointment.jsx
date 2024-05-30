@@ -27,26 +27,50 @@ const ViewAppointment = () => {
   }
 
   return (
-    <div className="table-responsive">
-      <table className="table tw-overflow-scroll tw-text-xs lg:tw-text-base">
+    <div className="tw-overflow-x-auto">
+      <table className="tw-min-w-full tw-overflow-scroll tw-border tw-border-gray-300 tw-bg-white tw-text-xs lg:tw-text-base">
         <thead>
           <tr>
-            <th className="text-nowrap" scope="col">
+            <th
+              className="tw-whitespace-nowrap tw-border tw-border-gray-300 tw-px-4 tw-py-2"
+              scope="col"
+            >
               Case No.
             </th>
-            <th scope="col">Date & Time</th>
-            <th scope="col">Department</th>
-            <th scope="col">Status</th>
+            <th
+              className="tw-border tw-border-gray-300 tw-px-4 tw-py-2"
+              scope="col"
+            >
+              Date & Time
+            </th>
+            <th
+              className="tw-border tw-border-gray-300 tw-px-4 tw-py-2"
+              scope="col"
+            >
+              Department
+            </th>
+            <th
+              className="tw-border tw-border-gray-300 tw-px-4 tw-py-2"
+              scope="col"
+            >
+              Status
+            </th>
           </tr>
         </thead>
         <tbody>
           {appointments.map((appointment) => (
-            <tr key={appointment?._id}>
-              <td>{appointment?.caseNo}</td>
-              <td>{formatDate(appointment.date)}</td>
-              <td>{appointment?.department?.name}</td>
+            <tr key={appointment?._id} className="tw-border tw-border-gray-300">
+              <td className="tw-border tw-border-gray-300 tw-px-4 tw-py-2">
+                {appointment?.caseNo}
+              </td>
+              <td className="tw-border tw-border-gray-300 tw-px-4 tw-py-2">
+                {formatDate(appointment.date)}
+              </td>
+              <td className="tw-border tw-border-gray-300 tw-px-4 tw-py-2">
+                {appointment?.department?.name}
+              </td>
               <td
-                className={`text-capitalize ${appointment.status === "approved" ? "text-success " : "text-danger"}`}
+                className={`tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-capitalize ${appointment.status === "approved" ? "tw-text-green-500" : "tw-text-red-500"}`}
               >
                 {appointment?.status}
               </td>
@@ -54,36 +78,52 @@ const ViewAppointment = () => {
           ))}
         </tbody>
       </table>
-      <div className="d-flex justify-content-end pt-2">
-        <nav aria-label="Page navigation example">
-          <ul className="pagination">
-            <li className="page-item">
-              <a className="page-link" href="#">
+
+      <div className="tw-flex tw-justify-end tw-pt-4 lg:tw-pt-6">
+        <div>
+          <ul className="tw-flex tw-list-none tw-p-0">
+            <li className="tw-mx-1">
+              <a
+                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
+                href="#"
+              >
                 Previous
               </a>
             </li>
-            <li className="page-item">
-              <a className="page-link" href="#">
+            <li className="tw-mx-1">
+              <a
+                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
+                href="#"
+              >
                 1
               </a>
             </li>
-            <li className="page-item">
-              <a className="page-link" href="#">
+            <li className="tw-mx-1">
+              <a
+                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
+                href="#"
+              >
                 2
               </a>
             </li>
-            <li className="page-item">
-              <a className="page-link" href="#">
+            <li className="tw-mx-1">
+              <a
+                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
+                href="#"
+              >
                 3
               </a>
             </li>
-            <li className="page-item">
-              <a className="page-link" href="#">
+            <li className="tw-mx-1">
+              <a
+                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
+                href="#"
+              >
                 Next
               </a>
             </li>
           </ul>
-        </nav>
+        </div>
       </div>
     </div>
   );
