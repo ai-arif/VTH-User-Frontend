@@ -11,7 +11,10 @@ const withAuth = (WrappedComponent) => {
 
     useEffect(() => {
       if (!loading && !user) {
-        router.push("/login");
+        router.push({
+          pathname: "/login",
+          query: { redirect: router.asPath },
+        });
       }
     }, [user, loading, router]);
 

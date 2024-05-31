@@ -17,6 +17,7 @@ import toast from "react-hot-toast";
 function RequestForm() {
   const [showModal, setShowModal] = useState(false);
   const [departments, setDepartments] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
   const router = useRouter();
 
@@ -46,6 +47,7 @@ function RequestForm() {
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       const formData = new FormData();
 
       formData.append("ownerName", data.ownerName);
@@ -72,12 +74,13 @@ function RequestForm() {
         },
       });
       if (response.data.success) {
-        toast.success("Successfully booked service!");
         router.push("/dashboard/appointment");
+        toast.success("Successfully booked service!");
       }
     } catch (error) {
-      console.log(error);
       toast.error("Something is wrong! try agin later");
+      console.log(error);
+      setLoading(false);
     }
   };
 
@@ -315,14 +318,27 @@ function RequestForm() {
           style={{ height: "100px" }}
         />
       </FloatingLabel>
-      <Button
-        type="submit"
-        variant="primary"
-        className="py-2 "
-        style={{ borderRadius: "30px" }}
-      >
-        REQUEST
-      </Button>
+      <div>
+        {loading ? (
+          <Button
+            type="submit"
+            variant="primary"
+            className="py-2 w-100"
+            style={{ borderRadius: "30px" }}
+          >
+            LOADING...
+          </Button>
+        ) : (
+          <Button
+            type="submit"
+            variant="primary"
+            className="py-2 w-100"
+            style={{ borderRadius: "30px" }}
+          >
+            REQUEST
+          </Button>
+        )}
+      </div>
     </form>
   );
 }

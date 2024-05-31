@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 function LoginForm() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { redirect } = router.query;
   const { fetchUser } = useContext(AuthContext);
 
   const {
@@ -29,7 +30,7 @@ function LoginForm() {
         Cookies.set("token", response.data.data.token);
         await fetchUser();
         reset();
-        router.push("/");
+        router.push(redirect || "/");
       }
     } catch (error) {
       toast.error("Invalid credentials");
