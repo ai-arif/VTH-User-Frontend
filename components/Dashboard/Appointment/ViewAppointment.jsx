@@ -22,6 +22,18 @@ const ViewAppointment = () => {
     fetchAppointments();
   }, []);
 
+  const handlePayment = async (id) => {
+    try {
+      const res = await axiosInstance.post(`/user-appointment/payment/${id}`);
+      if (res.status === 200) {
+        const { url } = res.data;
+        window.location.href = url; // Redirect to the URL from the response
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -55,6 +67,13 @@ const ViewAppointment = () => {
             >
               Status
             </th>
+            {/* to do */}
+            <th
+              className="tw-border tw-border-gray-300 tw-px-4 tw-py-2"
+              scope="col"
+            >
+              Payment
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -73,6 +92,21 @@ const ViewAppointment = () => {
                 className={`tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-capitalize ${appointment.status === "approved" ? "tw-text-green-500" : "tw-text-red-500"}`}
               >
                 {appointment?.status}
+              </td>
+              <td className="tw-text-center">
+                {appointment?.payment === "unpaid" ? (
+                  <button
+                    className="tw-rounded tw-border-0 tw-bg-blue-500 tw-px-3 tw-py-1 tw-text-white hover:tw-bg-blue-600"
+                    type="btn"
+                    onClick={() => {
+                      handlePayment(appointment?._id);
+                    }}
+                  >
+                    Pay
+                  </button>
+                ) : (
+                  <p className="tw-text-center tw-text-green-600">Paid</p>
+                )}
               </td>
             </tr>
           ))}

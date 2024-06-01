@@ -134,7 +134,7 @@ function RequestForm() {
       <FloatingLabel controlId="floatingInput" label="Cell Phone">
         <Form.Control
           defaultValue={user?.phone}
-          // readOnly to do
+          readOnly
           type="text"
           {...register("phone", { required: true })}
           placeholder="Enter Number"
