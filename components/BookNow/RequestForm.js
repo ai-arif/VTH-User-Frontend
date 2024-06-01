@@ -5,7 +5,6 @@ import React, { useContext, useEffect, useState } from "react";
 import {
   Button,
   Col,
-  Container,
   FloatingLabel,
   Form,
   Modal,
@@ -17,6 +16,8 @@ import toast from "react-hot-toast";
 function RequestForm() {
   const [showModal, setShowModal] = useState(false);
   const [departments, setDepartments] = useState([]);
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [imageFiles, setImageFiles] = useState([]);
   const { user } = useContext(AuthContext);
   const router = useRouter();
 
@@ -56,8 +57,10 @@ function RequestForm() {
       formData.append("department", data.department);
       formData.append("notes", data.notes);
 
-      if (data.image && data.image[0]) {
-        formData.append("image", data.image[0]);
+      if (imageFiles.length > 0) {
+        imageFiles.forEach((file) => {
+          formData.append("images", file);
+        });
       }
 
       Object.keys(data).forEach((key) => {
@@ -71,14 +74,33 @@ function RequestForm() {
           "Content-Type": "multipart/form-data",
         },
       });
+
       if (response.data.success) {
         toast.success("Successfully booked service!");
         router.push("/dashboard/appointment");
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something is wrong! try agin later");
+      toast.error("Something is wrong! try again later");
     }
+  };
+
+  const handleImageChange = (e) => {
+    const files = Array.from(e.target.files);
+    if (imageFiles.length + files.length > 5) {
+      toast.error("You can only upload up to 5 images");
+      return;
+    }
+    setSelectedImages((prevImages) => [
+      ...prevImages,
+      ...files.map((file) => URL.createObjectURL(file)),
+    ]);
+    setImageFiles((prevFiles) => [...prevFiles, ...files]);
+  };
+
+  const handleImageDelete = (index) => {
+    setSelectedImages((prevImages) => prevImages.filter((_, i) => i !== index));
+    setImageFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
 
   return (
@@ -108,7 +130,7 @@ function RequestForm() {
       <FloatingLabel controlId="floatingInput" label="Cell Phone">
         <Form.Control
           defaultValue={user?.phone}
-          readOnly
+          // readOnly to do
           type="text"
           {...register("phone", { required: true })}
           placeholder="Enter Number"
@@ -136,7 +158,7 @@ function RequestForm() {
               <option value="horse">Horse</option>
               <option value="rabbit">Rabbit</option>
               <option value="reptile">Reptile</option>
-              <option value="roddent">Roddent</option>
+              <option value="rodent">Rodent</option>
               <option value="other">Other</option>
             </Form.Select>
           </FloatingLabel>{" "}
@@ -272,13 +294,13 @@ function RequestForm() {
             </div>
             <div>
               <Form.Check
-                {...register("medificationRefill")}
+                {...register("medicationRefill")}
                 type="checkbox"
-                label="Medification Refill"
+                label="Medication Refill"
               />
               <Form.Text>
                 Refill Requests will be processed in 24-48 hours. Enter
-                Medifications in the Notes Section{" "}
+                Medications in the Notes Section{" "}
               </Form.Text>
             </div>
           </Form>
@@ -303,8 +325,45 @@ function RequestForm() {
         </Modal.Footer>
       </Modal>
       <div>
-        Upload Animal Image
-        <Form.Control {...register("image")} type="file" size="lg" />
+        Upload Animal Images (0 to 5 images), Only images (pdf is not allowed)
+        <Form.Control
+          {...register("images")}
+          type="file"
+          size="lg"
+          multiple
+          onChange={handleImageChange}
+        />
+      </div>
+      <div className="image-preview">
+        {selectedImages.map((image, index) => (
+          <div key={index} style={{ position: "relative", display: "inline-block", margin: "10px" }}>
+            <img
+              src={image}
+              alt={`Selected ${index}`}
+              style={{ maxWidth: "90px" }}
+            />
+            <button
+              type="button"
+              onClick={() => handleImageDelete(index)}
+              style={{
+                position: "absolute",
+                top: "5px",
+                right: "5px",
+                background: "rgba(255, 0, 0, 0.7)",
+                border: "none",
+                borderRadius: "50%",
+                color: "white",
+                cursor: "pointer",
+                width: "20px",
+                height: "20px",
+                textAlign: "center",
+                lineHeight: "20px",
+              }}
+            >
+              &times;
+            </button>
+          </div>
+        ))}
       </div>
       <FloatingLabel controlId="floatingTextarea2" label="Notes">
         <Form.Control
