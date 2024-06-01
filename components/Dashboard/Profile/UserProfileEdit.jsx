@@ -110,7 +110,7 @@ const UserProfileEdit = () => {
           </CustomButton>
         </form>
       </div>
-      <ChangePassword />
+      <ChangePassword user={user} />
     </>
   );
 };

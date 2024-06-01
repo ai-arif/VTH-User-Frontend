@@ -72,39 +72,27 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-/* table responsive */
-.table-responsive {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+/* swiper styling */
+.swiper-button-prev {
+  display: none !important;
 }
 
-@media (max-width: 575.98px) {
-  .table-responsive-sm {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+.swiper-button-next {
+  display: none !important;
 }
-@media (max-width: 767.98px) {
-  .table-responsive-md {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+
+.sticky-container {
+  transition: top 0.3s ease-in-out;
+  position: fixed;
+  width: 100%;
+  top: -100px; /* initially hidden */
+  z-index: 1030; /* make sure it's below the navbar */
 }
-@media (max-width: 991.98px) {
-  .table-responsive-lg {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+
+.sticky-container.show {
+  top: 0; /* visible */
 }
-@media (max-width: 1199.98px) {
-  .table-responsive-xl {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-@media (max-width: 1399.98px) {
-  .table-responsive-xxl {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+
+.navbar-container {
+  z-index: 1040; /* higher than the sticky container */
 }

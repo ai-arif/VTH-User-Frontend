@@ -1,12 +1,15 @@
 import CustomButton from "@/components/UI/CustomButton";
+import axiosInstance from "@/utils/axiosInstance";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
-const ChangePassword = () => {
+const ChangePassword = ({ user }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // console.log(user);
 
   // password show hide toggle
   const handleTogglePassword = () => {
@@ -24,21 +27,26 @@ const ChangePassword = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (userData) => {
-    console.log(userData);
-    // try {
-    //   if (userData.password !== userData.confirmPassword) {
-    //     return toast.error("password don't match");
-    //   }
-    //   const response = await axiosInstance.put("/users/update", userData);
-    //   if (response.data.success) {
-    //     toast.success(response.data.message);
-    //     await fetchUser();
-    //   }
-    // } catch (error) {
-    //   toast.error("Something Wrong! please try again");
-    //   console.log(error);
-    // }
+  const onSubmit = async (passwordObj) => {
+    if (passwordObj.newPassword !== passwordObj.confirmNewPassword) {
+      return toast.error("password doesn't match");
+    }
+    delete passwordObj.confirmNewPassword;
+
+    try {
+      passwordObj.id = user._id;
+      const response = await axiosInstance.put(
+        "/users/change-password",
+        passwordObj,
+      );
+      if (response.data.success) {
+        toast.success(response.data.message);
+        reset();
+      }
+    } catch (error) {
+      toast.error("Invalid credentials");
+      console.log(error);
+    }
   };
 
   return (
@@ -63,7 +71,7 @@ const ChangePassword = () => {
           <div className="tw-relative tw-space-y-4">
             <label className="tw-block">New Password</label>
             <input
-              {...register("password", { required: true })}
+              {...register("newPassword", { required: true })}
               type={showPassword ? "text" : "password"}
               placeholder="Type New Password"
               className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
@@ -83,7 +91,7 @@ const ChangePassword = () => {
           <div className="tw-relative tw-space-y-4">
             <label className="tw-block">Confirm New Password</label>
             <input
-              {...register("confirmPassword", { required: true })}
+              {...register("confirmNewPassword", { required: true })}
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Re-type New Password"
               className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"

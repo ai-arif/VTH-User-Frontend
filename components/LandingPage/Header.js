@@ -22,15 +22,22 @@ import CustomOutlineButton from "../UI/CustomOutlineButton";
 
 function Header() {
   const [showStickyContainer, setShowStickyContainer] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 800) {
+      const currentScrollTop = window.pageYOffset;
+
+      if (currentScrollTop < lastScrollTop && window.pageYOffset > 700) {
+        // Scrolling up
         setShowStickyContainer(true);
       } else {
+        // Scrolling down
         setShowStickyContainer(false);
       }
+
+      setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -38,72 +45,76 @@ function Header() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [lastScrollTop]);
 
   return (
     <>
-      {showStickyContainer && (
-        <Container fluid className="sticky-top d-none d-lg-block">
-          <Row>
-            <Col
-              className="py-4 tw-bg-tertiary tw-text-primary"
-              style={{
-                display: "flex",
-                fontSize: "1.2rem",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "0.4rem",
-              }}
+      {/* top scroll part */}
+      <Container
+        fluid
+        className={`sticky-container d-none d-lg-block ${showStickyContainer ? "show" : ""}`}
+      >
+        <Row>
+          <Col
+            className="py-4 tw-bg-tertiary tw-text-primary"
+            style={{
+              display: "flex",
+              fontSize: "1.2rem",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "0.4rem",
+            }}
+          >
+            <Link
+              className="tw-text-primary tw-decoration-transparent"
+              href="/book-now"
             >
-              <Link
-                className="tw-text-primary tw-decoration-transparent"
-                href="/book-now"
-              >
-                <FontAwesomeIcon icon={faCalendarCheck} size="lg" />{" "}
-                Appointments
-              </Link>
-            </Col>
-            <Col
-              className="tw-bg-secondary tw-text-primary tw-decoration-transparent"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                fontSize: "1.2rem",
-
-                alignItems: "center",
-                gap: "0.4rem",
-              }}
+              <FontAwesomeIcon icon={faCalendarCheck} size="lg" /> Appointments
+            </Link>
+          </Col>
+          <Col
+            className="tw-bg-secondary tw-text-primary tw-decoration-transparent"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              fontSize: "1.2rem",
+              alignItems: "center",
+              gap: "0.4rem",
+            }}
+          >
+            <Link
+              className="tw-text-primary tw-decoration-transparent"
+              href="tel:270-526-3839"
             >
-              <Link
-                className="tw-text-primary tw-decoration-transparent"
-                href="tel:270-526-3839"
-              >
-                <FontAwesomeIcon icon={faPhone} size="lg" /> Call Now
-              </Link>
-            </Col>
-            <Col
-              className="tw-bg-primary"
-              style={{
-                color: "#fff",
-                display: "flex",
-                justifyContent: "center",
-                fontSize: "1.2rem",
-                alignItems: "center",
-                gap: "0.4rem",
-              }}
+              <FontAwesomeIcon icon={faPhone} size="lg" /> Call Now
+            </Link>
+          </Col>
+          <Col
+            className="tw-bg-primary"
+            style={{
+              color: "#fff",
+              display: "flex",
+              justifyContent: "center",
+              fontSize: "1.2rem",
+              alignItems: "center",
+              gap: "0.4rem",
+            }}
+          >
+            <Link
+              href="/services/all-services"
+              className="tw-text-white tw-decoration-transparent"
             >
-              <Link
-                href="/services/all-services"
-                className="tw-text-white tw-decoration-transparent"
-              >
-                <FontAwesomeIcon icon={faClipboard} size="lg" color="#fff" />{" "}
-                Services
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      )}
-      <Navbar expand={"lg"} className="py-3 py-lg-4 tw-bg-tertiary">
+              <FontAwesomeIcon icon={faClipboard} size="lg" color="#fff" />{" "}
+              Services
+            </Link>
+          </Col>
+        </Row>
+      </Container>
+      {/* navbar part */}
+      <Navbar
+        expand={"lg"}
+        className="py-3 py-lg-4 navbar-container tw-bg-tertiary"
+      >
         <Container>
           <Link href="/" className="navbar-brand">
             <Image
