@@ -9,8 +9,6 @@ const ChangePassword = ({ user }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // console.log(user);
-
   // password show hide toggle
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
