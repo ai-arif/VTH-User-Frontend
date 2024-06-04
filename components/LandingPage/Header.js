@@ -1,10 +1,4 @@
 import { AuthContext } from "@/contexts/AuthProvider";
-import {
-  faCalendarCheck,
-  faClipboard,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
@@ -17,6 +11,9 @@ import {
   Offcanvas,
   Row,
 } from "react-bootstrap";
+import { FaCalendarCheck } from "react-icons/fa";
+import { FaClipboardList } from "react-icons/fa6";
+import { IoCall } from "react-icons/io5";
 import CustomButton from "../UI/CustomButton";
 import CustomOutlineButton from "../UI/CustomOutlineButton";
 
@@ -66,10 +63,10 @@ function Header() {
             }}
           >
             <Link
-              className="tw-text-primary tw-decoration-transparent"
+              className="d-flex gap-2 tw-text-primary tw-decoration-transparent"
               href="/book-now"
             >
-              <FontAwesomeIcon icon={faCalendarCheck} size="lg" /> Appointments
+              <FaCalendarCheck size={22} /> Appointments
             </Link>
           </Col>
           <Col
@@ -83,10 +80,10 @@ function Header() {
             }}
           >
             <Link
-              className="tw-text-primary tw-decoration-transparent"
+              className="d-flex gap-2 tw-text-primary tw-decoration-transparent"
               href="tel:270-526-3839"
             >
-              <FontAwesomeIcon icon={faPhone} size="lg" /> Call Now
+              <IoCall size={22} /> Call Now
             </Link>
           </Col>
           <Col
@@ -102,10 +99,9 @@ function Header() {
           >
             <Link
               href="/services/all-services"
-              className="tw-text-white tw-decoration-transparent"
+              className="d-flex gap-2 tw-text-white tw-decoration-transparent"
             >
-              <FontAwesomeIcon icon={faClipboard} size="lg" color="#fff" />{" "}
-              Services
+              <FaClipboardList size={22} color="#fff" /> Services
             </Link>
           </Col>
         </Row>
