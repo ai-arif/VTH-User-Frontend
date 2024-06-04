@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
   const fetchUser = async () => {
     try {
       setLoading(true);
-      const token = Cookies.get("token");
+      const token = Cookies.get("vth_user_token");
       if (token) {
         const response = await axiosInstance.get("/users/profile");
         setUser(response?.data?.data);
@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const logout = () => {
-    Cookies.remove("token");
+    Cookies.remove("vth_user_token");
     router.push("/");
     toast.success("Logout Successfully!");
     setUser(null);

@@ -10,7 +10,7 @@ const axiosInstance = axios.create({
 // Add a request interceptor to set the Authorization header
 axiosInstance.interceptors.request.use(
   (config) => {
-    const token = Cookies.get("token"); // Replace 'your_token_cookie_name' with the name of your token cookie
+    const token = Cookies.get("vth_user_token"); // Replace 'your_token_cookie_name' with the name of your token cookie
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }

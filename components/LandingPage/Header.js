@@ -24,7 +24,6 @@ function Header() {
   const [showStickyContainer, setShowStickyContainer] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const { user } = useContext(AuthContext);
-  console.log({ user })
 
   useEffect(() => {
     const handleScroll = () => {

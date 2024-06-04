@@ -27,7 +27,7 @@ function LoginForm() {
       const response = await axiosInstance.post("/users/login", userData);
       if (response.data.success) {
         toast.success(response.data.message);
-        Cookies.set("token", response.data.data.token);
+        Cookies.set("vth_user_token", response.data.data.token);
         await fetchUser();
         reset();
         router.push(redirect || "/");
