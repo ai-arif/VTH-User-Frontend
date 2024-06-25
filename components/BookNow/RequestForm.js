@@ -212,7 +212,7 @@ function RequestForm() {
             aria-label="Department"
           >
             <option value="">Select</option>
-            {departments?.map((department) => (
+            {departments?.data?.map((department) => (
               <option key={department._id} value={department._id}>
                 {department.name}
               </option>
