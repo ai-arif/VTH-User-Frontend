@@ -30,7 +30,7 @@ const ContactUs = () => {
                     Our Location
                   </h3>
                   <p className="tw-text-xs lg:tw-text-base">
-                    North to the Jobbar's Mor and East to the railstation, BAU,
+                    North to the Jobbar&apos;s Mor and East to the railstation, BAU,
                     Mymensingh
                   </p>
                 </div>
