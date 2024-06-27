@@ -18,7 +18,7 @@ const AllServices = () => {
                 href="/services/alternative-therapies"
                 className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
-                <span>Alternative Therapies</span>
+                <span>Medicine</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
               </Link>
             </div>
@@ -27,7 +27,7 @@ const AllServices = () => {
                 href="/services/boarding"
                 className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
-                <span>Boarding</span>
+                <span>Surgery</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
               </Link>
             </div>
@@ -36,7 +36,7 @@ const AllServices = () => {
                 href="/services/animal"
                 className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
-                <span>Large Animal Services</span>
+                <span>Theriogenology</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
               </Link>
             </div>
@@ -48,7 +48,7 @@ const AllServices = () => {
                 href="/services/dental"
                 className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
-                <span>Dental Services</span>
+                <span>Necropsy</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
               </Link>
             </div>
@@ -57,7 +57,7 @@ const AllServices = () => {
                 href="/services/diagnostics"
                 className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
-                <span>Diagnostics</span>
+                <span>Ambulatory, Consultancy</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
               </Link>
             </div>

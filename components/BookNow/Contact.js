@@ -92,7 +92,7 @@ function Contact() {
             </div>
             <div>
               <h5>EMAIL</h5>
-              <p>contact@vth.com</p>
+              <p>director.vth@bau.edu.bd</p>
             </div>
           </div>
           <div style={{ display: "flex", gap: "1rem" }}>

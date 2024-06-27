@@ -7,7 +7,7 @@ function Intro() {
       <Container>
         <CommonInfo
           headline="our mission"
-          title="Premier Pet Care With A Personal Touch"
+          title="To restore & improve the health and wellbeing of your animals & birds"
         >
           Our team is a family of passionate, dedicated animal lovers known for
           our excellent service to the pets and people of Mymensingh and the

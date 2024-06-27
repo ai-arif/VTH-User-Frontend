@@ -114,7 +114,9 @@ function Team() {
                         alignItems: "center",
                       }}
                     >
-                      <h3 className="tw-text-primary">Same-Day Appointments</h3>
+                      <h3 className="tw-text-primary">
+                        A to Z solution for Ruminants
+                      </h3>
                       <Card.Text className="tw-text-lg tw-font-light">
                         We know that the unexpected happens, and we promise to
                         do our best to accommodate the needs of our patients and
@@ -148,7 +150,7 @@ function Team() {
                       }}
                     >
                       <h3 className="tw-text-primary">
-                        Local Favorite Veterinarians
+                        Quality Service for Pet, Animals & Birds
                       </h3>
                       <Card.Text className="tw-text-lg tw-font-light">
                         We’re more than just your veterinary team! We’re your
@@ -182,7 +184,9 @@ function Team() {
                         alignItems: "center",
                       }}
                     >
-                      <h3 className="tw-text-primary">Urgent Care Available</h3>
+                      <h3 className="tw-text-primary">
+                        Quality Necropsy service for poultry
+                      </h3>
                       <Card.Text className="tw-text-lg tw-font-light">
                         Though we hope you never need it, we’re available to
                         provide urgent care during our open hours, and we have
