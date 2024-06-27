@@ -23,25 +23,25 @@ function Footer() {
                 <Col md={6}>
                   <h3>Hospital Hours</h3>
                   <p>
-                    <b>Monday: </b>8:00am-5:00pm
+                    <b>Monday: </b>9:00am-5:00pm
                   </p>
                   <p>
-                    <b>Tuesday: </b>8:00am-5:00pm
+                    <b>Tuesday: </b>9:00am-5:00pm
                   </p>
                   <p>
-                    <b>Wednesday: </b>8:00am-5:00pm
+                    <b>Wednesday: </b>9:00am-5:00pm
                   </p>
                   <p>
-                    <b>Thursday: </b>8:00am-5:00pm
+                    <b>Thursday: </b>9:00am-5:00pm
                   </p>
                   <p>
-                    <b>Friday: </b>8:00am-5:00pm
+                    <b>Friday: </b>9:00am-2:00pm
                   </p>
                   <p>
-                    <b>Saturday: </b>8:00am-12:00pm
+                    <b>Saturday: </b>9:00am-5:00pm
                   </p>
                   <p>
-                    <b>Closed Sunday & M-F 12:00-1:00pm</b>
+                    <b>Sunday: </b>9:00am-5:00pm
                   </p>
                 </Col>
                 <Col md={6}>
@@ -55,7 +55,7 @@ function Footer() {
               <div>
                 <h3>Contact Us</h3>
                 <p>
-                  <b>BOOK NOW | contact@vth.com | 09638-100303</b>
+                  <b>BOOK NOW | director.vth@bau.edu.bd | +88 01729301016</b>
                 </p>
               </div>
               <hr />
@@ -75,12 +75,12 @@ function Footer() {
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
-                  allowfullscreen=""
+                  allowFullscreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
-              <div>
+              {/* <div>
                 <h3>Stay in Touch!</h3>
                 <div
                   style={{
@@ -96,7 +96,7 @@ function Footer() {
                     </Button>
                   </InputGroup>
                 </div>
-              </div>
+              </div> */}
               <hr />
             </Col>
           </Row>
@@ -105,7 +105,7 @@ function Footer() {
       <Container fluid className="tw-bg-secondary">
         <Container className="py-4">
           <p className="mb-0">
-            Privacy Policy | Accessibility | © Copyright 2024 - Developed by{" "}
+            © Copyright 2024 - Developed by{" "}
             <span className="fw-medium">DevsGiant</span>
           </p>
         </Container>

@@ -19,7 +19,7 @@ function Appointment() {
         >
           <div className="tw-flex tw-items-center tw-gap-3 tw-text-primary">
             <FontAwesomeIcon icon={faPhone} />
-            <h4 className="mb-0">270-526-3839</h4>
+            <h4 className="mb-0">+88 01729301016</h4>
           </div>
           <div>
             <Link href="/book-now">

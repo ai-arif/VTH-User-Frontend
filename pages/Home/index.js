@@ -18,7 +18,7 @@ export default function Home() {
       <Header />
       <PageBanner
         headline="SO GLAD YOU'RE HERE"
-        title="We are building a clinic experience as unique as the pets we care for."
+        title="Welcome to BAU Veterinary Teaching Hospital"
         buttonName="Our Mission"
         image={vthBanner}
       />
