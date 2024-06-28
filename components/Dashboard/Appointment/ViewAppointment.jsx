@@ -5,13 +5,19 @@ import React, { useEffect, useState } from "react";
 
 const ViewAppointment = () => {
   const [appointments, setAppointments] = useState([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchAppointments = async () => {
+    const fetchAppointments = async (page = 1, limit = 15) => {
+      // setLoading(true);
       try {
-        const res = await axiosInstance.get("/user-appointment");
+        const res = await axiosInstance.get(
+          `/user-appointment?page=${page}&limit=${limit}`,
+        );
         setAppointments(res?.data?.data?.appointments);
+        setTotalPages(res?.data?.data?.totalPages);
       } catch (error) {
         console.error("Failed to fetch appointments:", error);
       } finally {
@@ -19,8 +25,8 @@ const ViewAppointment = () => {
       }
     };
 
-    fetchAppointments();
-  }, []);
+    fetchAppointments(currentPage);
+  }, [currentPage]);
 
   const handlePayment = async (id) => {
     try {
@@ -31,6 +37,12 @@ const ViewAppointment = () => {
       }
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
     }
   };
 
@@ -114,47 +126,36 @@ const ViewAppointment = () => {
       </table>
 
       <div className="tw-flex tw-justify-end tw-pt-4 lg:tw-pt-6">
+        {/* Pagination */}
         <div>
           <ul className="tw-flex tw-list-none tw-p-0">
             <li className="tw-mx-1">
-              <a
-                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
-                href="#"
+              <button
+                className={`tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200 ${currentPage === 1 ? "tw-cursor-not-allowed tw-opacity-50" : ""}`}
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
               >
                 Previous
-              </a>
+              </button>
             </li>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <li key={index} className="tw-mx-1">
+                <button
+                  className={`tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200 ${currentPage === index + 1 ? "tw-bg-gray-200" : ""}`}
+                  onClick={() => handlePageChange(index + 1)}
+                >
+                  {index + 1}
+                </button>
+              </li>
+            ))}
             <li className="tw-mx-1">
-              <a
-                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
-                href="#"
-              >
-                1
-              </a>
-            </li>
-            <li className="tw-mx-1">
-              <a
-                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
-                href="#"
-              >
-                2
-              </a>
-            </li>
-            <li className="tw-mx-1">
-              <a
-                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
-                href="#"
-              >
-                3
-              </a>
-            </li>
-            <li className="tw-mx-1">
-              <a
-                className="tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200"
-                href="#"
+              <button
+                className={`tw-block tw-rounded tw-border tw-border-gray-300 tw-bg-white tw-px-3 tw-py-1 tw-text-gray-700 hover:tw-bg-gray-200 ${currentPage === totalPages ? "tw-cursor-not-allowed tw-opacity-50" : ""}`}
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
               >
                 Next
-              </a>
+              </button>
             </li>
           </ul>
         </div>
