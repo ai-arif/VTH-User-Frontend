@@ -54,7 +54,15 @@ const DashboardHeader = ({ sidebarOpen, setSidebarOpen }) => {
         <div className="tw-hidden tw-text-lg md:tw-block">Welcome To VTH</div>
 
         {/* <!-- User Area --> */}
-        <User />
+        <div className="tw-flex tw-items-center tw-gap-4 lg:tw-gap-5">
+          <Link
+            href="/book-now"
+            className="tw-rounded tw-bg-primary tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-white tw-no-underline"
+          >
+            Book Now
+          </Link>
+          <User />
+        </div>
         {/* <!-- User Area --> */}
       </div>
     </header>

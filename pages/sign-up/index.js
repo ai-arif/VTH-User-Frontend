@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout";
 import SignUp from "@/components/SignUp/SignUp";
 import React from "react";
 
@@ -20,9 +21,9 @@ export const getServerSideProps = async (context) => {
 
 const SignUpPage = () => {
   return (
-    <>
+    <Layout>
       <SignUp />
-    </>
+    </Layout>
   );
 };
 

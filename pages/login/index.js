@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout";
 import Login from "@/components/Login";
 import React from "react";
 
@@ -20,9 +21,9 @@ export const getServerSideProps = async (context) => {
 
 function index() {
   return (
-    <>
+    <Layout>
       <Login />
-    </>
+    </Layout>
   );
 }
 
