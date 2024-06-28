@@ -33,7 +33,7 @@ function LoginForm() {
         router.push(redirect || "/");
       }
     } catch (error) {
-      toast.error("Invalid credentials");
+      toast.error(error.response.data.message || "Something wrong! try again");
       console.log(error);
       setLoading(false);
     }

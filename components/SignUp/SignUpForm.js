@@ -51,7 +51,7 @@ function SignUpForm() {
         router.push("/");
       }
     } catch (error) {
-      toast.error("User already exists");
+      toast.error(error.response.data.message || "Something wrong! try again");
       console.log(error);
       setLoading(false);
     }
