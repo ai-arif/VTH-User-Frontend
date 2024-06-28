@@ -16,6 +16,8 @@ function RequestForm() {
   const [selectedImages, setSelectedImages] = useState([]);
   const [imageFiles, setImageFiles] = useState([]);
   const [selectedReasons, setSelectedReasons] = useState([]);
+  const [speciesByBreeds, setSpeciesByBreeds] = useState([]);
+  const [speciesByComplaints, setSpeciesByComplaint] = useState([]);
   const { user } = useContext(AuthContext);
   const router = useRouter();
 
@@ -103,25 +105,11 @@ function RequestForm() {
     setImageFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
 
-  // fetch departments
-  useEffect(() => {
-    const fetchDepartments = async () => {
-      try {
-        const response = await axiosInstance.get("/department");
-        setDepartments(response?.data?.data);
-      } catch (error) {
-        console.error("Failed to fetch departments:", error);
-      }
-    };
-
-    fetchDepartments();
-  }, []);
-
   // fetch species
   useEffect(() => {
     const fetchSpecies = async () => {
       try {
-        const response = await axiosInstance.get("/species");
+        const response = await axiosInstance.get("/species?page=1&limit=1000");
         setSpecies(response?.data?.data);
       } catch (error) {
         console.error("Failed to fetch species:", error);
@@ -129,6 +117,67 @@ function RequestForm() {
     };
 
     fetchSpecies();
+  }, []);
+
+  // fetch breeds & complaints
+  // const fetchBreeds = async (speciesId) => {
+  //   try {
+  //     if (!speciesId) return;
+
+  //     const responseBreed = await axiosInstance.get(
+  //       `/breed/species/${speciesId}`,
+  //     );
+  //     const responseComplaints = await axiosInstance.get(
+  //       `/complaint/species/${speciesId}`,
+  //     );
+  //     const breedData = responseBreed?.data?.data;
+  //     const complaintsData = responseComplaints?.data?.data;
+  //     if (breedData.length > 0) {
+  //       setSpeciesByBreeds(breedData);
+  //       setSpeciesByComplaint(complaintsData);
+  //     } else {
+  //       setSpeciesByBreeds([]);
+  //       setSpeciesByComplaint([]);
+  //     }
+  //   } catch (error) {
+  //     return Promise.reject(error);
+  //   }
+  // };
+
+  // fetch breeds & complaints
+  const fetchBreedsAndComplaints = async (speciesId) => {
+    if (!speciesId) return;
+
+    try {
+      const [breedResponse, complaintsResponse] = await Promise.all([
+        axiosInstance.get(`/breed/species/${speciesId}`),
+        axiosInstance.get(`/complaint/species/${speciesId}`),
+      ]);
+
+      const breedData = breedResponse?.data?.data || [];
+      const complaintsData = complaintsResponse?.data?.data || [];
+
+      setSpeciesByBreeds(breedData);
+      setSpeciesByComplaint(complaintsData);
+    } catch (error) {
+      console.error("Error fetching breeds and complaints:", error);
+    }
+  };
+
+  // fetch departments
+  useEffect(() => {
+    const fetchDepartments = async () => {
+      try {
+        const response = await axiosInstance.get(
+          "/department?page=1&limit=500",
+        );
+        setDepartments(response?.data?.data);
+      } catch (error) {
+        console.error("Failed to fetch departments:", error);
+      }
+    };
+
+    fetchDepartments();
   }, []);
 
   return (
@@ -196,6 +245,7 @@ function RequestForm() {
                 disabled={!user?.isCompleted}
                 {...register("species")}
                 aria-label="Species"
+                onChange={(e) => fetchBreedsAndComplaints(e.target.value)}
               >
                 <option value="">Select</option>
                 {species?.data?.map((specie) => (
@@ -206,17 +256,40 @@ function RequestForm() {
               </Form.Select>
             </FloatingLabel>{" "}
           </Col>
-
           <Col>
             <FloatingLabel controlId="floatingInput" label="Breed">
-              <Form.Control
+              <Form.Select
                 disabled={!user?.isCompleted}
                 {...register("breed")}
-                type="text"
-              />
+                aria-label="breed"
+              >
+                <option value="">Select</option>
+                {speciesByBreeds?.map((breed) => (
+                  <option key={breed._id} value={breed._id}>
+                    {breed.breed}
+                  </option>
+                ))}
+              </Form.Select>
             </FloatingLabel>
           </Col>
         </Row>
+        <FloatingLabel controlId="floatingSelect" label="Complaints">
+          <Form.Select
+            disabled={!user?.isCompleted}
+            {...register("complaints", { required: true })}
+            aria-label="Complaints"
+          >
+            <option value="">Select</option>
+            {speciesByComplaints?.map((complaint) => (
+              <option key={complaint._id} value={complaint._id}>
+                {complaint.complaint}
+              </option>
+            ))}
+          </Form.Select>
+          {errors.department && (
+            <p className="text-danger">Department is required</p>
+          )}
+        </FloatingLabel>
         <FloatingLabel
           controlId="floatingSelect"
           label="Reason's for Appointment"

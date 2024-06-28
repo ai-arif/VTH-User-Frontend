@@ -10,7 +10,9 @@ const ViewPrescription = () => {
   useEffect(() => {
     const fetchPrescription = async () => {
       try {
-        const res = await axiosInstance.get("/user-prescription");
+        const res = await axiosInstance.get(
+          "/user-prescription?page=1&limit=500",
+        );
         setPrescriptions(res?.data?.data?.prescriptions);
       } catch (error) {
         console.error("Failed to fetch prescription:", error);
