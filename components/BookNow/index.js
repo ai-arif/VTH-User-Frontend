@@ -1,9 +1,9 @@
+import Image from "next/image";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import RequestForm from "./RequestForm";
-import Image from "next/image";
 import Contact from "./Contact";
 import DownloadLinks from "./DownloadLinks";
+import RequestForm from "./RequestForm";
 
 function BookNow() {
   return (
