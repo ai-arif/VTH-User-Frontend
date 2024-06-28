@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import WithoutFooter from "@/components/Layout/WithoutFooter";
 import SignUp from "@/components/SignUp/SignUp";
 import React from "react";
 
@@ -21,9 +22,9 @@ export const getServerSideProps = async (context) => {
 
 const SignUpPage = () => {
   return (
-    <Layout>
+    <WithoutFooter>
       <SignUp />
-    </Layout>
+    </WithoutFooter>
   );
 };
 

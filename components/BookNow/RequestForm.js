@@ -12,8 +12,10 @@ function RequestForm() {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [departments, setDepartments] = useState([]);
+  const [species, setSpecies] = useState([]);
   const [selectedImages, setSelectedImages] = useState([]);
   const [imageFiles, setImageFiles] = useState([]);
+  const [selectedReasons, setSelectedReasons] = useState([]);
   const { user } = useContext(AuthContext);
   const router = useRouter();
 
@@ -21,18 +23,14 @@ function RequestForm() {
     setShowModal(!showModal);
   };
 
-  useEffect(() => {
-    const fetchDepartments = async () => {
-      try {
-        const response = await axiosInstance.get("/department");
-        setDepartments(response?.data?.data);
-      } catch (error) {
-        console.error("Failed to fetch departments:", error);
-      }
-    };
-
-    fetchDepartments();
-  }, []);
+  const handleReasonChange = (e) => {
+    const { name, checked } = e.target;
+    if (checked) {
+      setSelectedReasons((prev) => [...prev, name]);
+    } else {
+      setSelectedReasons((prev) => prev.filter((reason) => reason !== name));
+    }
+  };
 
   const {
     handleSubmit,
@@ -105,6 +103,34 @@ function RequestForm() {
     setImageFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
 
+  // fetch departments
+  useEffect(() => {
+    const fetchDepartments = async () => {
+      try {
+        const response = await axiosInstance.get("/department");
+        setDepartments(response?.data?.data);
+      } catch (error) {
+        console.error("Failed to fetch departments:", error);
+      }
+    };
+
+    fetchDepartments();
+  }, []);
+
+  // fetch species
+  useEffect(() => {
+    const fetchSpecies = async () => {
+      try {
+        const response = await axiosInstance.get("/species");
+        setSpecies(response?.data?.data);
+      } catch (error) {
+        console.error("Failed to fetch species:", error);
+      }
+    };
+
+    fetchSpecies();
+  }, []);
+
   return (
     <>
       <form
@@ -172,15 +198,11 @@ function RequestForm() {
                 aria-label="Species"
               >
                 <option value="">Select</option>
-                <option value="bird">Bird</option>
-                <option value="cat">Cat</option>
-                <option value="dog">Dog</option>
-                <option value="ferret">Ferret</option>
-                <option value="horse">Horse</option>
-                <option value="rabbit">Rabbit</option>
-                <option value="reptile">Reptile</option>
-                <option value="rodent">Rodent</option>
-                <option value="other">Other</option>
+                {species?.data?.map((specie) => (
+                  <option key={specie._id} value={specie._id}>
+                    {specie.name}
+                  </option>
+                ))}
               </Form.Select>
             </FloatingLabel>{" "}
           </Col>
@@ -199,28 +221,15 @@ function RequestForm() {
           controlId="floatingSelect"
           label="Reason's for Appointment"
         >
-          <Form.Select
+          <Form.Control
             disabled={!user?.isCompleted}
-            aria-label="Reason's for Appointment"
+            as="textarea"
+            readOnly
+            value={selectedReasons.join(", ")}
+            placeholder="Selected Reasons"
             onClick={toggleModal}
+            style={{ cursor: "pointer", backgroundColor: "#fff" }}
           />
-        </FloatingLabel>{" "}
-        <FloatingLabel controlId="floatingSelect" label="Department">
-          <Form.Select
-            disabled={!user?.isCompleted}
-            {...register("department", { required: true })}
-            aria-label="Department"
-          >
-            <option value="">Select</option>
-            {departments?.data?.map((department) => (
-              <option key={department._id} value={department._id}>
-                {department.name}
-              </option>
-            ))}
-          </Form.Select>
-          {errors.department && (
-            <p className="text-danger">Department is required</p>
-          )}
         </FloatingLabel>
         {/* Modal */}
         <Modal show={showModal} onHide={toggleModal} size="lg" style={{}}>
@@ -247,6 +256,8 @@ function RequestForm() {
                   {...register("annualComprehensiveExam")}
                   type="checkbox"
                   label="Annual Comprehensive Exam"
+                  name="Annual Comprehensive Exam"
+                  onChange={handleReasonChange}
                 />
                 <Form.Text>Please bring fresh fecal sample. </Form.Text>
               </div>
@@ -254,12 +265,16 @@ function RequestForm() {
                 {...register("vaccinations")}
                 type="checkbox"
                 label="Vaccinations"
+                name="Vaccinations"
+                onChange={handleReasonChange}
               />
               <div>
                 <Form.Check
                   {...register("petSick")}
                   type="checkbox"
                   label="Sick Pet Exam"
+                  name="Vaccinations"
+                  onChange={handleReasonChange}
                 />
                 <Form.Text>
                   If urgent, please call us ASAP. Otherwise, please enter notes
@@ -271,6 +286,8 @@ function RequestForm() {
                   {...register("dental")}
                   type="checkbox"
                   label="Dental"
+                  name="Dental"
+                  onChange={handleReasonChange}
                 />
                 <Form.Text>
                   Drop off is between 8:00 AM - 8:30 AM. No food after midnight
@@ -282,6 +299,8 @@ function RequestForm() {
                   {...register("surgery")}
                   type="checkbox"
                   label="Surgery"
+                  name="Surgery"
+                  onChange={handleReasonChange}
                 />
                 <Form.Text>
                   Drop off is between 8:00 AM - 8:30 AM. No food after midnight
@@ -292,12 +311,16 @@ function RequestForm() {
                 {...register("nailTrim")}
                 type="checkbox"
                 label="Nail Trim"
+                name="Nail Trim"
+                onChange={handleReasonChange}
               />
               <div>
                 <Form.Check
                   {...register("overnightBoarding")}
                   type="checkbox"
                   label="Overnight Boarding"
+                  name="Overnight Boarding"
+                  onChange={handleReasonChange}
                 />
                 <Form.Text>
                   Must be current on vaccines, heartworm test, intestinal
@@ -309,6 +332,8 @@ function RequestForm() {
                   {...register("other")}
                   type="checkbox"
                   label="Other"
+                  name="Other"
+                  onChange={handleReasonChange}
                 />
                 <Form.Text>
                   Please enter reason for appointments in the Notes Section{" "}
@@ -346,6 +371,23 @@ function RequestForm() {
             </Button>
           </Modal.Footer>
         </Modal>
+        <FloatingLabel controlId="floatingSelect" label="Department">
+          <Form.Select
+            disabled={!user?.isCompleted}
+            {...register("department", { required: true })}
+            aria-label="Department"
+          >
+            <option value="">Select</option>
+            {departments?.data?.map((department) => (
+              <option key={department._id} value={department._id}>
+                {department.name}
+              </option>
+            ))}
+          </Form.Select>
+          {errors.department && (
+            <p className="text-danger">Department is required</p>
+          )}
+        </FloatingLabel>
         <div>
           Upload Animal Images (0 to 5 images), Only images (pdf is not allowed)
           <Form.Control
