@@ -29,7 +29,7 @@ function MeetDoctor() {
               MEET YOUR DOCTOR
             </SectionTitle>
             <p className="mb-0 tw-pt-1 tw-text-center tw-text-xl tw-font-medium tw-text-primary lg:tw-pt-2 lg:tw-text-left lg:tw-text-4xl lg:tw-font-semibold">
-              We’re All About Smiling Faces & Wagging Tails
+              We are at your disposal for the wellbeing of your pet
             </p>
             <Link href="/book-now">
               <CustomButton>Book Now</CustomButton>

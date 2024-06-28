@@ -156,31 +156,31 @@ function Header() {
                     className="dropdown-item tw-text-primary"
                     href="/services/alternative-therapies"
                   >
-                    Alternative Therapies
+                    Medicine
                   </Link>
                   <Link
                     className="dropdown-item tw-text-primary"
                     href="/services/boarding"
                   >
-                    Boarding
+                    Surgery
                   </Link>
                   <Link
                     className="dropdown-item tw-text-primary"
                     href="/services/animal"
                   >
-                    Large Animal Services
+                    Theriogenology
                   </Link>
                   <Link
                     className="dropdown-item tw-text-primary"
                     href="/services/dental"
                   >
-                    Dental Services
+                    Necropsy
                   </Link>
                   <Link
                     className="dropdown-item tw-text-primary"
                     href="/services/diagnostics"
                   >
-                    Diagnostics
+                    Ambulatory, Consultancy
                   </Link>
                   <Link
                     className="dropdown-item tw-text-primary"

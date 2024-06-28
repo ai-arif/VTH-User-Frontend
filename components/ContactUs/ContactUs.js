@@ -30,7 +30,8 @@ const ContactUs = () => {
                     Our Location
                   </h3>
                   <p className="tw-text-xs lg:tw-text-base">
-                    BAU Main Road, Mymensingh 2202
+                    North to the Jobbar&apos;s Mor and East to the railstation, BAU,
+                    Mymensingh
                   </p>
                 </div>
               </div>
@@ -53,7 +54,9 @@ const ContactUs = () => {
                   <h3 className="tw-text-lg tw-font-semibold lg:tw-text-xl">
                     Email Address
                   </h3>
-                  <p className="tw-text-xs lg:tw-text-base">contact@vth.com</p>
+                  <p className="tw-text-xs lg:tw-text-base">
+                    director.vth@bau.edu.bd
+                  </p>
                 </div>
               </div>
               <div className="tw-flex tw-items-center tw-gap-2 lg:tw-gap-4">
