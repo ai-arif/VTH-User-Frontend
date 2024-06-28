@@ -11,7 +11,7 @@ const ViewPrescription = () => {
     const fetchPrescription = async () => {
       try {
         const res = await axiosInstance.get(
-          "/user-prescription?page=1&limit=500",
+          "/user-prescription?page=1&limit=50",
         );
         setPrescriptions(res?.data?.data?.prescriptions);
       } catch (error) {

@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import { Button, Col, FloatingLabel, Form, Modal, Row } from "react-bootstrap";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { FaArrowRightLong } from "react-icons/fa6";
+import CreatableSelect from "react-select/creatable";
 
 function RequestForm() {
   const [showModal, setShowModal] = useState(false);
@@ -34,16 +35,23 @@ function RequestForm() {
     }
   };
 
+  const complaintOptions = speciesByComplaints?.map((complaint) => ({
+    value: complaint._id,
+    label: complaint.complaint,
+  }));
+
   const {
     handleSubmit,
     register,
     reset,
+    control,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
     try {
       setLoading(true);
+      data.complaint = data.complaint.value;
       const formData = new FormData();
 
       formData.append("ownerName", data.ownerName);
@@ -54,6 +62,7 @@ function RequestForm() {
       formData.append("petName", data.petName);
       formData.append("species", data.species);
       formData.append("breed", data.breed);
+      formData.append("complaint", data.complaint);
       formData.append("department", data.department);
       formData.append("notes", data.notes);
 
@@ -118,31 +127,6 @@ function RequestForm() {
 
     fetchSpecies();
   }, []);
-
-  // fetch breeds & complaints
-  // const fetchBreeds = async (speciesId) => {
-  //   try {
-  //     if (!speciesId) return;
-
-  //     const responseBreed = await axiosInstance.get(
-  //       `/breed/species/${speciesId}`,
-  //     );
-  //     const responseComplaints = await axiosInstance.get(
-  //       `/complaint/species/${speciesId}`,
-  //     );
-  //     const breedData = responseBreed?.data?.data;
-  //     const complaintsData = responseComplaints?.data?.data;
-  //     if (breedData.length > 0) {
-  //       setSpeciesByBreeds(breedData);
-  //       setSpeciesByComplaint(complaintsData);
-  //     } else {
-  //       setSpeciesByBreeds([]);
-  //       setSpeciesByComplaint([]);
-  //     }
-  //   } catch (error) {
-  //     return Promise.reject(error);
-  //   }
-  // };
 
   // fetch breeds & complaints
   const fetchBreedsAndComplaints = async (speciesId) => {
@@ -214,7 +198,7 @@ function RequestForm() {
             placeholder="Enter Full Name"
           />
           {errors.ownerName && (
-            <p className="text-danger">Full Name is required</p>
+            <small className="text-danger">Full Name is required</small>
           )}
         </FloatingLabel>
         <FloatingLabel controlId="floatingInput" label="Cell Phone">
@@ -227,7 +211,7 @@ function RequestForm() {
             placeholder="Enter Number"
           />
           {errors.phone && (
-            <p className="text-danger">Phone number is required</p>
+            <small className="text-danger">Phone number is required</small>
           )}
         </FloatingLabel>
         <FloatingLabel controlId="floatingInput" label="Pet's Name">
@@ -243,7 +227,7 @@ function RequestForm() {
             <FloatingLabel controlId="floatingSelect" label="Species">
               <Form.Select
                 disabled={!user?.isCompleted}
-                {...register("species")}
+                {...register("species", { required: true })}
                 aria-label="Species"
                 onChange={(e) => fetchBreedsAndComplaints(e.target.value)}
               >
@@ -254,6 +238,9 @@ function RequestForm() {
                   </option>
                 ))}
               </Form.Select>
+              {errors.species && (
+                <small className="text-danger">Species is required</small>
+              )}
             </FloatingLabel>{" "}
           </Col>
           <Col>
@@ -273,22 +260,24 @@ function RequestForm() {
             </FloatingLabel>
           </Col>
         </Row>
-        <FloatingLabel controlId="floatingSelect" label="Complaints">
-          <Form.Select
-            disabled={!user?.isCompleted}
-            {...register("complaints", { required: true })}
-            aria-label="Complaints"
-          >
-            <option value="">Select</option>
-            {speciesByComplaints?.map((complaint) => (
-              <option key={complaint._id} value={complaint._id}>
-                {complaint.complaint}
-              </option>
-            ))}
-          </Form.Select>
-          {errors.department && (
-            <p className="text-danger">Department is required</p>
-          )}
+        <FloatingLabel controlId="floatingSelect" style={{ zIndex: "10" }}>
+          <div>
+            Select Complaint <small>(creatable)</small>
+          </div>
+          <Controller
+            name="complaint"
+            control={control}
+            defaultValue={[]}
+            render={({ field }) => (
+              <CreatableSelect
+                disabled={!user?.isCompleted}
+                placeholder="Select complaint"
+                isClearable
+                options={complaintOptions}
+                {...field}
+              />
+            )}
+          />
         </FloatingLabel>
         <FloatingLabel
           controlId="floatingSelect"
@@ -458,7 +447,7 @@ function RequestForm() {
             ))}
           </Form.Select>
           {errors.department && (
-            <p className="text-danger">Department is required</p>
+            <small className="text-danger">Department is required</small>
           )}
         </FloatingLabel>
         <div>
