@@ -1,3 +1,4 @@
+import { staffsData } from "@/public/data/staffsData";
 import Image from "next/image";
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
@@ -41,120 +42,57 @@ function CareTeam() {
             What Sets Us Apart
           </p>
           <Row gx={3} className="tw-gap-y-9">
-            <Col lg={4}>
-              <Card
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  width: "100%",
-                  height: "400px",
-                  overflow: "hidden",
-                }}
-                className="border-0 shadow-sm"
-              >
-                <div
-                  style={{ width: "100%", height: "100%", overflow: "hidden" }}
-                >
-                  <Image src="/assets/images/Anisur.png" alt="Joy" fill />
-                </div>
-                <Card.Body
-                  className="text-center"
+            {staffsData?.map((staff) => (
+              <Col lg={4} key={staff.id}>
+                <Card
                   style={{
-                    position: "absolute", // Position the Card.Body absolutely
-                    zIndex: 3,
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "flex-end",
                     alignItems: "center",
-                    color: "white",
                     width: "100%",
-                    height: "100%",
-                    background: "linear-gradient(to bottom, transparent, #000)", // Apply gradient background
-                    padding: "20px", // Add padding for text
+                    height: "400px",
+                    overflow: "hidden",
+                    position: "relative", // Add position relative
                   }}
+                  className="border-0 shadow-sm"
                 >
-                  <h3>Dr. Anisur Rahman </h3>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col lg={4}>
-              <Card
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  width: "100%",
-                  height: "400px",
-                  overflow: "hidden",
-                }}
-                className="border-0 shadow-sm"
-              >
-                <div
-                  style={{ width: "100%", height: "100%", overflow: "hidden" }}
-                >
-                  <Image src="/assets/images/Joy.jpg" alt="Joy" fill />
-                </div>
-                <Card.Body
-                  className="text-center"
-                  style={{
-                    position: "absolute", // Position the Card.Body absolutely
-                    zIndex: 3,
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-end",
-                    alignItems: "center",
-                    color: "white",
-                    width: "100%",
-                    height: "100%",
-                    background: "linear-gradient(to bottom, transparent, #000)", // Apply gradient background
-                    padding: "20px", // Add padding for text
-                  }}
-                >
-                  <h3>Dr. Melody Gayheart </h3>
-                  <Card.Text>Veterinarian</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col lg={4}>
-              <Card
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  width: "100%",
-                  height: "400px",
-                  overflow: "hidden",
-                  position: "relative", // Add position relative
-                }}
-                className="border-0 shadow-sm"
-              >
-                <div
-                  style={{ width: "100%", height: "100%", overflow: "hidden" }}
-                >
-                  <Image src="/assets/images/Melody.jpeg" alt="Melody" fill />
-                </div>
-                <Card.Body
-                  className="text-center"
-                  style={{
-                    position: "absolute", // Position the Card.Body absolutely
-                    zIndex: 3,
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-end",
-                    alignItems: "center",
-                    color: "white",
-                    width: "100%",
-                    height: "100%",
-                    background: "linear-gradient(to bottom, transparent, #000)", // Apply gradient background
-                    padding: "20px", // Add padding for text
-                  }}
-                >
-                  <h3>Dr. Melody Gayheart </h3>
-                  <Card.Text>Veterinarian</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <Image
+                      className="img-fluid tw-scale-125"
+                      src={staff?.image}
+                      alt={staff?.name}
+                      fill
+                    />
+                  </div>
+                  <Card.Body
+                    className="text-center"
+                    style={{
+                      position: "absolute", // Position the Card.Body absolutely
+                      zIndex: 3,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "flex-end",
+                      alignItems: "center",
+                      color: "white",
+                      width: "100%",
+                      height: "100%",
+                      background:
+                        "linear-gradient(to bottom, transparent, #171717)", // Apply gradient background
+                      padding: "20px", // Add padding for text
+                    }}
+                  >
+                    <h3>{staff?.name}</h3>
+                    <Card.Text>{staff?.designation}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
           </Row>
         </Container>
       </Container>

@@ -4,7 +4,7 @@ import CareTeam from "@/components/Veterinarians/CareTeam";
 import Careers from "@/components/Veterinarians/Careers";
 import Passion from "@/components/Veterinarians/Passion";
 import React from "react";
-import teamImg from "../../../public/assets/images/team-banner.png";
+import teamImg from "../../../public/assets/images/staffs/group.jpg";
 
 function index() {
   return (
