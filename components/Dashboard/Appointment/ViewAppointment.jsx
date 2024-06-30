@@ -33,7 +33,8 @@ const ViewAppointment = () => {
       const res = await axiosInstance.post(`/user-appointment/payment/${id}`);
       if (res.status === 200) {
         const { url } = res.data;
-        window.location.href = url; // Redirect to the URL from the response
+        console.log(url);
+        // window.location.href = url; // Redirect to the URL from the response
       }
     } catch (error) {
       console.error(error);
