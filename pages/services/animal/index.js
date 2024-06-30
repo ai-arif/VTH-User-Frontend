@@ -3,7 +3,7 @@ import Animal from "@/components/Services/Animal/Animal";
 import CommonInfo from "@/components/Shared/CommonInfo";
 import PageBanner from "@/components/Shared/PageBanner";
 import React from "react";
-import animalImg from "../../../public/assets/images/HAH-services-large-animal.png";
+import animalImg from "../../../public/assets/images/animals/cow.jpg";
 
 const AnimalPage = () => {
   return (

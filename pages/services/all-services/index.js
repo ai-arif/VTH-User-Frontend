@@ -3,7 +3,7 @@ import AllServices from "@/components/Services/AllServices/AllServices";
 import CommonInfo from "@/components/Shared/CommonInfo";
 import PageBanner from "@/components/Shared/PageBanner";
 import React from "react";
-import ServicesImg from "../../../public/assets/images/HAH-services.png";
+import ServicesImg from "../../../public/assets/images/animals/sheep.jpg";
 
 const AllServicesPage = () => {
   return (

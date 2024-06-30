@@ -3,7 +3,7 @@ import Therapies from "@/components/Services/AlternativeTherapies/Therapies";
 import CommonInfo from "@/components/Shared/CommonInfo";
 import PageBanner from "@/components/Shared/PageBanner";
 import React from "react";
-import therapyImg from "../../../public/assets/images/HAH-services-therapies-1.png";
+import therapyImg from "../../../public/assets/images/animals/goat.jpg";
 
 const TherapiesPage = () => {
   return (
