@@ -10,7 +10,7 @@ import Services from "@/components/LandingPage/Services";
 import Team from "@/components/LandingPage/Team";
 import PageBanner from "@/components/Shared/PageBanner";
 import React from "react";
-import vthBanner from "../../public/assets/images/herobanner.jpg";
+import vthBanner from "../../public/assets/images/staffs/group.jpg";
 
 export default function Home() {
   return (

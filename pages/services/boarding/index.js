@@ -3,7 +3,7 @@ import Boarding from "@/components/Services/Boarding/Boarding";
 import CommonInfo from "@/components/Shared/CommonInfo";
 import PageBanner from "@/components/Shared/PageBanner";
 import React from "react";
-import boardingImg from "../../../public/assets/images/HAH-services-boarding.png";
+import boardingImg from "../../../public/assets/images/animals/buffalo.jpg";
 
 const BoardingPage = () => {
   return (
