@@ -1,5 +1,7 @@
+import { staffsData } from "@/public/data/staffsData";
+import Image from "next/image";
 import React, { useRef } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, CardImg, Col, Container, Row } from "react-bootstrap";
 import "swiper/css";
 import "swiper/css/free-mode";
 import { FreeMode, Navigation } from "swiper/modules";
@@ -92,110 +94,46 @@ function Team() {
             className="mySwiper"
           >
             <Row>
-              <SwiperSlide>
-                <Col>
-                  <Card
-                    style={{
-                      padding: "50px 33px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "0.75rem",
-                      alignItems: "center",
-                    }}
-                    className="border-0 shadow-sm"
-                  >
-                    <Card.Img variant="top" src="/assets/images/team-1.png" />
-                    <Card.Body
-                      className="text-center"
+              {staffsData?.map((staff) => (
+                <SwiperSlide key={staff.id}>
+                  <Col>
+                    <Card
                       style={{
+                        padding: "50px 33px",
                         display: "flex",
                         flexDirection: "column",
                         gap: "0.75rem",
                         alignItems: "center",
                       }}
+                      className="border-0 shadow-sm"
                     >
-                      <h3 className="tw-text-primary">
-                        A to Z solution for Ruminants
-                      </h3>
-                      <Card.Text className="tw-text-lg tw-font-light">
-                        We know that the unexpected happens, and we promise to
-                        do our best to accommodate the needs of our patients and
-                        clients.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <Col>
-                  <Card
-                    className="border-0 shadow-sm"
-                    style={{
-                      padding: "50px 33px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "0.75rem",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Card.Img variant="top" src="/assets/images/team-2.png" />
-                    <Card.Body
-                      className="text-center"
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "0.75rem",
-                        alignItems: "center",
-                      }}
-                    >
-                      <h3 className="tw-text-primary">
-                        Quality Service for Pet, Animals & Birds
-                      </h3>
-                      <Card.Text className="tw-text-lg tw-font-light">
-                        We’re more than just your veterinary team! We’re your
-                        friends, neighbors, and family, and we’re proud to be a
-                        part of the Mymensingh community.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <Col>
-                  <Card
-                    style={{
-                      padding: "50px 33px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "0.75rem",
-                      alignItems: "center",
-                    }}
-                    className="border-0 shadow-sm"
-                  >
-                    <Card.Img variant="top" src="/assets/images/team-3.png" />
-                    <Card.Body
-                      className="text-center"
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "0.75rem",
-                        alignItems: "center",
-                      }}
-                    >
-                      <h3 className="tw-text-primary">
-                        Quality Necropsy service for poultry
-                      </h3>
-                      <Card.Text className="tw-text-lg tw-font-light">
-                        Though we hope you never need it, we’re available to
-                        provide urgent care during our open hours, and we have
-                        an on-call veterinarian for after-hours emergencies.
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </SwiperSlide>
+                      <div>
+                        <Image
+                          className="img-fluid rounded tw-scale-110"
+                          src={staff?.image}
+                          // height={300}
+                          // width={300}
+                          alt={staff?.name}
+                        />
+                      </div>
+                      <Card.Body
+                        className="text-center"
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "0.75rem",
+                          alignItems: "center",
+                        }}
+                      >
+                        <h3 className="tw-text-primary">{staff?.name}</h3>
+                        <Card.Text className="tw-text-lg tw-font-light">
+                          {staff?.speech}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                </SwiperSlide>
+              ))}
             </Row>
           </Swiper>
         </div>
