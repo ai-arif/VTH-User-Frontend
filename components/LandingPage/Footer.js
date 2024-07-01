@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import CustomButton from "../UI/CustomButton";
@@ -106,7 +107,13 @@ function Footer() {
         <Container className="py-4">
           <p className="mb-0">
             © Copyright 2024 - Developed by{" "}
-            <span className="fw-medium">DevsGiant</span>
+            <Link
+              href="https://www.devsgiant.com/"
+              className="fw-medium text-black text-decoration-none"
+              target="_blank"
+            >
+              DevsGiant
+            </Link>
           </p>
         </Container>
       </Container>
