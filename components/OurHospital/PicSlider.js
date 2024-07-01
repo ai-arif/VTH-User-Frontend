@@ -9,16 +9,27 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 function PicSlider() {
   const handleDragStart = (e) => e.preventDefault();
   const items = [
-    { src: "/assets/images/HAH-tour-01.png", alt: "HAH Tour 1" },
-    { src: "/assets/images/HAH-tour-02.png", alt: "HAH Tour 2" },
-    { src: "/assets/images/HAH-tour-03.png", alt: "HAH Tour 3" },
-    { src: "/assets/images/HAH-tour-04.png", alt: "HAH Tour 4" },
-    { src: "/assets/images/HAH-tour-05.png", alt: "HAH Tour 5" },
-    { src: "/assets/images/HAH-tour-06.png", alt: "HAH Tour 6" },
+    {
+      src: "/assets/images/hospital/vth-hospital-1.jpg",
+      alt: "VTH Hospital",
+    },
+    { src: "/assets/images/hospital/vth-hospital-2.jpeg", alt: "VTH Hospital" },
+    { src: "/assets/images/hospital/vth-hospital-3.jpg", alt: "VTH Hospital" },
+    { src: "/assets/images/hospital/vth-hospital-4.jpg", alt: "VTH Hospital" },
+    { src: "/assets/images/hospital/vth-hospital-5.jpg", alt: "VTH Hospital" },
+    { src: "/assets/images/hospital/vth-hospital-6.jpg", alt: "VTH Hospital" },
+    { src: "/assets/images/hospital/vth-hospital-7.jpg", alt: "VTH Hospital" },
+    { src: "/assets/images/hospital/vth-hospital-8.jpg", alt: "VTH Hospital" },
   ];
 
   const itemsWithKeys = items.map((item, index) => (
-    <img key={index} src={item.src} alt={item.alt} />
+    <img
+      style={{ width: "100%", height: "25%" }}
+      className="img-fluid"
+      key={index}
+      src={item.src}
+      alt={item.alt}
+    />
   ));
 
   return (
