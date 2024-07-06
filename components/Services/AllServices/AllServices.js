@@ -57,7 +57,7 @@ const AllServices = () => {
                 href="/services/diagnostics"
                 className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
               >
-                <span>Ambulatory, Consultancy</span>
+                <span>Ambulatory Hospital & Consultation</span>
                 <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
               </Link>
             </div>

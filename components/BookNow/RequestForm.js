@@ -261,9 +261,7 @@ function RequestForm() {
           </Col>
         </Row>
         <FloatingLabel controlId="floatingSelect" style={{ zIndex: "10" }}>
-          <div>
-            Select Complaint <small>(creatable)</small>
-          </div>
+          <div>Select Complaint</div>
           <Controller
             name="complaint"
             control={control}
