@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { FaFacebook } from "react-icons/fa";
 import CustomButton from "../UI/CustomButton";
 
 function Footer() {
@@ -50,7 +51,14 @@ function Footer() {
                   <p>New Clients</p>
                   <p>Careers </p>
                   <p>Our Services </p>
-                  <p>Team </p>
+                  <p>Team</p>
+                  <h4>Social Links</h4>
+                  <Link
+                    className="text-white"
+                    href="https://www.facebook.com/profile.php?id=61553678588748"
+                  >
+                    <FaFacebook size={26} />
+                  </Link>
                 </Col>
               </Row>
               <div>

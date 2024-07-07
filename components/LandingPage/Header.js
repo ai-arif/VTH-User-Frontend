@@ -180,7 +180,7 @@ function Header() {
                     className="dropdown-item tw-text-primary"
                     href="/services/diagnostics"
                   >
-                    Ambulatory, Consultancy
+                    Ambulatory Hospital & Consultation
                   </Link>
                   <Link
                     className="dropdown-item tw-text-primary"
