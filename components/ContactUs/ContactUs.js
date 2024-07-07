@@ -30,8 +30,8 @@ const ContactUs = () => {
                     Our Location
                   </h3>
                   <p className="tw-text-xs lg:tw-text-base">
-                    North to the Jobbar&apos;s Mor and East to the railstation, BAU,
-                    Mymensingh
+                    North to the Jobbar&apos;s Mor and East to the railstation,
+                    BAU, Mymensingh
                   </p>
                 </div>
               </div>
@@ -59,7 +59,7 @@ const ContactUs = () => {
                   </p>
                 </div>
               </div>
-              <div className="tw-flex tw-items-center tw-gap-2 lg:tw-gap-4">
+              {/* <div className="tw-flex tw-items-center tw-gap-2 lg:tw-gap-4">
                 <div className="tw-rounded-lg tw-bg-deep-secondary tw-p-2 tw-text-white lg:tw-p-3">
                   <LuFacebook className="tw-text-3xl lg:tw-text-5xl" />
                 </div>
@@ -70,7 +70,7 @@ const ContactUs = () => {
                   </h3>
                   <p className="tw-text-xs lg:tw-text-base">vth-hospital</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

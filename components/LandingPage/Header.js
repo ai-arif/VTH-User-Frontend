@@ -174,7 +174,7 @@ function Header() {
                     className="dropdown-item tw-text-primary"
                     href="/services/dental"
                   >
-                    Necropsy
+                    Clinical Pathology & Necropsy
                   </Link>
                   <Link
                     className="dropdown-item tw-text-primary"
@@ -205,6 +205,14 @@ function Header() {
                 )}
                 <Link href="/book-now">
                   <CustomButton>Book Now</CustomButton>
+                </Link>
+                <Link href="/" className="navbar-brand">
+                  <Image
+                    src="/assets/images/logo1.png"
+                    alt="VTH"
+                    width={100}
+                    height={50}
+                  />
                 </Link>
               </div>
             </Offcanvas.Body>
