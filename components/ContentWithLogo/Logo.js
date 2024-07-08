@@ -5,11 +5,11 @@ import Marquee from "react-fast-marquee";
 const Logo = ({ logos }) => {
   return (
     <div>
-      <Marquee autoFill className="overflow-y-hidden">
+      <Marquee autoFill className="tw-overflow-y-hidden">
         {logos?.map((logo) => (
           <Image
             key={logo._id}
-            className="h-[120px] border-2 border-gray-900 object-contain px-10 py-8 lg:h-[150px] lg:px-20 lg:py-10"
+            className="tw-tw-object-contain tw-h-[100px] tw-w-full tw-px-10 lg:tw-h-[150px]"
             src={logo?.image}
             height={150}
             width={400}
