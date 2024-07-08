@@ -3,6 +3,7 @@ import React from "react";
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { FaFacebook } from "react-icons/fa";
 import CustomButton from "../UI/CustomButton";
+import { FaYoutube } from "react-icons/fa6";
 
 function Footer() {
   return (
@@ -58,6 +59,13 @@ function Footer() {
                     href="https://www.facebook.com/profile.php?id=61553678588748"
                   >
                     <FaFacebook size={26} />
+                  </Link>
+                  <span className="mx-2"> </span>
+                  <Link
+                    className="text-white"
+                    href="https://www.youtube.com/@VeterinaryTeachingHospit-pk1hz"
+                  >
+                    <FaYoutube size={26} />
                   </Link>
                 </Col>
               </Row>
