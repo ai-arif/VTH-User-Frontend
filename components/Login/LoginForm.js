@@ -73,9 +73,12 @@ function LoginForm() {
         {errors.password && (
           <small className="text-danger">Please enter your password</small>
         )}
-        <span className="tw-w-fit tw-cursor-pointer tw-text-sm tw-text-blue-500 hover:tw-underline">
+        <Link
+          href={"/forget-password"}
+          className="tw-w-fit tw-cursor-pointer tw-text-sm tw-text-blue-500 hover:tw-underline"
+        >
           Forgot Password?
-        </span>
+        </Link>
         <div>
           {loading ? (
             <Button

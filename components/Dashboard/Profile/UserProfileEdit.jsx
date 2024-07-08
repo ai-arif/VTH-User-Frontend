@@ -97,6 +97,15 @@ const UserProfileEdit = () => {
             </div>
           </div>
           <div className="tw-space-y-2 lg:tw-space-y-4">
+            <label className="tw-block">Email Address</label>
+            <input
+              {...register("email", { required: false })}
+              type="text"
+              placeholder="Enter Your Email Address"
+              className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
+            />
+          </div>
+          <div className="tw-space-y-2 lg:tw-space-y-4">
             <label className="tw-block">Address</label>
             <textarea
               {...register("address", { required: true })}
