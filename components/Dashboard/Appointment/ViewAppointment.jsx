@@ -34,7 +34,7 @@ const ViewAppointment = () => {
       if (res.status === 200) {
         const { url } = res.data;
         // console.log(url);
-        // window.location.href = url;
+        window.location.href = url;
       }
     } catch (error) {
       console.error(error);
@@ -96,8 +96,11 @@ const ViewAppointment = () => {
                 {appointment?.caseNo}
               </td>
               <td className="tw-border tw-border-gray-300 tw-px-4 tw-py-2">
-                {formatDate(appointment.date)}
+                {isNaN(new Date(appointment.date).getTime())
+                  ? "Not Assigned Yet"
+                  : formatDate(appointment.date)}
               </td>
+
               <td className="tw-border tw-border-gray-300 tw-px-4 tw-py-2">
                 {appointment?.department?.name}
               </td>
