@@ -34,7 +34,7 @@ const ViewAppointment = () => {
       if (res.status === 200) {
         const { url } = res.data;
         // console.log(url);
-        // window.location.href = url;
+        window.location.href = url;
       }
     } catch (error) {
       console.error(error);
