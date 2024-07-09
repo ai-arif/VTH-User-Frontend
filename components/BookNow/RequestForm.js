@@ -36,7 +36,7 @@ function RequestForm() {
   };
 
   const complaintOptions = speciesByComplaints?.map((complaint) => ({
-    value: complaint._id,
+    value: complaint.complaint,
     label: complaint.complaint,
   }));
 
@@ -252,7 +252,7 @@ function RequestForm() {
               >
                 <option value="">Select</option>
                 {speciesByBreeds?.map((breed) => (
-                  <option key={breed._id} value={breed._id}>
+                  <option key={breed._id} value={breed.breed}>
                     {breed.breed}
                   </option>
                 ))}

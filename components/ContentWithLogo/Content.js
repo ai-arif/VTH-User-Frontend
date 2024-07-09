@@ -24,6 +24,12 @@ const Content = ({ content }) => {
               alt="image"
             />
           )}
+          {content?.type === "video" && (
+            <div
+              className="tw-h-[60vh] tw-w-full tw-rounded"
+              dangerouslySetInnerHTML={{ __html: content?.video }}
+            ></div>
+          )}
         </div>
       </div>
     </Container>
