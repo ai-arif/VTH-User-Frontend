@@ -49,7 +49,7 @@ const ViewPrescription = () => {
               className="tw-border tw-border-gray-300 tw-px-4 tw-py-2"
               scope="col"
             >
-              Owner Name
+              View Prescription
             </th>
           </tr>
         </thead>
