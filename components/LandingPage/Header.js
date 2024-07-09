@@ -130,6 +130,16 @@ function Header() {
               <Offcanvas.Title id="offcanvasNavbarLabel-expand-lg">
                 VETERINARY TEACHING HOSPITAL
               </Offcanvas.Title>
+              <div className="d-lg-none">
+                <Link href="/" className="navbar-brand">
+                  <Image
+                    src="/assets/images/logo1.png"
+                    alt="VTH"
+                    width={80}
+                    height={40}
+                  />
+                </Link>
+              </div>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-center flex-grow-1 gap-lg-2 mt-lg-2 pe-3">
@@ -206,6 +216,8 @@ function Header() {
                 <Link href="/book-now">
                   <CustomButton>Book Now</CustomButton>
                 </Link>
+              </div>
+              <div className="d-none d-lg-block">
                 <Link href="/" className="navbar-brand">
                   <Image
                     src="/assets/images/logo1.png"

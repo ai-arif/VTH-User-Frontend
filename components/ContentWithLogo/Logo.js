@@ -9,7 +9,7 @@ const Logo = ({ logos }) => {
         {logos?.map((logo) => (
           <Image
             key={logo._id}
-            className="tw-tw-object-contain tw-h-[100px] tw-w-full tw-px-10 lg:tw-h-[150px]"
+            className="tw-tw-object-contain tw-h-[100px] tw-w-full tw-px-4  md:tw-px-7 lg:tw-h-[130px] lg:tw-px-10"
             src={logo?.image}
             height={150}
             width={400}

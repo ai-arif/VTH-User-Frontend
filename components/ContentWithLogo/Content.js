@@ -17,7 +17,7 @@ const Content = ({ content }) => {
         <div className="lg:tw-w-1/2">
           {content?.type === "image" && (
             <Image
-              className="tw-h-[60vh] tw-w-full tw-rounded"
+              className="tw-h-[40vh] tw-w-full tw-rounded lg:tw-h-[60vh]"
               width={300}
               height={200}
               src={content?.image}
@@ -25,10 +25,9 @@ const Content = ({ content }) => {
             />
           )}
           {content?.type === "video" && (
-            <div
-              className="tw-h-[60vh] tw-w-full tw-rounded"
-              dangerouslySetInnerHTML={{ __html: content?.video }}
-            ></div>
+            <div className="tw-h-[50vh] lg:tw-h-[60vh]">
+              <div dangerouslySetInnerHTML={{ __html: content?.video }} />
+            </div>
           )}
         </div>
       </div>

@@ -20,10 +20,10 @@ const ContentWithLogo = () => {
   }, []);
 
   return (
-    <>
+    <div className="tw-overflow-hidden">
       <Content content={data?.content} />
       <Logo logos={data?.logos} />
-    </>
+    </div>
   );
 };
 
