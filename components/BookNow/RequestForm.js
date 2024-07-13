@@ -10,33 +10,34 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import CreatableSelect from "react-select/creatable";
 
 function RequestForm() {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [departments, setDepartments] = useState([]);
   const [species, setSpecies] = useState([]);
-  const [selectedImages, setSelectedImages] = useState([]);
-  const [imageFiles, setImageFiles] = useState([]);
-  const [selectedReasons, setSelectedReasons] = useState([]);
+  // const [selectedImages, setSelectedImages] = useState([]);
+  // const [imageFiles, setImageFiles] = useState([]);
+  // const [selectedReasons, setSelectedReasons] = useState([]);
   const [speciesByBreeds, setSpeciesByBreeds] = useState([]);
   const [speciesByComplaints, setSpeciesByComplaint] = useState([]);
   const { user } = useContext(AuthContext);
   const router = useRouter();
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+  // const toggleModal = () => {
+  //   setShowModal(!showModal);
+  // };
 
-  const handleReasonChange = (e) => {
-    const { name, checked } = e.target;
-    if (checked) {
-      setSelectedReasons((prev) => [...prev, name]);
-    } else {
-      setSelectedReasons((prev) => prev.filter((reason) => reason !== name));
-    }
-  };
+  // const handleReasonChange = (e) => {
+  //   const { name, checked } = e.target;
+  //   if (checked) {
+  //     setSelectedReasons((prev) => [...prev, name]);
+  //   } else {
+  //     setSelectedReasons((prev) => prev.filter((reason) => reason !== name));
+  //   }
+  // };
 
+  // console.log({ speciesByComplaints });
   const complaintOptions = speciesByComplaints?.map((complaint) => ({
-    value: complaint.complaint,
+    value: complaint._id,
     label: complaint.complaint,
   }));
 
@@ -52,6 +53,7 @@ function RequestForm() {
     try {
       setLoading(true);
       data.complaint = data.complaint.value;
+
       const formData = new FormData();
 
       formData.append("ownerName", data.ownerName);
@@ -59,24 +61,24 @@ function RequestForm() {
       formData.append("district", user?.district);
       formData.append("upazila", user?.upazila);
       formData.append("address", user?.address);
-      formData.append("petName", data.petName);
       formData.append("species", data.species);
       formData.append("breed", data.breed);
       formData.append("complaint", data.complaint);
       formData.append("department", data.department);
       formData.append("notes", data.notes);
+      // formData.append("petName", data.petName);
 
-      if (imageFiles.length > 0) {
-        imageFiles.forEach((file) => {
-          formData.append("images", file);
-        });
-      }
+      // if (imageFiles.length > 0) {
+      //   imageFiles.forEach((file) => {
+      //     formData.append("images", file);
+      //   });
+      // }
 
-      Object.keys(data).forEach((key) => {
-        if (typeof data[key] === "boolean" && data[key]) {
-          formData.append(key, data[key]);
-        }
-      });
+      // Object.keys(data).forEach((key) => {
+      //   if (typeof data[key] === "boolean" && data[key]) {
+      //     formData.append(key, data[key]);
+      //   }
+      // });
 
       const response = await axiosInstance.post("/user-appointment", formData, {
         headers: {
@@ -96,23 +98,23 @@ function RequestForm() {
     }
   };
 
-  const handleImageChange = (e) => {
-    const files = Array.from(e.target.files);
-    if (imageFiles.length + files.length > 5) {
-      toast.error("You can only upload up to 5 images");
-      return;
-    }
-    setSelectedImages((prevImages) => [
-      ...prevImages,
-      ...files.map((file) => URL.createObjectURL(file)),
-    ]);
-    setImageFiles((prevFiles) => [...prevFiles, ...files]);
-  };
+  // const handleImageChange = (e) => {
+  //   const files = Array.from(e.target.files);
+  //   if (imageFiles.length + files.length > 5) {
+  //     toast.error("You can only upload up to 5 images");
+  //     return;
+  //   }
+  //   setSelectedImages((prevImages) => [
+  //     ...prevImages,
+  //     ...files.map((file) => URL.createObjectURL(file)),
+  //   ]);
+  //   setImageFiles((prevFiles) => [...prevFiles, ...files]);
+  // };
 
-  const handleImageDelete = (index) => {
-    setSelectedImages((prevImages) => prevImages.filter((_, i) => i !== index));
-    setImageFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
-  };
+  // const handleImageDelete = (index) => {
+  //   setSelectedImages((prevImages) => prevImages.filter((_, i) => i !== index));
+  //   setImageFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
+  // };
 
   // fetch species
   useEffect(() => {
@@ -214,14 +216,14 @@ function RequestForm() {
             <small className="text-danger">Phone number is required</small>
           )}
         </FloatingLabel>
-        <FloatingLabel controlId="floatingInput" label="Pet's Name">
+        {/* <FloatingLabel controlId="floatingInput" label="Pet's Name">
           <Form.Control
             disabled={!user?.isCompleted}
             type="text"
             {...register("petName")}
             placeholder="Enter Pet's Name"
           />
-        </FloatingLabel>
+        </FloatingLabel> */}
         <Row>
           <Col>
             <FloatingLabel controlId="floatingSelect" label="Species">
@@ -252,7 +254,7 @@ function RequestForm() {
               >
                 <option value="">Select</option>
                 {speciesByBreeds?.map((breed) => (
-                  <option key={breed._id} value={breed.breed}>
+                  <option key={breed._id} value={breed._id}>
                     {breed.breed}
                   </option>
                 ))}
@@ -277,7 +279,7 @@ function RequestForm() {
             )}
           />
         </FloatingLabel>
-        <FloatingLabel
+        {/* <FloatingLabel
           controlId="floatingSelect"
           label="Reason's for Appointment"
         >
@@ -290,9 +292,9 @@ function RequestForm() {
             onClick={toggleModal}
             style={{ cursor: "pointer", backgroundColor: "#fff" }}
           />
-        </FloatingLabel>
+        </FloatingLabel> */}
         {/* Modal */}
-        <Modal show={showModal} onHide={toggleModal} size="lg" style={{}}>
+        {/* <Modal show={showModal} onHide={toggleModal} size="lg" style={{}}>
           <Modal.Header
             closeButton
             className="border-0 pt-4 px-4"
@@ -430,7 +432,7 @@ function RequestForm() {
               Apply
             </Button>
           </Modal.Footer>
-        </Modal>
+        </Modal> */}
         <FloatingLabel controlId="floatingSelect" label="Department">
           <Form.Select
             disabled={!user?.isCompleted}
@@ -448,7 +450,7 @@ function RequestForm() {
             <small className="text-danger">Department is required</small>
           )}
         </FloatingLabel>
-        <div>
+        {/* <div>
           Upload Animal Images (0 to 5 images), Only images (pdf is not allowed)
           <Form.Control
             disabled={!user?.isCompleted}
@@ -458,8 +460,8 @@ function RequestForm() {
             multiple
             onChange={handleImageChange}
           />
-        </div>
-        <div className="image-preview">
+        </div> */}
+        {/* <div className="image-preview">
           {selectedImages.map((image, index) => (
             <div
               key={index}
@@ -496,7 +498,7 @@ function RequestForm() {
               </button>
             </div>
           ))}
-        </div>
+        </div> */}
         <FloatingLabel controlId="floatingTextarea2" label="Notes">
           <Form.Control
             disabled={!user?.isCompleted}
