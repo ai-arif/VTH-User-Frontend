@@ -38,7 +38,7 @@ export default function Home() {
       <Appointment />
       <QRSection />
       <Footer />
-      <div className="tw-fixed tw-bottom-10 tw-right-10 tw-z-50">
+      <div className="tw-fixed tw-bottom-7 tw-right-7 tw-z-50 lg:tw-bottom-10 lg:tw-right-10">
         <Link target="_blank" href="https://wa.me/+8801303009945">
           <Image src={socialImg} alt="whats'up" />
         </Link>
