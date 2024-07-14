@@ -15,11 +15,9 @@
   line-height: 1.5;
 } */
 
-@layer base {
-  body {
-    /* font-family: "Josefin Sans", sans-serif !important; */
-    font-family: sans-serif;
-  }
+html,
+body {
+  font-family: "Josefin Sans", sans-serif !important;
 }
 
 /* for temporary */
