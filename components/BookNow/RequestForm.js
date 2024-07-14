@@ -249,7 +249,7 @@ function RequestForm() {
             <FloatingLabel controlId="floatingInput" label="Breed">
               <Form.Select
                 disabled={!user?.isCompleted}
-                {...register("breed")}
+                {...register("breed", { required: true })}
                 aria-label="breed"
               >
                 <option value="">Select</option>
@@ -259,6 +259,9 @@ function RequestForm() {
                   </option>
                 ))}
               </Form.Select>
+              {errors.breed && (
+                <small className="text-danger">Breed is required</small>
+              )}
             </FloatingLabel>
           </Col>
         </Row>
