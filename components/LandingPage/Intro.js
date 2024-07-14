@@ -7,14 +7,14 @@ function Intro() {
       <Container>
         <CommonInfo
           headline="our mission"
-          title="To restore & improve the health and wellbeing of your animals & birds"
+          title="To restore and enhance the health and well-being of your animals and birds"
         >
-          Our team is a family of passionate, dedicated animal lovers known for
-          our excellent service to the pets and people of Mymensingh and the
-          surrounding areas. Our goal is to partner with you to see that your
-          pet has as many happy, healthy years as possible. We do that by
-          focusing on preventive care, providing comprehensive services, and
-          using a customized approach.
+          Our team is a family of passionate and dedicated animal lovers, known
+          for providing excellent service to the pets, animals, and birds of
+          Mymensingh and the surrounding areas. Our goal is to partner with you
+          to ensure your animals and birds live long, healthy, and productive
+          lives. We achieve this through preventive care, comprehensive
+          services, and a customized approach.
         </CommonInfo>
       </Container>
     </div>

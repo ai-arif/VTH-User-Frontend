@@ -64,7 +64,7 @@ function Team() {
           <p className="mb-0 tw-pt-1 tw-text-xl tw-font-medium tw-text-primary lg:tw-pt-2 lg:tw-text-[40px] lg:tw-font-semibold lg:tw-leading-[44px]">
             What Sets Us Apart
           </p>
-          <div className="d-flex gap-2 gap-lg-3">
+          <div className="d-flex gap-2 gap-md-3">
             <SwiperPrevBtn handlePrev={handlePrev} />
             <SwiperNextBtn handleNext={handleNext} />
           </div>
@@ -93,48 +93,44 @@ function Team() {
             modules={[Navigation, FreeMode]}
             className="mySwiper"
           >
-            <Row>
-              {staffsData?.map((staff) => (
-                <SwiperSlide key={staff.id}>
-                  <Col>
-                    <Card
-                      style={{
-                        padding: "50px 33px",
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "0.75rem",
-                        alignItems: "center",
-                      }}
-                      className="border-0 shadow-sm"
-                    >
-                      <div>
-                        <Image
-                          className="img-fluid rounded tw-scale-110"
-                          src={staff?.image}
-                          // height={300}
-                          // width={300}
-                          alt={staff?.name}
-                        />
-                      </div>
-                      <Card.Body
-                        className="text-center"
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          gap: "0.75rem",
-                          alignItems: "center",
-                        }}
-                      >
-                        <h3 className="tw-text-primary">{staff?.name}</h3>
-                        <Card.Text className="tw-text-lg tw-font-light">
-                          {staff?.speech}
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                </SwiperSlide>
-              ))}
-            </Row>
+            {staffsData?.map((staff) => (
+              <SwiperSlide key={staff.id}>
+                <Card
+                  style={{
+                    padding: "33px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.75rem",
+                    alignItems: "center",
+                  }}
+                  className="border-0 shadow-sm lg:tw-h-[470px]"
+                >
+                  <div>
+                    <Image
+                      className="img-fluid rounded tw-scale-110"
+                      src={staff?.image}
+                      // height={300}
+                      // width={300}
+                      alt={staff?.name}
+                    />
+                  </div>
+                  <Card.Body
+                    className="text-center p-0 pt-3"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "0.75rem",
+                      alignItems: "center",
+                    }}
+                  >
+                    <h5 className="tw-text-primary">{staff?.name}</h5>
+                    <Card.Text className="mt-auto tw-text-base tw-font-light tw-text-gray-700">
+                      {staff?.speech}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </Container>

@@ -12,7 +12,7 @@ const CommonInfo = ({ headline, title, children, withoutButton }) => {
         <p className="mb-0 tw-pt-1 tw-text-xl tw-font-medium tw-text-primary lg:tw-pt-2 lg:tw-text-[40px] lg:tw-font-semibold lg:tw-leading-[44px]">
           {title}
         </p>
-        <p className="tw-text-sm tw-font-light tw-text-black lg:tw-text-lg">
+        <p className="tw-text-sm tw-font-light tw-text-gray-700 lg:tw-text-lg">
           {children}
         </p>
         {!withoutButton && (

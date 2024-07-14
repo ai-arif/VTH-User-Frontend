@@ -8,50 +8,44 @@ import soniaImg from "../assets/images/staffs/sonia.jpg";
 export const staffsData = [
   {
     id: 1,
-    name: "Dr. A. K. M. Anisur Rahman",
+    name: "Dr. A. K. M. Anisur Rahman, DVM & MS (BAU), MS in Tropical Animal Health & PhD (Belgium), Post-doctorate (Australia & USA)",
     image: anisurImg,
     designation: "Director",
-    speech:
-      "We know that the unexpected happens, and we promise to do our best to accommodate the needs of our patients and clients.",
+    speech: "Director (VTH)",
   },
   {
     id: 2,
-    name: "Dr. Md. Aminul Islam",
+    name: "Dr. Md. Aminul Islam, DVM & MS (BAU), MS in Tropical Animal Health (Belgium), PhD (Germany), Post-doctorate (Japan)",
     image: aminulImg,
     designation: "Consultant (Medicine)",
-    speech:
-      "We know that the unexpected happens, and we promise to do our best to accommodate the needs of our patients and clients.",
+    speech: "Consultant (Medicine)",
   },
   {
     id: 3,
-    name: "Dr. Mst. Sonia Parvin",
+    name: "Dr. Mst. Sonia Parvin, DVM & MS (BAU), PhD (BAU)",
     image: soniaImg,
     designation: "Consultant (Medicine)",
-    speech:
-      "We know that the unexpected happens, and we promise to do our best to accommodate the needs of our patients and clients.",
+    speech: "Consultant (Medicine)",
   },
   {
     id: 4,
-    name: "Dr. Joyanta Bhattacharjee",
+    name: "Dr. Joyanta Bhattacharjee, DVM & MS (BAU), PhD (Italy), Post-doctorate (Canada)",
     image: joyontaImg,
     designation: "Consultant (Theriogenology)",
-    speech:
-      "We know that the unexpected happens, and we promise to do our best to accommodate the needs of our patients and clients.",
+    speech: "Consultant (Theriogenology)",
   },
   {
     id: 5,
-    name: "Dr. Antora Akter",
+    name: "Dr. Antora Akter, DVM & MS (BAU)",
     image: antoraImg,
     designation: "Consultant (Surgery)",
-    speech:
-      "We know that the unexpected happens, and we promise to do our best to accommodate the needs of our patients and clients.",
+    speech: "Consultant (Theriogenology)",
   },
   {
     id: 6,
-    name: "Dr. Md. Mokbul Hosain",
+    name: "Dr. Md. Mokbul Hossain, DVM & M Sc. (BAU), PhD (Japan), Post-doctorate (Japan)",
     image: mokbulImg,
     designation: "Consultant (Clinical Pathology & Necropsy)",
-    speech:
-      "We know that the unexpected happens, and we promise to do our best to accommodate the needs of our patients and clients.",
+    speech: "Consultant (Clinical Pathology & Necropsy)",
   },
 ];

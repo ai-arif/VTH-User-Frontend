@@ -2,8 +2,8 @@ import Link from "next/link";
 import React from "react";
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { FaFacebook } from "react-icons/fa";
-import CustomButton from "../UI/CustomButton";
 import { FaYoutube } from "react-icons/fa6";
+import CustomButton from "../UI/CustomButton";
 
 function Footer() {
   return (
@@ -48,12 +48,58 @@ function Footer() {
                   </p>
                 </Col>
                 <Col md={6}>
-                  <h3>Quick Links</h3>
-                  <p>New Clients</p>
-                  <p>Careers </p>
-                  <p>Our Services </p>
-                  <p>Team</p>
-                  <h4>Social Links</h4>
+                  <h3>Services</h3>
+                  <ul className="list-unstyled tw-space-y-2 lg:tw-space-y-3">
+                    <li>
+                      <Link
+                        href="/services/diagnostics"
+                        className="text-white text-decoration-none"
+                      >
+                        Medicine
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/services/boarding"
+                        className="text-white text-decoration-none"
+                      >
+                        Surgery
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/services/animal"
+                        className="text-white text-decoration-none"
+                      >
+                        Theriogenology
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/services/dental"
+                        className="text-white text-decoration-none"
+                      >
+                        Pathology & Necropsy
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/services/diagnostics"
+                        className="text-white text-decoration-none"
+                      >
+                        Hospital & Consultation
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/services/all-services"
+                        className="text-white text-decoration-none"
+                      >
+                        All Services
+                      </Link>
+                    </li>
+                  </ul>
+
                   <Link
                     className="text-white"
                     href="https://www.facebook.com/profile.php?id=61553678588748"
@@ -121,15 +167,20 @@ function Footer() {
       </Container>
       <Container fluid className="tw-bg-secondary">
         <Container className="py-4">
-          <p className="mb-0">
-            © Copyright 2024 - Developed by{" "}
-            <Link
-              href="https://www.devsgiant.com/"
-              className="fw-medium text-black text-decoration-none"
-              target="_blank"
-            >
-              DevsGiant
-            </Link>
+          <p className="mb-0 tw-flex tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-text-sm md:tw-flex-row lg:tw-text-base">
+            <span>
+              © 2024 VTH BAU, Mymensingh, Bangladesh. All Rights Reserved.
+            </span>
+            <span>
+              Developed By-{" "}
+              <Link
+                href="https://www.devsgiant.com/"
+                className="fw-medium text-black text-decoration-none"
+                target="_blank"
+              >
+                DevsGiant
+              </Link>
+            </span>
           </p>
         </Container>
       </Container>

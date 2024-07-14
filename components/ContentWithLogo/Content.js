@@ -10,14 +10,14 @@ const Content = ({ content }) => {
           <p className="tw-text-xl tw-font-medium tw-text-primary lg:tw-text-[40px] lg:tw-font-semibold lg:tw-leading-[44px]">
             {content?.title}
           </p>
-          <p className="tw-text-sm tw-font-light tw-text-black lg:tw-pt-4 lg:tw-text-lg">
+          <p className="tw-text-sm tw-font-light tw-text-gray-700 lg:tw-pt-4 lg:tw-text-lg">
             {content?.description}
           </p>
         </div>
         <div className="lg:tw-w-1/2">
           {content?.type === "image" && (
             <Image
-              className="tw-h-[40vh] tw-w-full tw-rounded lg:tw-h-[60vh]"
+              className="tw-h-[30vh] tw-w-full tw-rounded lg:tw-h-[50vh]"
               width={300}
               height={200}
               src={content?.image}
@@ -25,7 +25,7 @@ const Content = ({ content }) => {
             />
           )}
           {content?.type === "video" && (
-            <div className="tw-h-[50vh] lg:tw-h-[60vh]">
+            <div className="">
               <div dangerouslySetInnerHTML={{ __html: content?.video }} />
             </div>
           )}

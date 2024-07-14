@@ -81,7 +81,7 @@ function Header() {
           >
             <Link
               className="d-flex gap-2 tw-text-primary tw-decoration-transparent"
-              href="tel:270-526-3839"
+              href="tel:+88 01729301016"
             >
               <IoCall size={22} /> Call Now
             </Link>

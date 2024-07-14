@@ -9,8 +9,8 @@ const CallSection = () => {
         Have Any Questions?
       </p>
       <div>
-        <Link href="tel:270-526-3839">
-          <CustomButton>Call 270-526-3839</CustomButton>
+        <Link href="tel:+88 01729301016">
+          <CustomButton>Call +88 01729301016</CustomButton>
         </Link>
       </div>
     </div>

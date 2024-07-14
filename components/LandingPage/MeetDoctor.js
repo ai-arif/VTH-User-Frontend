@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import treatmentImg from "../../public/assets/images/home-treatment.png";
 import CustomButton from "../UI/CustomButton";
 import SectionTitle from "../UI/SectionTitle";
 
@@ -28,8 +29,9 @@ function MeetDoctor() {
             <SectionTitle className="tw-bg-tertiary">
               MEET YOUR DOCTOR
             </SectionTitle>
-            <p className="mb-0 tw-pt-1 tw-text-center tw-text-xl tw-font-medium tw-text-primary lg:tw-pt-2 lg:tw-text-left lg:tw-text-4xl lg:tw-font-semibold">
-              We are at your disposal for the wellbeing of your pet
+            <p className="mb-0 tw-pt-1 tw-text-center tw-text-xl tw-font-medium tw-text-primary lg:tw-pt-2 lg:tw-text-left lg:tw-text-3xl lg:tw-font-semibold">
+              We are dedicated to the health and well-being of your pets, birds,
+              and other animals. How can we assist you today?
             </p>
             <Link href="/book-now">
               <CustomButton>Book Now</CustomButton>
@@ -40,12 +42,7 @@ function MeetDoctor() {
             style={{ maxWidth: "90%", overflow: "hidden" }}
             className="d-none d-lg-block"
           >
-            <Image
-              src="/assets/images/meet-doctor.png"
-              width={450}
-              height={500}
-              alt="meet-doc"
-            />
+            <Image src={treatmentImg} width={450} height={500} alt="meet-doc" />
           </Col>
         </Row>
       </div>
