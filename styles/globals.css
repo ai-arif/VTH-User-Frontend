@@ -9,12 +9,6 @@
 /* Import Bootstrap */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
-/* Additional global styles can go here */
-/* body {
-  font-family: "Josefin Sans", sans-serif !important;
-  line-height: 1.5;
-} */
-
 html,
 body {
   font-family: "Josefin Sans", sans-serif !important;
