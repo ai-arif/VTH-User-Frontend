@@ -11,7 +11,7 @@ function index() {
     <Layout>
       <PageBanner
         headline="GET TO KNOW US"
-        title="Dream Doctors. Terrific Techs"
+        title="Compassionate Caregivers Skilled Animal Health Experts"
         buttonName="Meet the team"
         image={teamImg}
       />

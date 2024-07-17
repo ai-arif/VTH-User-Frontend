@@ -11,7 +11,8 @@
 
 html,
 body {
-  font-family: "Josefin Sans", sans-serif !important;
+  /* font-family: "Josefin Sans", sans-serif !important; */
+  font-family: sans-serif !important;
 }
 
 /* for temporary */

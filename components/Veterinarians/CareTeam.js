@@ -1,4 +1,4 @@
-import { staffsData } from "@/public/data/staffsData";
+import { staffsDataForTeamPage } from "@/public/data/staffsData";
 import Image from "next/image";
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
@@ -42,7 +42,7 @@ function CareTeam() {
             What Sets Us Apart
           </p>
           <Row gx={3} className="tw-gap-y-9">
-            {staffsData?.map((staff) => (
+            {staffsDataForTeamPage?.map((staff) => (
               <Col lg={4} key={staff.id}>
                 <Card
                   style={{
@@ -87,10 +87,15 @@ function CareTeam() {
                       padding: "20px", // Add padding for text
                     }}
                   >
-                    <h3>{staff?.name}</h3>
-                    <Card.Text>{staff?.designation}</Card.Text>
+                    <h4>{staff?.name}</h4>
+                    <Card.Text className="tw-font-semibold">
+                      {staff?.designation}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
+                <p className="bg-white tw-h-[100px] tw-rounded-b-lg tw-p-4 tw-text-primary">
+                  {staff?.degrees}
+                </p>
               </Col>
             ))}
           </Row>

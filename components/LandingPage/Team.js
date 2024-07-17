@@ -123,9 +123,11 @@ function Team() {
                       alignItems: "center",
                     }}
                   >
-                    <h5 className="tw-text-primary">{staff?.name}</h5>
-                    <Card.Text className="mt-auto tw-text-base tw-font-light tw-text-gray-700">
-                      {staff?.speech}
+                    <p className="tw-text-sm tw-text-primary lg:tw-text-base">
+                      {staff?.name}
+                    </p>
+                    <Card.Text className="mt-auto tw-text-base tw-font-medium tw-text-gray-700 lg:tw-text-lg lg:tw-font-semibold">
+                      {staff?.designation}
                     </Card.Text>
                   </Card.Body>
                 </Card>
