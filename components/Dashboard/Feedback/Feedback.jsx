@@ -20,7 +20,6 @@ const Feedback = () => {
 
     const newReview = {
       user: user?._id,
-      name: user?.fullName,
       rating,
       feedback,
     };

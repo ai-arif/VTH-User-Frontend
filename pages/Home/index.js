@@ -1,4 +1,5 @@
-import ContentWithLogo from "@/components/ContentWithLogo/ContentWithLogo";
+import Content from "@/components/ContentWithLogo/Content";
+import Logo from "@/components/ContentWithLogo/Logo";
 import Appointment from "@/components/LandingPage/Appointment";
 import Footer from "@/components/LandingPage/Footer";
 import Header from "@/components/LandingPage/Header";
@@ -11,13 +12,29 @@ import Services from "@/components/LandingPage/Services";
 import Team from "@/components/LandingPage/Team";
 import QRSection from "@/components/QRSection/QRSection";
 import PageBanner from "@/components/Shared/PageBanner";
+import axiosInstance from "@/utils/axiosInstance";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import socialImg from "../../public/assets/images/social.png";
 import vthBanner from "../../public/assets/images/staffs/group.jpg";
 
 export default function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchHomeContent = async () => {
+      try {
+        const res = await axiosInstance.get("/home");
+        setData(res?.data?.data);
+      } catch (error) {
+        console.error("Failed to fetch prescription:", error);
+      }
+    };
+
+    fetchHomeContent();
+  }, []);
+
   return (
     <>
       <Header />
@@ -27,13 +44,16 @@ export default function Home() {
         buttonName="Our Mission"
         image={vthBanner}
       />
-      <ContentWithLogo />
+      <div className="tw-overflow-hidden">
+        <Content content={data?.content} />
+        <Logo logos={data?.logos} />
+      </div>
       <Intro />
       <Team />
       <Services />
       <PicBaner />
       <MeetDoctor />
-      <Reviews />
+      <Reviews feedbacks={data?.feedbacks} />
       <OnlinePharmacy />
       <Appointment />
       <QRSection />
