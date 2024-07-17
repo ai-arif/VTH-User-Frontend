@@ -2,6 +2,7 @@ import Loader from "@/components/UI/Loader";
 import axiosInstance from "@/utils/axiosInstance";
 import { formatDate } from "@/utils/formatDate";
 import React, { useEffect, useState } from "react";
+import Feedback from "../Feedback/Feedback";
 
 const ViewAppointment = () => {
   const [appointments, setAppointments] = useState([]);
@@ -164,6 +165,7 @@ const ViewAppointment = () => {
           </ul>
         </div>
       </div>
+      <Feedback />
     </div>
   );
 };
