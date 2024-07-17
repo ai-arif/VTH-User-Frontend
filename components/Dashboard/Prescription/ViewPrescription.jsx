@@ -1,7 +1,7 @@
 import Loader from "@/components/UI/Loader";
 import axiosInstance from "@/utils/axiosInstance";
 import React, { useEffect, useState } from "react";
-import { handleDownload } from "./PrescriptionPDF";
+import { handleDownloadPrescription } from "./PrescriptionPDF";
 
 const ViewPrescription = () => {
   const [prescriptions, setPrescriptions] = useState([]);
@@ -68,7 +68,7 @@ const ViewPrescription = () => {
               <td className="tw-border tw-border-gray-300 tw-px-4 tw-py-2">
                 <button
                   className="tw-rounded tw-border-0 tw-bg-blue-500 tw-px-3 tw-py-1 tw-text-white hover:tw-bg-blue-600"
-                  onClick={() => handleDownload(prescription)}
+                  onClick={() => handleDownloadPrescription(prescription)}
                 >
                   Download
                 </button>

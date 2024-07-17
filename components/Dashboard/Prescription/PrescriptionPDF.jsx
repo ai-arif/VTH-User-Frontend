@@ -1,14 +1,57 @@
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-export const handleDownload = (prescription) => {
+export const handleDownloadPrescription = async (prescription) => {
   const doc = new jsPDF();
+  // load images from URLs
+  const loadImage = async (url) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Image failed to load");
+      const blob = await response.blob();
+      const dataUrl = await new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+      });
+      return dataUrl;
+    } catch (error) {
+      console.error(`Failed to load image from ${url}:`, error);
+      return null;
+    }
+  };
+
+  // images url
+  const leftImageUrl = "https://i.ibb.co/y4wyLbJ/logo.png";
+  const rightImageUrl = "https://i.ibb.co/m465Fx5/logo1.png";
+
+  const leftImage = await loadImage(leftImageUrl);
+  const rightImage = await loadImage(rightImageUrl);
+
+  // add images to PDF left and right side
+  const LeftImageHeight = 17;
+  const LeftImageWidth = 19;
+  const rightImageHeight = 17;
+  const rightImageWidth = 29;
+
+  if (leftImage) {
+    doc.addImage(leftImage, "PNG", 10, 10, LeftImageWidth, LeftImageHeight);
+  }
+  if (rightImage) {
+    doc.addImage(
+      rightImage,
+      "PNG",
+      doc.internal.pageSize.getWidth() - rightImageWidth - 10,
+      10,
+      rightImageWidth,
+      rightImageHeight,
+    );
+  }
 
   // Extract owner information from appointment
   const ownerName = prescription?.appointment?.ownerName || "N/A";
   const caseNo = prescription?.appointment?.caseNo || "N/A";
   const phone = prescription?.appointment?.phone || "N/A";
-  // const district = prescription?.appointment?.district || "N/A";
   const upazila = prescription?.appointment?.upazila || "N/A";
   const address = prescription?.appointment?.address || "N/A";
 
@@ -29,6 +72,12 @@ export const handleDownload = (prescription) => {
   const prognosis = prescription?.prognosis || "N/A";
   const advice = prescription?.advice || "N/A";
 
+  // Extract animal information from appointment
+  const animalAge = prescription?.patient?.age || "N/A";
+  const animalWeight = prescription?.patient?.weight || "N/A";
+  const animalBreed = prescription?.appointment?.breed?.breed || "N/A";
+  const animalGender = prescription?.patient?.sex || "N/A";
+
   // Extract surgical notes
   const preAnestheticUsed = prescription?.preAnestheticUsed || "N/A";
   const sutureMaterialsUsed = prescription?.sutureMaterialsUsed || "N/A";
@@ -39,12 +88,14 @@ export const handleDownload = (prescription) => {
   // Add titles and border
   doc.setFontSize(16);
   doc.setFont("helvetica", "bold");
+  doc.setTextColor(0, 111, 192);
   doc.text(
     "VETERINARY TEACHING HOSPITAL",
     doc.internal.pageSize.getWidth() / 2,
     20,
     { align: "center" },
   );
+  doc.setTextColor(0, 0, 0);
   doc.setFontSize(14);
   doc.setFont("helvetica", "normal");
   doc.text(
@@ -79,24 +130,39 @@ export const handleDownload = (prescription) => {
   doc.text(`Phone: ${phone}`, leftColumnX, startY + 2 * infoLineSpacing);
   doc.text(`Address: ${address}`, rightColumnX, startY + 2 * infoLineSpacing);
 
+  //Add animal information
+  doc.text(`Age: ${caseNo}`, leftColumnX, startY + 3 * infoLineSpacing);
+  doc.text(
+    `Gender: ${animalGender}`,
+    rightColumnX,
+    startY + 3 * infoLineSpacing,
+  );
+
+  doc.text(
+    `Body Weight: ${animalWeight}`,
+    leftColumnX,
+    startY + 4 * infoLineSpacing,
+  );
+  doc.text(`Breed: ${animalBreed}`, rightColumnX, startY + 4 * infoLineSpacing);
+
   // Add prescription details
-  doc.text("Diagnosis: ", leftColumnX, startY + 3 * lineSpacing);
-  doc.text(diagnosis, leftColumnX + 22, startY + 3 * lineSpacing);
+  doc.text("Diagnosis: ", leftColumnX, startY + 5 * infoLineSpacing);
+  doc.text(diagnosis, leftColumnX + 22, startY + 5 * infoLineSpacing);
 
-  doc.text("Prognosis: ", leftColumnX, startY + 4 * lineSpacing);
-  doc.text(prognosis, leftColumnX + 22, startY + 4 * lineSpacing);
+  doc.text("Prognosis: ", leftColumnX, startY + 6 * infoLineSpacing);
+  doc.text(prognosis, leftColumnX + 22, startY + 6 * infoLineSpacing);
 
-  doc.text("Advice: ", leftColumnX, startY + 5 * lineSpacing);
-  doc.text(advice, leftColumnX + 22, startY + 5 * lineSpacing);
+  doc.text("Advice: ", leftColumnX, startY + 7 * infoLineSpacing);
+  doc.text(advice, leftColumnX + 22, startY + 7 * infoLineSpacing);
 
-  doc.text("Next Visit: ", leftColumnX, startY + 6 * lineSpacing);
-  doc.text(nextVisitDate, leftColumnX + 22, startY + 6 * lineSpacing);
+  doc.text("Next Visit: ", leftColumnX, startY + 8 * infoLineSpacing);
+  doc.text(nextVisitDate, leftColumnX + 22, startY + 8 * infoLineSpacing);
 
   // Add medicines table
   {
     prescription?.therapeutics?.length > 0 &&
       doc.autoTable({
-        startY: startY + 7 * lineSpacing,
+        startY: startY + 9 * infoLineSpacing,
         head: [["Medicine Name", "Dose", "Route", "Frequency"]],
         body: prescription?.therapeutics?.map((medicine) => [
           medicine?.medicine_name || "N/A",
@@ -111,7 +177,7 @@ export const handleDownload = (prescription) => {
   // Add surgical notes
   const surgicalNotesStartY = doc.previousAutoTable
     ? doc.previousAutoTable.finalY + 10
-    : startY + 8 * lineSpacing;
+    : startY + 10 * lineSpacing;
 
   doc.setFontSize(11);
   doc.text("Surgical Notes", leftColumnX, surgicalNotesStartY);
@@ -124,7 +190,7 @@ export const handleDownload = (prescription) => {
   );
   doc.text(
     preAnestheticUsed,
-    leftColumnX + 50,
+    leftColumnX + 45,
     surgicalNotesStartY + lineSpacing,
   );
 
@@ -135,7 +201,7 @@ export const handleDownload = (prescription) => {
   );
   doc.text(
     sutureMaterialsUsed,
-    leftColumnX + 50,
+    leftColumnX + 45,
     surgicalNotesStartY + 2 * lineSpacing,
   );
 
@@ -146,7 +212,7 @@ export const handleDownload = (prescription) => {
   );
   doc.text(
     typeOfSurgery,
-    leftColumnX + 50,
+    leftColumnX + 45,
     surgicalNotesStartY + 3 * lineSpacing,
   );
 
@@ -157,7 +223,7 @@ export const handleDownload = (prescription) => {
   );
   doc.text(
     postOperativeCare,
-    leftColumnX + 50,
+    leftColumnX + 45,
     surgicalNotesStartY + 4 * lineSpacing,
   );
 
@@ -168,7 +234,7 @@ export const handleDownload = (prescription) => {
   );
   doc.text(
     briefSurgical,
-    leftColumnX + 50,
+    leftColumnX + 45,
     surgicalNotesStartY + 5 * lineSpacing,
   );
 
