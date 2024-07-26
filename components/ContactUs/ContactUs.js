@@ -43,7 +43,7 @@ const ContactUs = () => {
                   <h3 className="tw-text-lg tw-font-semibold lg:tw-text-xl">
                     Phone Number
                   </h3>
-                  <p className="tw-text-xs lg:tw-text-base">270-526-3839</p>
+                  <p className="tw-text-xs lg:tw-text-base">+88 01729301016</p>
                 </div>
               </div>
               <div className="tw-flex tw-items-center tw-gap-2 lg:tw-gap-4">
