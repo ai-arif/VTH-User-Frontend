@@ -146,7 +146,23 @@ export const handleDownloadPrescription = async (prescription) => {
   doc.text(`Breed: ${animalBreed}`, rightColumnX, startY + 4 * infoLineSpacing);
 
   // Add prescription details
-  doc.text("Diagnosis: ", leftColumnX, startY + 5 * infoLineSpacing);
+  const splitTextAndAdd = (label, text, yPosition, labelWidth = 22) => {
+    doc.text(label, leftColumnX, yPosition);
+    const splitText = doc.splitTextToSize(
+      text,
+      doc.internal.pageSize.getWidth() - leftColumnX - labelWidth - 10,
+    );
+    doc.text(splitText, leftColumnX + labelWidth, yPosition);
+    return yPosition + splitText.length * 6; // Adjust line height as needed
+  };
+
+  let currentY = startY + 5 * infoLineSpacing;
+  currentY = splitTextAndAdd("Diagnosis: ", diagnosis, currentY);
+  currentY = splitTextAndAdd("Prognosis: ", prognosis, currentY);
+  currentY = splitTextAndAdd("Advice: ", advice, currentY);
+  currentY = splitTextAndAdd("Next Visit: ", nextVisitDate, currentY);
+
+  /*   doc.text("Diagnosis: ", leftColumnX, startY + 5 * infoLineSpacing);
   doc.text(diagnosis, leftColumnX + 22, startY + 5 * infoLineSpacing);
 
   doc.text("Prognosis: ", leftColumnX, startY + 6 * infoLineSpacing);
@@ -156,7 +172,7 @@ export const handleDownloadPrescription = async (prescription) => {
   doc.text(advice, leftColumnX + 22, startY + 7 * infoLineSpacing);
 
   doc.text("Next Visit: ", leftColumnX, startY + 8 * infoLineSpacing);
-  doc.text(nextVisitDate, leftColumnX + 22, startY + 8 * infoLineSpacing);
+  doc.text(nextVisitDate, leftColumnX + 22, startY + 8 * infoLineSpacing); */
 
   // Add medicines table
   {
@@ -183,7 +199,33 @@ export const handleDownloadPrescription = async (prescription) => {
   doc.text("Surgical Notes", leftColumnX, surgicalNotesStartY);
 
   doc.setFontSize(10);
-  doc.text(
+  currentY = surgicalNotesStartY + lineSpacing;
+  currentY = splitTextAndAdd(
+    "Pre-Anesthetic used: ",
+    preAnestheticUsed,
+    currentY,
+    45,
+  );
+  currentY = splitTextAndAdd(
+    "Suture materials used: ",
+    sutureMaterialsUsed,
+    currentY,
+    45,
+  );
+  currentY = splitTextAndAdd("Type of surgery: ", typeOfSurgery, currentY, 45);
+  currentY = splitTextAndAdd(
+    "Post operative care: ",
+    postOperativeCare,
+    currentY,
+    45,
+  );
+  currentY = splitTextAndAdd(
+    "Brief Surgical Procedure: ",
+    briefSurgical,
+    currentY,
+    45,
+  );
+  /*   doc.text(
     "Pre-Anesthetic used: ",
     leftColumnX,
     surgicalNotesStartY + lineSpacing,
@@ -236,7 +278,7 @@ export const handleDownloadPrescription = async (prescription) => {
     briefSurgical,
     leftColumnX + 45,
     surgicalNotesStartY + 5 * lineSpacing,
-  );
+  ); */
 
   // Save the PDF
   doc.save(`prescription-${caseNo}.pdf`);
