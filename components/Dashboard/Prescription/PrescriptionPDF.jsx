@@ -2,7 +2,6 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 
 export const handleDownloadPrescription = async (prescription) => {
-  // console.log(prescription);
   const doc = new jsPDF();
   // load images from URLs
   const loadImage = async (url) => {
@@ -153,7 +152,7 @@ export const handleDownloadPrescription = async (prescription) => {
 
   // Add prescribed information
   doc.text(
-    `Prescribed By: ${prescribedBy}`,
+    `Doctor Name: ${prescribedBy}`,
     leftColumnX,
     startY + 5 * infoLineSpacing,
   );
