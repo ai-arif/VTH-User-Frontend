@@ -3,6 +3,7 @@ import anisurImg from "../assets/images/staffs/anisur.jpg";
 import antoraImg from "../assets/images/staffs/antora.jpg";
 import joyontaImg from "../assets/images/staffs/joyonta.jpg";
 import mokbulImg from "../assets/images/staffs/mokbul.jpg";
+import rukhsanaImg from "../assets/images/staffs/rukhsana.png";
 import soniaImg from "../assets/images/staffs/sonia.jpg";
 
 export const staffsData = [
@@ -30,11 +31,17 @@ export const staffsData = [
     image: joyontaImg,
     designation: "Consultant (Theriogenology)",
   },
+  // {
+  //   id: 5,
+  //   name: "Dr. Antora Akter, DVM & MS (BAU)",
+  //   image: antoraImg,
+  //   designation: "Consultant (Theriogenology)",
+  // },
   {
     id: 5,
-    name: "Dr. Antora Akter, DVM & MS (BAU)",
-    image: antoraImg,
-    designation: "Consultant (Theriogenology)",
+    name: "Professor Dr. Rukhsana Amin Runa",
+    image: rukhsanaImg,
+    designation: "Consultant (Surgery)",
   },
   {
     id: 6,
@@ -75,12 +82,19 @@ export const staffsDataForTeamPage = [
     designation: "Consultant (Theriogenology)",
     degrees: "DVM & MS (BAU), PhD (Italy), Post-doctorate (Canada)",
   },
+  // {
+  //   id: 5,
+  //   name: "Dr. Antora Akter",
+  //   image: antoraImg,
+  //   designation: "Consultant (Theriogenology)",
+  //   degrees: "DVM & MS (BAU)",
+  // },
   {
     id: 5,
-    name: "Dr. Antora Akter",
-    image: antoraImg,
-    designation: "Consultant (Theriogenology)",
-    degrees: "DVM & MS (BAU)",
+    name: "Professor Dr. Rukhsana Amin Runa",
+    image: rukhsanaImg,
+    designation: "Consultant (Surgery)",
+    degrees: "DVM & MS (BAU), PhD (Germany)",
   },
   {
     id: 6,
