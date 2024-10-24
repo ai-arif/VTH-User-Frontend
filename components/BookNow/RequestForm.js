@@ -46,8 +46,29 @@ function RequestForm() {
     register,
     reset,
     control,
+    watch,
+    setValue,
     formState: { errors },
   } = useForm();
+
+  // animal related calculation
+  const totalAnimals = watch("totalAnimals");
+  const totalSickAnimals = watch("totalSickAnimals");
+  const totalDeadAnimals = watch("totalDeadAnimals");
+
+  useEffect(() => {
+    if (totalAnimals > 0 && totalSickAnimals >= 0) {
+      const totalMortality = (totalSickAnimals / totalAnimals) * 100;
+      setValue("totalMortality", Number(totalMortality).toFixed(2));
+    }
+  }, [totalAnimals, totalSickAnimals, setValue]);
+
+  useEffect(() => {
+    if (totalSickAnimals > 0 && totalDeadAnimals >= 0) {
+      const totalFatality = (totalDeadAnimals / totalSickAnimals) * 100;
+      setValue("totalFatality", Number(totalFatality).toFixed(2));
+    }
+  }, [totalSickAnimals, totalDeadAnimals, setValue]);
 
   const onSubmit = async (data) => {
     try {
@@ -66,6 +87,15 @@ function RequestForm() {
       formData.append("complaint", data.complaint);
       formData.append("department", data.department);
       formData.append("notes", data.notes);
+      formData.append("age", data.age);
+      formData.append("weight", data.weight);
+      formData.append("sex", data.sex);
+      formData.append("illnessDuration", data.illnessDuration); //
+      formData.append("totalAnimals", data.totalAnimals); //
+      formData.append("totalSickAnimals", data.totalSickAnimals); //
+      formData.append("totalMortality", data.totalMortality); //
+      formData.append("totalDeadAnimals", data.totalDeadAnimals); //
+      formData.append("totalFatality", data.totalFatality); //
       // formData.append("petName", data.petName);
 
       // if (imageFiles.length > 0) {
@@ -282,6 +312,192 @@ function RequestForm() {
             )}
           />
         </FloatingLabel>
+        <Row>
+          <Col>
+            <FloatingLabel controlId="floatingInput" label="Age">
+              <Form.Control
+                disabled={!user?.isCompleted}
+                type="text"
+                {...register("age", { required: true })}
+                placeholder="Enter Age"
+              />
+              {errors.age && (
+                <small className="text-danger">Age is required</small>
+              )}
+            </FloatingLabel>
+          </Col>
+          <Col>
+            <FloatingLabel controlId="floatingInput" label="Body Weight">
+              <Form.Control
+                disabled={!user?.isCompleted}
+                type="text"
+                {...register("weight", { required: true })}
+                placeholder="Enter Body Weight"
+              />
+              {errors.weight && (
+                <small className="text-danger">Body Weight is required</small>
+              )}
+            </FloatingLabel>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <FloatingLabel controlId="floatingSelect" label="Department">
+              <Form.Select
+                disabled={!user?.isCompleted}
+                {...register("department", { required: true })}
+                aria-label="Department"
+              >
+                <option value="">Select</option>
+                {departments?.data?.map((department) => (
+                  <option key={department._id} value={department._id}>
+                    {department.name}
+                  </option>
+                ))}
+              </Form.Select>
+              {errors.department && (
+                <small className="text-danger">Department is required</small>
+              )}
+            </FloatingLabel>
+          </Col>
+          <Col>
+            <FloatingLabel controlId="floatingSelect" label="Sex (M/F)">
+              <Form.Select
+                disabled={!user?.isCompleted}
+                {...register("sex", { required: true })}
+                aria-label="Sex (M/F)"
+              >
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </Form.Select>
+              {errors.sex && (
+                <small className="text-danger">Sex is required</small>
+              )}
+            </FloatingLabel>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Duration of Illness"
+            >
+              <Form.Control
+                disabled={!user?.isCompleted}
+                type="text"
+                {...register("illnessDuration", { required: true })}
+                placeholder="Duration of Illness"
+              />
+              {errors.illnessDuration && (
+                <small className="text-danger">
+                  Illness duration is required
+                </small>
+              )}
+            </FloatingLabel>
+          </Col>
+          <Col>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Total number of animals"
+            >
+              <Form.Control
+                disabled={!user?.isCompleted}
+                type="number"
+                {...register("totalAnimals", {
+                  required: true,
+                  valueAsNumber: true,
+                })}
+                placeholder="Total number of animals"
+              />
+              {errors.totalAnimals && (
+                <small className="text-danger">Total animal is required</small>
+              )}
+            </FloatingLabel>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Total number of sick animals"
+            >
+              <Form.Control
+                disabled={!user?.isCompleted}
+                type="number"
+                {...register("totalSickAnimals", {
+                  required: true,
+                  valueAsNumber: true,
+                })}
+                placeholder="Total number of sick animals"
+              />
+              {errors.totalSickAnimals && (
+                <small className="text-danger">
+                  Total sick animal is required
+                </small>
+              )}
+            </FloatingLabel>
+          </Col>
+          <Col>
+            <FloatingLabel controlId="floatingInput" label="Morbidity (%)">
+              <Controller
+                name="totalMortality"
+                control={control}
+                render={({ field }) => (
+                  <Form.Control
+                    disabled={!user?.isCompleted}
+                    {...field}
+                    readOnly
+                    type="number"
+                  />
+                )}
+              />
+            </FloatingLabel>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Total number of dead animals"
+            >
+              <Form.Control
+                disabled={!user?.isCompleted}
+                type="number"
+                {...register("totalDeadAnimals", {
+                  required: true,
+                  valueAsNumber: true,
+                })}
+                placeholder="Total number of dead animals"
+              />
+              {errors.totalDeadAnimals && (
+                <small className="text-danger">
+                  Total dead animal is required
+                </small>
+              )}
+            </FloatingLabel>
+          </Col>
+          <Col>
+            <FloatingLabel controlId="floatingInput" label="Case fatality (%)">
+              <Controller
+                name="totalFatality"
+                control={control}
+                render={({ field }) => (
+                  <Form.Control
+                    disabled={!user?.isCompleted}
+                    {...field}
+                    readOnly
+                    type="number"
+                  />
+                )}
+              />
+            </FloatingLabel>
+          </Col>
+        </Row>
+
         {/* <FloatingLabel
           controlId="floatingSelect"
           label="Reason's for Appointment"
@@ -436,23 +652,6 @@ function RequestForm() {
             </Button>
           </Modal.Footer>
         </Modal> */}
-        <FloatingLabel controlId="floatingSelect" label="Department">
-          <Form.Select
-            disabled={!user?.isCompleted}
-            {...register("department", { required: true })}
-            aria-label="Department"
-          >
-            <option value="">Select</option>
-            {departments?.data?.map((department) => (
-              <option key={department._id} value={department._id}>
-                {department.name}
-              </option>
-            ))}
-          </Form.Select>
-          {errors.department && (
-            <small className="text-danger">Department is required</small>
-          )}
-        </FloatingLabel>
         {/* <div>
           Upload Animal Images (0 to 5 images), Only images (pdf is not allowed)
           <Form.Control
