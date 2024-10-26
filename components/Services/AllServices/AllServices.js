@@ -1,7 +1,6 @@
 import Container from "@/components/UI/Container";
-import Link from "next/link";
 import React from "react";
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import { Accordion } from "react-bootstrap";
 
 const AllServices = () => {
   return (
@@ -10,57 +9,99 @@ const AllServices = () => {
         <h3 className="text-center tw-pb-10 tw-opacity-90">
           Explore Our Services
         </h3>
-        <div className="tw-flex tw-flex-col tw-gap-x-[60px] tw-gap-y-10 lg:tw-flex-row">
-          {/* left side navigation part */}
-          <div className="lg:tw-w-1/2 lg:tw-text-2xl">
-            <div>
-              <Link
-                href="/services/alternative-therapies"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
-              >
-                <span>Medicine</span>
-                <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="/services/boarding"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
-              >
-                <span>Surgery</span>
-                <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="/services/animal"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
-              >
-                <span>Theriogenology</span>
-                <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
-              </Link>
-            </div>
+        <div className="tw-flex tw-flex-col tw-gap-5 tw-gap-y-10 lg:tw-flex-row lg:tw-gap-10">
+          {/* Left Column - Services Accordion */}
+          <div className="tw-w-full lg:tw-w-1/2">
+            <Accordion defaultActiveKey="0" flush alwaysOpen>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Clinical Services</Accordion.Header>
+                <Accordion.Body>
+                  <ul>
+                    <li>Small Animal Medicine, Surgery & Theriogenology</li>
+                    <li>Large Animal Medicine, Surgery & Theriogenology</li>
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>Diagnostic Services</Accordion.Header>
+                <Accordion.Body>
+                  <ul>
+                    <li>Diagnostic Imaging</li>
+                    <ul>
+                      <li>Radiography</li>
+                      <li>Ultrasonography</li>
+                      <li>
+                        Computed Tomography (CT) and Magnetic Resonance Imaging
+                        (MRI) [Upcoming]
+                      </li>
+                      <li>Endoscopy [Upcoming]</li>
+                    </ul>
+                    <li>Routine Hematology</li>
+                    <li>Serology and biochemistry</li>
+                    <li>Milk analysis</li>
+                    <li>Post-mortem examination</li>
+                    <li>Histopathology and biopsy</li>
+                    <li>Microbiology</li>
+                    <li>Molecular diagnostics</li>
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>
+                  Ambulatory and Outreach Services
+                </Accordion.Header>
+                <Accordion.Body>
+                  Ambulatory and Outreach Services
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="3">
+                <Accordion.Header>Teaching and Research</Accordion.Header>
+                <Accordion.Body>Teaching and Research</Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
           </div>
-          {/* right side navigation part */}
-          <div className="lg:tw-w-1/2 lg:tw-text-2xl">
-            <div>
-              <Link
-                href="/services/dental"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
-              >
-                <span>Necropsy</span>
-                <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="/services/diagnostics"
-                className="tw-border-tx-0 tw-group tw-flex tw-items-center tw-justify-between tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-solid tw-border-slate-4 tw-py-3 tw-text-secondary tw-decoration-transparent tw-transition-all hover:tw-border-secondary lg:tw-py-6"
-              >
-                <span>Ambulatory Hospital & Consultation</span>
-                <HiOutlineArrowNarrowRight className="tw-text-3xl tw-text-slate-4 group-hover:tw-text-secondary" />
-              </Link>
-            </div>
+
+          {/* Right Column - Services Accordion */}
+          <div className="tw-w-full lg:tw-w-1/2">
+            <Accordion defaultActiveKey="4" flush alwaysOpen>
+              <Accordion.Item eventKey="4">
+                <Accordion.Header>
+                  Preventive and Wellness Services
+                </Accordion.Header>
+                <Accordion.Body>
+                  <ul>
+                    <li>Vaccination and Deworming Programs</li>
+                    <li>Routine Health Check-ups</li>
+                    <li>Nutritional Consultation</li>
+                    <li>Herd Health and Biosecurity Programs</li>
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="5">
+                <Accordion.Header>
+                  Emergency and Critical Care Services [Upcoming]
+                </Accordion.Header>
+                <Accordion.Body>
+                  <ul>
+                    <li>24/7 Emergency Care and Hospitalization</li>
+                    <li>Intensive Care Units for Small and Large Animals</li>
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="6">
+                <Accordion.Header>
+                  Specialty Services [Upcoming]
+                </Accordion.Header>
+                <Accordion.Body>
+                  <ul>
+                    <li>Ophthalmology</li>
+                    <li>Dentistry</li>
+                    <li>Neurology</li>
+                    <li>Rehabilitation and Physical Therapy</li>
+                  </ul>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
           </div>
         </div>
       </Container>
