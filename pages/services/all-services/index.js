@@ -29,10 +29,7 @@ const AllServicesPage = () => {
           delivering compassionate, expert care tailored to each animal’s unique
           needs. Serving Morgantown and surrounding areas, we build lasting
           partnerships with animal owners and caretakers to ensure each animal
-          receives the highest quality of life. Whether it’s regular health
-          maintenance or urgent care, trust us to be here for every stage of
-          animal health, with a focus on wellness, early intervention, and
-          compassionate support.
+          receives the highest quality of life.
         </CommonInfo>
       </div>
       {/* all services section */}
