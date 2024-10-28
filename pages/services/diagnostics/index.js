@@ -3,7 +3,7 @@ import Diagnostics from "@/components/Services/Diagnostics/Diagnostics";
 import CommonInfo from "@/components/Shared/CommonInfo";
 import PageBanner from "@/components/Shared/PageBanner";
 import React from "react";
-import diagnosticsImg from "../../../public/assets/images/animals/cat.jpg";
+import diagnosticsImg from "/public/assets/images/animals/cat.jpg";
 
 const DiagnosticsPage = () => {
   return (
