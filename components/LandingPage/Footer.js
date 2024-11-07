@@ -26,6 +26,12 @@ function Footer() {
                 <Col md={6}>
                   <h3>Hospital Hours</h3>
                   <p>
+                    <b>Saturday: </b>9:00am-5:00pm
+                  </p>
+                  <p>
+                    <b>Sunday: </b>9:00am-5:00pm
+                  </p>
+                  <p>
                     <b>Monday: </b>9:00am-5:00pm
                   </p>
                   <p>
@@ -38,13 +44,7 @@ function Footer() {
                     <b>Thursday: </b>9:00am-5:00pm
                   </p>
                   <p>
-                    <b>Friday: </b>9:00am-2:00pm
-                  </p>
-                  <p>
-                    <b>Saturday: </b>9:00am-5:00pm
-                  </p>
-                  <p>
-                    <b>Sunday: </b>9:00am-5:00pm
+                    <b>Friday: </b>9:00am-5:00pm
                   </p>
                 </Col>
                 <Col md={6}>

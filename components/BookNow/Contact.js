@@ -61,19 +61,19 @@ function Contact() {
             <div>
               <h5>HOURS</h5>
               <p color="#cceff4">
-                Monday: 8:00 AM - 5:00 PM
+                Saturday: 9:00 AM - 5:00 PM
                 <br />
-                Tuesday: 8:00 AM - 5:00 PM
+                Sunday: 9:00 AM - 5:00 PM
                 <br />
-                Wednesday: 8:00 AM - 5:00 PM
+                Monday: 9:00 AM - 5:00 PM
                 <br />
-                Thursday: 8:00 AM - 5:00 PM
+                Tuesday: 9:00 AM - 5:00 PM
                 <br />
-                Friday: 8:00 AM - 5:00 PM
+                Wednesday: 9:00 AM - 5:00 PM
                 <br />
-                Saturday: 8:00 AM - 12:00 PM
+                Thursday: 9:00 AM - 5:00 PM
                 <br />
-                Sunday: Closed
+                Friday: 9:00 AM - 5:00 PM
               </p>
             </div>
           </div>
