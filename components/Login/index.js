@@ -21,7 +21,7 @@ function Login() {
             md={7}
             style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
           >
-            <h5>Trusted and Amazing PetCare</h5>
+            <h5>Trusted and Amazing Veterinary Care</h5>
             <h1>Veterinary Teaching Hospital</h1>
             <LoginForm />
           </Col>

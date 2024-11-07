@@ -20,7 +20,7 @@ function BookNow() {
             md={7}
             style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
           >
-            <h5>Trusted and Amazing PetCare</h5>
+            <h5>Trusted and Amazing Veterinary Care</h5>
             <h2 style={{ fontSize: "58px" }}>Veterinary Teaching Hospital</h2>
             <RequestForm />
           </Col>
