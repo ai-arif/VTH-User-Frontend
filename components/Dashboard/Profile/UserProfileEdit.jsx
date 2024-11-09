@@ -1,16 +1,38 @@
 "use client";
+
 import CompleteMessage from "@/components/UI/CompleteMessage";
 import CustomButton from "@/components/UI/CustomButton";
 import Loader from "@/components/UI/Loader";
 import { AuthContext } from "@/contexts/AuthProvider";
 import axiosInstance from "@/utils/axiosInstance";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import bdData from "../../../public/data.json";
 import ChangePassword from "./ChangePassword";
 
 const UserProfileEdit = () => {
+  const [division, setDivision] = useState("");
+  const [district, setDistrict] = useState("");
   const { user, loading, fetchUser } = useContext(AuthContext);
+
+  const handleDivisionChange = (e) => {
+    setDivision(e.target.value);
+    setDistrict("");
+  };
+
+  const handleDistrictChange = (e) => {
+    setDistrict(e.target.value);
+  };
+
+  // Get the list of districts based on the selected division
+  const filteredDistricts =
+    bdData?.find((data) => data.division === division)?.districts || [];
+
+  // Get the list of upazilas based on the selected district
+  const filteredUpazilas =
+    filteredDistricts?.find((dist) => dist.district === district)?.upazilas ||
+    [];
 
   const { handleSubmit, register } = useForm({ values: user });
 
@@ -64,14 +86,39 @@ const UserProfileEdit = () => {
           </div>
           <div className="tw-grid tw-grid-cols-1 tw-gap-4 lg:tw-grid-cols-2 lg:tw-gap-6">
             <div className="tw-space-y-2 lg:tw-space-y-4">
+              <label className="tw-block">Division</label>
+              <select
+                {...register("division", { required: true })}
+                value={division}
+                onChange={handleDivisionChange}
+                className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
+              >
+                <option value="">Select</option>
+                {bdData?.map((data, idx) => (
+                  <option key={idx} value={data.division}>
+                    {data.division}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="tw-space-y-2 lg:tw-space-y-4">
               <label className="tw-block">District</label>
               <select
                 {...register("district", { required: true })}
+                value={district}
+                onChange={handleDistrictChange}
                 className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
               >
-                <option value="Mymensingh">Mymensingh</option>
+                <option value="">Select</option>
+                {filteredDistricts?.map((dist, idx) => (
+                  <option key={idx} value={dist.district}>
+                    {dist.district}
+                  </option>
+                ))}
               </select>
             </div>
+          </div>
+          <div className="tw-space-y-2 lg:tw-space-y-4">
             <div className="tw-space-y-2 lg:tw-space-y-4">
               <label className="tw-block">Upazila</label>
               <select
@@ -79,20 +126,11 @@ const UserProfileEdit = () => {
                 className="tw-h-8 tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary lg:tw-h-12"
               >
                 <option value="">Select</option>
-                <option value="Mymensingh Sadar">Mymensingh Sadar</option>
-                <option value="Trishal">Trishal</option>
-                <option value="Bhaluka">Bhaluka</option>
-                <option value="Fulbaria">Fulbaria</option>
-                <option value="Muktagacha">Muktagacha</option>
-                <option value="Gafargaon">Gafargaon</option>
-                <option value="Gauripur">Gauripur</option>
-                <option value="Ishwarganj">Ishwarganj</option>
-                <option value="Nandail">Nandail</option>
-                <option value="Tarakanda">Tarakanda</option>
-                <option value="Fulpur">Fulpur</option>
-                <option value="Haluaghat">Haluaghat</option>
-                <option value="Dhubaura">Dhubaura</option>
-                <option value="Pagla">Pagla</option>
+                {filteredUpazilas?.map((upazila, idx) => (
+                  <option key={idx} value={upazila}>
+                    {upazila}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -108,7 +146,7 @@ const UserProfileEdit = () => {
           <div className="tw-space-y-2 lg:tw-space-y-4">
             <label className="tw-block">Address</label>
             <textarea
-              {...register("address", { required: true })}
+              {...register("address", { required: false })}
               rows="3"
               placeholder="Write your address"
               className="tw-w-full tw-rounded tw-border-0 tw-border-primary tw-bg-whiten tw-px-4 tw-text-gray-7 tw-shadow tw-shadow-black/20 tw-outline-none tw-outline-offset-0 tw-transition-all placeholder:tw-text-gray-400 focus:tw-border-primary focus:tw-outline-1 focus:tw-outline-primary"

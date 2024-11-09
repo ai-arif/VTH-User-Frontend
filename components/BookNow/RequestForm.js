@@ -79,6 +79,7 @@ function RequestForm() {
 
       formData.append("ownerName", data.ownerName);
       formData.append("phone", data.phone);
+      formData.append("division", user?.division);
       formData.append("district", user?.district);
       formData.append("upazila", user?.upazila);
       formData.append("address", user?.address);
