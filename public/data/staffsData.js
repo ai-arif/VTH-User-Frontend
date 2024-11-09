@@ -39,7 +39,7 @@ export const staffsData = [
   // },
   {
     id: 5,
-    name: "Professor Dr. Rukhsana Amin Runa",
+    name: "Professor Dr. Rukhsana Amin Runa, DVM & MS (BAU), PhD (Germany)",
     image: rukhsanaImg,
     designation: "Consultant (Surgery)",
   },
