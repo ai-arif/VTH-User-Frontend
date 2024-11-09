@@ -6,6 +6,8 @@ import { FaYoutube } from "react-icons/fa6";
 import CustomButton from "../UI/CustomButton";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <Container
@@ -169,7 +171,8 @@ function Footer() {
         <Container className="py-4">
           <p className="mb-0 tw-flex tw-flex-col tw-items-center tw-justify-between tw-gap-2 tw-text-sm md:tw-flex-row lg:tw-text-base">
             <span>
-              © 2024 VTH BAU, Mymensingh, Bangladesh. All Rights Reserved.
+              © {currentYear} VTH BAU, Mymensingh, Bangladesh. All Rights
+              Reserved.
             </span>
             <span>
               Developed By-{" "}

@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 
 function DownloadLinks() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <>
       <div
@@ -32,7 +34,8 @@ function DownloadLinks() {
           </div>
         </div>
         <p className="text-center">
-          © 2024 PetDesk. Read our <b>Terms of Use</b> and <b>Privacy Policy</b>
+          © {currentYear} PetDesk. Read our <b>Terms of Use</b> and{" "}
+          <b>Privacy Policy</b>
           <br /> 1.51.0
         </p>
       </div>
