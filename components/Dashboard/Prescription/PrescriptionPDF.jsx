@@ -80,6 +80,7 @@ export const handleDownloadPrescription = async (prescription) => {
   const animalWeight =
     prescription?.appointment?.weight || prescription?.patient?.weight || "N/A";
   const animalBreed = prescription?.appointment?.breed?.breed || "N/A";
+  const animalSpecies = prescription?.appointment?.species?.name || "N/A";
   const animalGender =
     prescription?.appointment?.sex || prescription?.patient?.sex || "N/A";
 
@@ -104,7 +105,7 @@ export const handleDownloadPrescription = async (prescription) => {
   doc.setFontSize(14);
   doc.setFont("helvetica", "normal");
   doc.text(
-    "Bangladesh Agriculture University, Mymensingh-2202",
+    "Bangladesh Agricultural University, Mymensingh-2202",
     doc.internal.pageSize.getWidth() / 2,
     30,
     { align: "center" },
@@ -148,7 +149,11 @@ export const handleDownloadPrescription = async (prescription) => {
     leftColumnX,
     startY + 4 * infoLineSpacing,
   );
-  doc.text(`Breed: ${animalBreed}`, rightColumnX, startY + 4 * infoLineSpacing);
+  doc.text(
+    `Species: ${animalSpecies}`,
+    rightColumnX,
+    startY + 4 * infoLineSpacing,
+  );
 
   // Add prescribed information
   doc.text(
@@ -156,6 +161,7 @@ export const handleDownloadPrescription = async (prescription) => {
     leftColumnX,
     startY + 5 * infoLineSpacing,
   );
+  doc.text(`Breed: ${animalBreed}`, rightColumnX, startY + 5 * infoLineSpacing);
 
   // Add prescription details
   const splitTextAndAdd = (label, text, yPosition, labelWidth = 22) => {
