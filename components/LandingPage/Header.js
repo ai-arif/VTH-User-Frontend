@@ -15,7 +15,6 @@ import {
 import { FaCalendarCheck } from "react-icons/fa";
 import { FaClipboardList } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
-import { LiaAngleDownSolid, LiaAngleRightSolid } from "react-icons/lia";
 import CustomButton from "../UI/CustomButton";
 import CustomOutlineButton from "../UI/CustomOutlineButton";
 
