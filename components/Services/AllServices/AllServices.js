@@ -51,12 +51,14 @@ const AllServices = () => {
                   Ambulatory and Outreach Services
                 </Accordion.Header>
                 <Accordion.Body>
-                  Ambulatory and Outreach Services
+                  <li>Ambulatory and Outreach Services</li>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
                 <Accordion.Header>Teaching and Research</Accordion.Header>
-                <Accordion.Body>Teaching and Research</Accordion.Body>
+                <Accordion.Body>
+                  <li>Teaching and Research</li>
+                </Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </div>

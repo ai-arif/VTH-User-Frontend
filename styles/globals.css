@@ -85,14 +85,42 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: top 0.3s ease-in-out;
   position: fixed;
   width: 100%;
-  top: -100px; /* initially hidden */
-  z-index: 1030; /* make sure it's below the navbar */
+  top: -100px;
+  z-index: 1030;
 }
 
 .sticky-container.show {
-  top: 0; /* visible */
+  top: 0;
 }
 
 .navbar-container {
-  z-index: 1040; /* higher than the sticky container */
+  z-index: 1040;
+}
+
+/* Hide all sub-menus by default */
+.sub-menu {
+  display: none;
+  position: absolute;
+  left: 99%;
+  top: 0;
+  min-width: 200px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #0000002d;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-item {
+  position: relative;
+}
+
+/* Show only the sub-menu of the hovered service-item */
+.service-item:hover .sub-menu {
+  display: block;
+}
+
+/* Styling for sub-menu items */
+.sub-menu .dropdown-item {
+  white-space: nowrap;
+  margin-bottom: 0px;
 }

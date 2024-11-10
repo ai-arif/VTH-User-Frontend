@@ -14,6 +14,7 @@ import {
 import { FaCalendarCheck } from "react-icons/fa";
 import { FaClipboardList } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
+import { LiaAngleRightSolid } from "react-icons/lia";
 import CustomButton from "../UI/CustomButton";
 import CustomOutlineButton from "../UI/CustomOutlineButton";
 
@@ -146,6 +147,7 @@ function Header() {
                 <Link className="nav-link tw-text-primary" href="/">
                   Home
                 </Link>
+
                 <NavDropdown title="About" id="nav-dropdown">
                   <Link
                     className="dropdown-item tw-text-primary"
@@ -153,7 +155,6 @@ function Header() {
                   >
                     Our Team
                   </Link>
-
                   <Link
                     className="dropdown-item tw-text-primary"
                     href="/about/our-hospital"
@@ -161,37 +162,132 @@ function Header() {
                     Our Hospital
                   </Link>
                 </NavDropdown>
+
                 <NavDropdown title="Services" id="nav-dropdown">
-                  <Link
-                    className="dropdown-item tw-text-primary"
-                    href="/services/alternative-therapies"
-                  >
-                    Medicine
-                  </Link>
-                  <Link
-                    className="dropdown-item tw-text-primary"
-                    href="/services/boarding"
-                  >
-                    Surgery
-                  </Link>
-                  <Link
-                    className="dropdown-item tw-text-primary"
-                    href="/services/animal"
-                  >
-                    Theriogenology
-                  </Link>
-                  <Link
-                    className="dropdown-item tw-text-primary"
-                    href="/services/dental"
-                  >
-                    Clinical Pathology & Necropsy
-                  </Link>
-                  <Link
-                    className="dropdown-item tw-text-primary"
-                    href="/services/diagnostics"
-                  >
-                    Ambulatory Hospital & Consultation
-                  </Link>
+                  <div className="service-item">
+                    <p className="dropdown-item tw-mb-0 tw-flex tw-items-center tw-justify-between tw-text-primary">
+                      Clinical Services <LiaAngleRightSolid />
+                    </p>
+                    <div className="sub-menu">
+                      <p className="dropdown-item tw-text-primary">
+                        Small Animal Medicine, Surgery & Theriogenology
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Large Animal Medicine, Surgery & Theriogenology
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="service-item">
+                    <p
+                      className="dropdown-item tw-mb-0 tw-flex tw-items-center tw-justify-between tw-text-primary"
+                      href="/services/diagnostics"
+                    >
+                      Diagnostic Services <LiaAngleRightSolid />
+                    </p>
+                    <div className="sub-menu">
+                      <p className="dropdown-item tw-text-primary">
+                        Diagnostic imaging
+                      </p>
+                      <div className="tw-pl-6">
+                        <p className="dropdown-item tw-text-primary">
+                          Radiography
+                        </p>
+                        <p className="dropdown-item tw-text-primary">
+                          Ultrasonography
+                        </p>
+                        <p className="dropdown-item tw-text-primary">
+                          Computed Tomography (CT) and Magnetic <br /> Resonance
+                          Imaging (MRI) [Upcoming]
+                        </p>
+                        <p className="dropdown-item tw-text-primary">
+                          Endoscopy [Upcoming]
+                        </p>
+                      </div>
+                      <p className="dropdown-item tw-text-primary">
+                        Routine Hematology
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Serology and biochemistry
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Milk analysis
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Post-mortem examination
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Histopathology and biopsy
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Microbiology
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Molecular diagnostics
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="service-item">
+                    <p className="dropdown-item tw-mb-0 tw-flex tw-items-center tw-justify-between tw-text-primary">
+                      Preventive and wellness services
+                      <LiaAngleRightSolid />
+                    </p>
+                    <div className="sub-menu">
+                      <p className="dropdown-item tw-text-primary">
+                        Vaccination and deworming programs
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Routine health check-ups
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Nutritional consultation
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Herd health and biosecurity programs
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="dropdown-item tw-mb-0 tw-text-primary">
+                    Teaching and Research
+                  </p>
+
+                  <p className="dropdown-item tw-mb-0 tw-text-primary">
+                    Ambulatory and Outreach Services
+                  </p>
+
+                  <div className="service-item">
+                    <p className="dropdown-item tw-mb-0 tw-flex tw-items-center tw-justify-between tw-text-primary">
+                      Emergency and Critical Care Services [Upcoming]
+                      <LiaAngleRightSolid />
+                    </p>
+                    <div className="sub-menu">
+                      <p className="dropdown-item tw-text-primary">
+                        24/7 emergency care and Hospitalization
+                      </p>
+                      <p className="dropdown-item tw-text-primary">
+                        Intensive Care Units for small and large animals
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="service-item">
+                    <p className="dropdown-item tw-mb-0 tw-flex tw-items-center tw-justify-between tw-text-primary">
+                      Specialty Services [Upcoming] <LiaAngleRightSolid />
+                    </p>
+                    <div className="sub-menu">
+                      <p className="dropdown-item tw-text-primary">
+                        Ophthalmology
+                      </p>
+                      <p className="dropdown-item tw-text-primary">Dentistry</p>
+                      <p className="dropdown-item tw-text-primary">Neurology</p>
+                      <p className="dropdown-item tw-text-primary">
+                        Rehabilitation and physical therapy
+                      </p>
+                    </div>
+                  </div>
+
                   <Link
                     className="dropdown-item tw-text-primary"
                     href="/services/all-services"
@@ -199,10 +295,12 @@ function Header() {
                     View All Services
                   </Link>
                 </NavDropdown>
+
                 <Link className="nav-link tw-text-primary" href="/contact-us">
                   Contact Us
                 </Link>
               </Nav>
+
               <div className="d-flex gap-2 gap-lg-4">
                 {user?.phone ? (
                   <Link href="/dashboard">
@@ -215,16 +313,6 @@ function Header() {
                 )}
                 <Link href="/book-now">
                   <CustomButton>Book Now</CustomButton>
-                </Link>
-              </div>
-              <div className="d-none d-lg-block">
-                <Link href="/" className="navbar-brand">
-                  <Image
-                    src="/assets/images/logo1.png"
-                    alt="VTH"
-                    width={100}
-                    height={50}
-                  />
                 </Link>
               </div>
             </Offcanvas.Body>
