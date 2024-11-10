@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import {
+  Accordion,
   Col,
   Container,
   Nav,
@@ -14,7 +15,7 @@ import {
 import { FaCalendarCheck } from "react-icons/fa";
 import { FaClipboardList } from "react-icons/fa6";
 import { IoCall } from "react-icons/io5";
-import { LiaAngleRightSolid } from "react-icons/lia";
+import { LiaAngleDownSolid, LiaAngleRightSolid } from "react-icons/lia";
 import CustomButton from "../UI/CustomButton";
 import CustomOutlineButton from "../UI/CustomOutlineButton";
 
@@ -22,6 +23,13 @@ function Header() {
   const [showStickyContainer, setShowStickyContainer] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const { user } = useContext(AuthContext);
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  // Toggle accordion based on index
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,6 +117,195 @@ function Header() {
       </Container>
       {/* navbar part */}
       <Navbar
+        expand={"lg"}
+        className="py-3 py-lg-4 navbar-container tw-bg-tertiary"
+      >
+        <Container>
+          <Link href="/" className="navbar-brand">
+            <Image
+              src="/assets/images/logo.png"
+              alt="VTH"
+              width={100}
+              height={50}
+            />
+          </Link>
+          <Navbar.Toggle aria-controls="offcanvasNavbar-expand-lg" />
+          <Navbar.Offcanvas
+            id="offcanvasNavbar-expand-lg"
+            aria-labelledby="offcanvasNavbarLabel-expand-lg"
+            placement="end"
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title id="offcanvasNavbarLabel-expand-lg">
+                VETERINARY TEACHING HOSPITAL
+              </Offcanvas.Title>
+              <div className="d-lg-none">
+                <Link href="/" className="navbar-brand">
+                  <Image
+                    src="/assets/images/logo1.png"
+                    alt="VTH"
+                    width={80}
+                    height={40}
+                  />
+                </Link>
+              </div>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="justify-content-center flex-grow-1 gap-lg-2 mt-lg-2 pe-3">
+                <Link className="nav-link tw-text-primary" href="/">
+                  Home
+                </Link>
+
+                <NavDropdown title="About" id="nav-dropdown">
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/about/veterinarians"
+                  >
+                    Our Team
+                  </Link>
+                  <Link
+                    className="dropdown-item tw-text-primary"
+                    href="/about/our-hospital"
+                  >
+                    Our Hospital
+                  </Link>
+                </NavDropdown>
+
+                <NavDropdown
+                  title="Services"
+                  id="nav-dropdown"
+                  className="services-dropdown"
+                >
+                  <Accordion>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>Clinical Services</Accordion.Header>
+                      <Accordion.Body>
+                        <ul>
+                          <li>
+                            Small Animal Medicine, Surgery & Theriogenology
+                          </li>
+                          <li>
+                            Large Animal Medicine, Surgery & Theriogenology
+                          </li>
+                        </ul>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                      <Accordion.Header>Diagnostic Services</Accordion.Header>
+                      <Accordion.Body>
+                        <ul>
+                          <li>Diagnostic Imaging</li>
+                          <ul>
+                            <li>Radiography</li>
+                            <li>Ultrasonography</li>
+                            <li>
+                              Computed Tomography (CT) and Magnetic Resonance
+                              Imaging (MRI) [Upcoming]
+                            </li>
+                            <li>Endoscopy [Upcoming]</li>
+                          </ul>
+                          <li>Routine Hematology</li>
+                          <li>Serology and biochemistry</li>
+                          <li>Milk analysis</li>
+                          <li>Post-mortem examination</li>
+                          <li>Histopathology and biopsy</li>
+                          <li>Microbiology</li>
+                          <li>Molecular diagnostics</li>
+                        </ul>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="2">
+                      <Accordion.Header>
+                        Preventive and Wellness Services
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <ul>
+                          <li>Vaccination and Deworming Programs</li>
+                          <li>Routine Health Check-ups</li>
+                          <li>Nutritional Consultation</li>
+                          <li>Herd Health and Biosecurity Programs</li>
+                        </ul>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="3">
+                      <Accordion.Header>Teaching and Research</Accordion.Header>
+                      <Accordion.Body>
+                        <ul>
+                          <li>Teaching and Research</li>
+                        </ul>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="4">
+                      <Accordion.Header>
+                        Ambulatory and Outreach Services
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <ul>
+                          <li>Ambulatory and Outreach Services</li>
+                        </ul>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="5">
+                      <Accordion.Header>
+                        Emergency and Critical Care Services [Upcoming]
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <ul>
+                          <li>24/7 Emergency Care and Hospitalization</li>
+                          <li>
+                            Intensive Care Units for Small and Large Animals
+                          </li>
+                        </ul>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="6">
+                      <Accordion.Header>
+                        Specialty Services [Upcoming]
+                      </Accordion.Header>
+                      <Accordion.Body>
+                        <ul>
+                          <li>Ophthalmology</li>
+                          <li>Dentistry</li>
+                          <li>Neurology</li>
+                          <li>Rehabilitation and Physical Therapy</li>
+                        </ul>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                  <Link
+                    className="dropdown-item tw-border-b tw-border-l tw-border-r tw-border-solid tw-border-gray-300 tw-text-primary"
+                    href="/services/all-services"
+                  >
+                    View All Services
+                  </Link>
+                </NavDropdown>
+
+                <Link className="nav-link tw-text-primary" href="/contact-us">
+                  Contact Us
+                </Link>
+              </Nav>
+
+              <div className="d-flex gap-2 gap-lg-4">
+                {user?.phone ? (
+                  <Link href="/dashboard">
+                    <CustomOutlineButton>Dashboard</CustomOutlineButton>
+                  </Link>
+                ) : (
+                  <Link href="/login">
+                    <CustomOutlineButton>Login</CustomOutlineButton>
+                  </Link>
+                )}
+                <Link href="/book-now">
+                  <CustomButton>Book Now</CustomButton>
+                </Link>
+              </div>
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
+
+      {/* --------- TODO: removed used code when back to previous system (jsx & css) start -------- */}
+      {/* <Navbar
         expand={"lg"}
         className="py-3 py-lg-4 navbar-container tw-bg-tertiary"
       >
@@ -318,7 +515,8 @@ function Header() {
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
-      </Navbar>
+      </Navbar> */}
+      {/* --------- TODO: removed used code back to previous system (jsx & css) end  -------- */}
     </>
   );
 }
